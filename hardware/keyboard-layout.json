@@ -1,6 +1,6 @@
 [
   {
-    "name": "The Carrier",
+    "name": "Fat Bottomed Board",
     "author": "Ben",
     "switchMount": "cherry",
     "switchBrand": "cherry",
@@ -13,7 +13,7 @@
       "y": 0.5,
       "w": 2
     },
-    "www\nhelp",
+    "www\n\n\nhelp",
     {
       "x": 0.5
     },
@@ -210,11 +210,11 @@
     {
       "w": 1.25
     },
-    "Cmd",
+    "Alt",
     {
       "w": 1.25
     },
-    "Alt",
+    "Cmd",
     {
       "a": 7,
       "w": 6.25
@@ -224,15 +224,15 @@
       "a": 4,
       "w": 1.25
     },
-    "Alt",
-    {
-      "w": 1.25
-    },
     "Cmd",
     {
       "w": 1.25
     },
     "Comp",
+    {
+      "w": 1.25
+    },
+    "Alt",
     {
       "w": 1.25
     },
