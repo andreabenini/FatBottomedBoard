@@ -12,3 +12,5 @@ Hardware designs & layouts
   https://www.geekabit.nl/projects/building-a-keyboard-from-scratch/
 - DIY keyboard collection (or how I became a KB-geek...)<br>
   nice case mods https://deskthority.net/viewtopic.php?f=7&t=2534&start=
+- Firmware from TMK project<br>
+  https://github.com/andreabenini/tmk_keyboard
