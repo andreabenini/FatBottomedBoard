@@ -14,3 +14,8 @@ Hardware designs & layouts
   nice case mods https://deskthority.net/viewtopic.php?f=7&t=2534&start=
 - Firmware from TMK project<br>
   https://github.com/andreabenini/tmk_keyboard
+- How to make a keyboard - The Matrix<br>
+  powerful intro and good electrical documentation for a custom built diy keyboard, not just a ready made kit<br>
+  http://blog.komar.be/how-to-make-a-keyboard-the-matrix/
+- Brownfox keyboard, custom made keyboard, steel frame is the only thing maded outside this project<br>
+  https://deskthority.net/viewtopic.php?f=7&t=6050&start=
