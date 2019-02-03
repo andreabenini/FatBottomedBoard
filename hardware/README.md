@@ -21,3 +21,5 @@ Hardware designs & layouts
   https://deskthority.net/viewtopic.php?f=7&t=6050&start=
 - HackADay keyboard's bible<br>
   https://hackaday.com/tag/keyboard/
+- Well explained on each single aspetct (hardware, electronics, software)
+  https://www.facebook.com/notes/wez-furlong/building-a-keyboard/10154070897701787/
