@@ -6,7 +6,7 @@ These are the settings for the frame builder (http://builder.swillkb.com/)
 - Case Type: **Sandwich**
 - USB cutout: **off**
 - Mount holes: *8, 3, 10*
-- Edge padding: **on (Top 45, Left 15, Right 15, Bottom 10)**
+- Edge padding: **on (Top 35, Left 15, Right 15, Bottom 10)**
 - Plate corners: **off**
 - Custom Polygons: **on**
   * Rectangle (switch layer)
