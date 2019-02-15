@@ -1,6 +1,10 @@
 Hardware designs & layouts
 
 ---
+**Note**
+- when keyboard-frame.png file is present here it's just a stale working file, it could be safely removed, the same goes for poster-*.png files
+- **posterize.sh** has `$1` commented because is working on `keyboard-frame.png` file only, produced output is named poster-*.png
+
 **Links**
 - Layout editor<br>
   http://www.keyboard-layout-editor.com/
