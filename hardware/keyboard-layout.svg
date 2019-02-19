@@ -2153,24 +2153,24 @@
   
     <!-- Outer Border -->
     <rect x="1324" y="163"
-          width="52" height="52"
+          width="52" height="106"
           rx="5" fill="#cccccc" class="outer border"/>
     
     <!-- Outer Fill -->
     <rect x="1324" y="163"
-          width="52" height="52"
+          width="52" height="106"
           rx="5" fill="#cccccc"/>
     
 
     
       <!-- Inner Border -->
       <rect x="1330" y="166"
-            width="40" height="40"
+            width="40" height="94"
             rx="5" fill="#fcfcfc" class="inner border"/>
       
       <!-- Inner Fill -->
       <rect x="1330" y="166"
-            width="40" height="40"
+            width="40" height="94"
             rx="5" fill="#fcfcfc"/>
       
       
@@ -2746,38 +2746,6 @@
       
       <!-- Inner Fill -->
       <rect x="1276" y="220"
-            width="40" height="40"
-            rx="5" fill="#fcfcfc"/>
-      
-      
-
-     
-   
-  </g>
-
-  <g class='  keycap'
-  >
-
-  
-    <!-- Outer Border -->
-    <rect x="1324" y="217"
-          width="52" height="52"
-          rx="5" fill="#cccccc" class="outer border"/>
-    
-    <!-- Outer Fill -->
-    <rect x="1324" y="217"
-          width="52" height="52"
-          rx="5" fill="#cccccc"/>
-    
-
-    
-      <!-- Inner Border -->
-      <rect x="1330" y="220"
-            width="40" height="40"
-            rx="5" fill="#fcfcfc" class="inner border"/>
-      
-      <!-- Inner Fill -->
-      <rect x="1330" y="220"
             width="40" height="40"
             rx="5" fill="#fcfcfc"/>
       
