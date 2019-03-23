@@ -1,1 +1,1 @@
-# Keboard firmware
+# Keyboard firmware
