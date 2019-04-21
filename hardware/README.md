@@ -2,8 +2,9 @@ Hardware designs & layouts
 
 ---
 **Note**
-- when keyboard-frame.png file is present here it's just a stale working file, it could be safely removed, the same goes for poster-*.png files
-- **posterize.sh** has `$1` commented because is working on `keyboard-frame.png` file only, produced output is named poster-*.png
+- keyboard-frame.png and poster-*.png files are just the temp result of keyboard-frame.eps, the could safely removed from here if needed
+- **posterize.sh** splits `keyboard-frame.png` in pieces (`poster-*.png`) so they can be safely printed with 1:1 scale on common A4/US_Letter sheets
+
 
 **Links**
 - Layout editor<br>
