@@ -24,6 +24,7 @@ Hardware designs & layouts
   http://blog.komar.be/how-to-make-a-keyboard-the-matrix/
 - Brownfox keyboard, custom made keyboard, steel frame is the only thing maded outside this project<br>
   https://deskthority.net/viewtopic.php?f=7&t=6050&start=
+- Custom made keyboard https://imgur.com/gallery/ba3jK (http://kbfirmware.com/)
 - HackADay keyboard's bible<br>
   https://hackaday.com/tag/keyboard/
 - Well explained on each single aspetct (hardware, electronics, software)
