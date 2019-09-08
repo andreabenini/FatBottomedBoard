@@ -29,3 +29,7 @@ Hardware designs & layouts
   https://hackaday.com/tag/keyboard/
 - Well explained on each single aspetct (hardware, electronics, software)
   https://www.facebook.com/notes/wez-furlong/building-a-keyboard/10154070897701787/
+
+**Stabilizers**
+- Cherry stabilizers mounting (under the plate)<br>
+  https://www.youtube.com/watch?v=a173Blgfmww
