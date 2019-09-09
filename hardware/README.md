@@ -33,3 +33,5 @@ Hardware designs & layouts
 **Stabilizers**
 - Cherry stabilizers mounting (under the plate)<br>
   https://www.youtube.com/watch?v=a173Blgfmww
+- How To Assemble Cherry PCB Mount Stabilizers<br>
+  https://www.youtube.com/watch?v=u-HYNmtP1Hc
