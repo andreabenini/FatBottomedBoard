@@ -38,5 +38,5 @@ Hardware designs & layouts
   https://www.youtube.com/watch?v=a173Blgfmww
 - How To Assemble Cherry PCB Mount Stabilizers<br>
   https://www.youtube.com/watch?v=u-HYNmtP1Hc
-- Cherry plate mounted stabilizers [7u,6.25u,2u], cheapest price found, quite decent clones (quality ?)<br>
+- Cherry plate mounted stabilizers [7u,6.25u,2u]. Cheapest price found, they seems to be quite decent clones, don't know about the quality<br>
   https://www.aliexpress.com/item/32717878890.html
