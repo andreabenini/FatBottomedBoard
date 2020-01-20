@@ -7,36 +7,42 @@ Hardware designs & layouts
 
 
 **Links**
-- Layout editor<br>
+- Layout editor  
   http://www.keyboard-layout-editor.com/
-- Plate & Case builder<br>
+- Plate & Case builder  
   http://builder.swillkb.com/
-- Best guide *ever*, tons of suggestions in the entire process<br>
+- Best guide *ever*, tons of suggestions in the entire process  
   https://www.reddit.com/r/MechanicalKeyboards/comments/4l0p41/guide_detailed_guide_to_making_a_custom_keyboard
-- Building a keyboard from scratch (good general intro)<br>
+- Building a keyboard from scratch (good general intro)  
   https://www.geekabit.nl/projects/building-a-keyboard-from-scratch/
-- DIY keyboard collection (or how I became a KB-geek...)<br>
+- DIY keyboard collection (or how I became a KB-geek...)  
   nice case mods https://deskthority.net/viewtopic.php?f=7&t=2534&start=
-- Firmware from TMK project<br>
+- Firmware from TMK project  
   https://github.com/andreabenini/tmk_keyboard
-- How to make a keyboard - The Matrix<br>
-  powerful intro and good electrical documentation for a custom built diy keyboard, not just a ready made kit<br>
+- How to make a keyboard - The Matrix  
+  powerful intro and good electrical documentation for a custom built diy keyboard, not just a ready made kit  
   http://blog.komar.be/how-to-make-a-keyboard-the-matrix/
-- Brownfox keyboard, custom made keyboard, steel frame is the only thing maded outside this project<br>
+- Brownfox keyboard, custom made keyboard, steel frame is the only thing maded outside this project  
   https://deskthority.net/viewtopic.php?f=7&t=6050&start=
 - Custom made keyboard https://imgur.com/gallery/ba3jK (http://kbfirmware.com/)
-- HackADay keyboard's bible<br>
+- HackADay keyboard's bible  
   https://hackaday.com/tag/keyboard/
-- Well explained on each single aspetct (hardware, electronics, software)
+- Well explained on each single aspetct (hardware, electronics, software)  
   https://www.facebook.com/notes/wez-furlong/building-a-keyboard/10154070897701787/
-- Lots of tips and tricks from this guy<br>
+- Lots of tips and tricks from this guy  
   https://matt3o.com/
+- 3D printing resources  
+  https://www.reddit.com/r/MechanicalKeyboards/wiki/3dprinting
+- Key modifications  
+  https://www.reddit.com/r/MechanicalKeyboards/wiki/key_modifications
+- DIY resources from geekhack  
+  https://geekhack.org/index.php?topic=69582.0
 
 
 **Stabilizers**
-- Cherry stabilizers mounting (under the plate)<br>
+- Cherry stabilizers mounting (under the plate)  
   https://www.youtube.com/watch?v=a173Blgfmww
-- How To Assemble Cherry PCB Mount Stabilizers<br>
+- How To Assemble Cherry PCB Mount Stabilizers  
   https://www.youtube.com/watch?v=u-HYNmtP1Hc
-- Cherry plate mounted stabilizers [7u,6.25u,2u]. Cheapest price found, they seems to be quite decent clones, don't know about the quality<br>
+- Cherry plate mounted stabilizers [7u,6.25u,2u]. Cheapest price found, they seems to be quite decent clones, don't know about the quality  
   https://www.aliexpress.com/item/32717878890.html
