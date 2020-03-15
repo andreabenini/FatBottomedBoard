@@ -4,6 +4,7 @@ Further, the I/O pins can have special abilities, like analog input.
 Here's a map of which pin is where, and what special hardware functions it may have:
 
 # Pro Micro Pinout
+![preview](32u4.jpg)  
 Delving a little further into which pins do what...
 
 ## Power Pins
