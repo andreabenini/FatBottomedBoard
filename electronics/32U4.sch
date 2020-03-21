@@ -1,0 +1,211 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L ProMicro:ProMicro U1
+U 1 1 5E755F83
+P 2550 3150
+F 0 "U1" H 2550 4187 60  0000 C CNN
+F 1 "Pro Micro 32U4 USB" H 2550 4081 60  0000 C CNN
+F 2 "" H 2650 2100 60  0000 C CNN
+F 3 "" H 2650 2100 60  0000 C CNN
+	1    2550 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5E757802
+P 3800 3300
+F 0 "R?" V 3593 3300 50  0001 C CNN
+F 1 "330" V 3800 3300 50  0000 C CNN
+F 2 "" V 3730 3300 50  0001 C CNN
+F 3 "~" H 3800 3300 50  0001 C CNN
+	1    3800 3300
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5E758D3E
+P 3800 3400
+F 0 "R?" V 3593 3400 50  0001 C CNN
+F 1 "1K" V 3800 3400 50  0000 C CNN
+F 2 "" V 3730 3400 50  0001 C CNN
+F 3 "~" H 3800 3400 50  0001 C CNN
+	1    3800 3400
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5E758FB4
+P 3800 3500
+F 0 "R?" V 3593 3500 50  0001 C CNN
+F 1 "1K" V 3800 3500 50  0000 C CNN
+F 2 "" V 3730 3500 50  0001 C CNN
+F 3 "~" H 3800 3500 50  0001 C CNN
+	1    3800 3500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5E759510
+P 3800 3600
+F 0 "R?" V 3593 3600 50  0001 C CNN
+F 1 "1K" V 3800 3600 50  0000 C CNN
+F 2 "" V 3730 3600 50  0001 C CNN
+F 3 "~" H 3800 3600 50  0001 C CNN
+	1    3800 3600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5E75982D
+P 3800 3700
+F 0 "R?" V 3593 3700 50  0001 C CNN
+F 1 "1K" V 3800 3700 50  0000 C CNN
+F 2 "" V 3730 3700 50  0001 C CNN
+F 3 "~" H 3800 3700 50  0001 C CNN
+	1    3800 3700
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector_Generic_MountingPin:Conn_01x07_MountingPin 1.8"
+U 1 1 5E75A7AF
+P 4750 3500
+F 0 "1.8\"" H 5400 3500 50  0000 L CNN
+F 1 "TFT LCD ST7735S" H 5200 3350 50  0000 L CNN
+F 2 "" H 4750 3500 50  0001 C CNN
+F 3 "~" H 4750 3500 50  0001 C CNN
+	1    4750 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Converter_DCDC:ITX2405SA D-SUN_PS1
+U 1 1 5E7617A4
+P 3800 4250
+F 0 "D-SUN_PS1" H 3800 4617 50  0000 C CNN
+F 1 "5v -> 3.3v" H 3800 4526 50  0000 C CNN
+F 2 "Converter_DCDC:Converter_DCDC_XP_POWER-ITXxxxxSA_THT" H 2750 4000 50  0001 L CNN
+F 3 "https://www.xppower.com/pdfs/SF_ITX.pdf" H 4850 3950 50  0001 L CNN
+	1    3800 4250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1850 2700 1650 2700
+Wire Wire Line
+	1650 2700 1650 4300
+$Comp
+L power:GNDREF GND
+U 1 1 5E768202
+P 1650 4300
+F 0 "GND" H 1650 4100 50  0000 C CNN
+F 1 "GNDREF" H 1650 4050 50  0001 C CNN
+F 2 "" H 1650 4300 50  0001 C CNN
+F 3 "" H 1650 4300 50  0001 C CNN
+	1    1650 4300
+	1    0    0    -1  
+$EndComp
+Connection ~ 1650 4300
+$Comp
+L Connector_Generic:Conn_01x02 J1
+U 1 1 5E771D4E
+P 1200 4300
+F 0 "J1" H 1118 3975 50  0000 C CNN
+F 1 "Input 5v" H 1118 4066 50  0000 C CNN
+F 2 "" H 1200 4300 50  0001 C CNN
+F 3 "~" H 1200 4300 50  0001 C CNN
+	1    1200 4300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1400 4300 1650 4300
+Wire Wire Line
+	1400 4200 1800 4200
+Wire Wire Line
+	3250 3200 3650 3200
+Wire Wire Line
+	3950 3300 4550 3300
+Wire Wire Line
+	4400 3200 4550 3200
+Wire Wire Line
+	3950 3400 4550 3400
+Wire Wire Line
+	3950 3500 4550 3500
+Wire Wire Line
+	1850 3400 1700 3400
+Wire Wire Line
+	1850 3500 1800 3500
+Wire Wire Line
+	1800 3500 1800 3700
+Wire Wire Line
+	3950 3600 4550 3600
+Wire Wire Line
+	3950 3700 4550 3700
+Wire Wire Line
+	1700 3400 1700 3600
+Wire Notes Line style solid rgb(132, 0, 0)
+	4800 3000 4800 4050
+Wire Notes Line style solid rgb(132, 0, 0)
+	4800 4050 6150 4050
+Wire Notes Line style solid rgb(132, 0, 0)
+	6150 4050 6150 3000
+Wire Notes Line style solid rgb(132, 0, 0)
+	6150 3000 4800 3000
+Text Notes 4850 3800 0    51   ~ 0
+LED\nSCK\nSDA\nA0\nRESET\nCS\nGND\nVCC
+Wire Wire Line
+	3650 3200 3650 3300
+Wire Wire Line
+	4500 3800 4550 3800
+Wire Wire Line
+	3250 3400 3650 3400
+Wire Wire Line
+	3250 3500 3650 3500
+Wire Wire Line
+	1700 3600 3650 3600
+Wire Wire Line
+	1800 3700 3650 3700
+Wire Wire Line
+	1650 4300 1800 4300
+Wire Wire Line
+	1800 4200 1800 4150
+Wire Wire Line
+	1800 4150 3400 4150
+Wire Wire Line
+	1800 4300 1800 4350
+Wire Wire Line
+	1800 4350 3400 4350
+Wire Wire Line
+	3400 4150 3400 2400
+Wire Wire Line
+	3400 2400 3250 2400
+Connection ~ 3400 4150
+Wire Wire Line
+	3250 2700 4500 2700
+Wire Wire Line
+	4500 2700 4500 3800
+Wire Wire Line
+	4400 3200 4400 4150
+Wire Wire Line
+	4400 4150 4200 4150
+Wire Wire Line
+	4200 4350 4400 4350
+Wire Wire Line
+	4400 4350 4400 4500
+Wire Wire Line
+	4400 4500 3400 4500
+Wire Wire Line
+	3400 4500 3400 4350
+Connection ~ 3400 4350
+$EndSCHEMATC
