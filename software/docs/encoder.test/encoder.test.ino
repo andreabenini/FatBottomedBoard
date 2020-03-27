@@ -38,9 +38,9 @@ void setup() {
     TFTscreen.fillRect(RECT_X, RECT_Y, WIDTH, HEIGHT, COLOR);
 
     // Rotary encoder
-    pinMode(encoderA,   INPUT);
-    pinMode(encoderB,   INPUT);
-    pinMode(encoderSW,  INPUT);
+    pinMode(encoderA,   INPUT_PULLUP);
+    pinMode(encoderB,   INPUT_PULLUP);
+    pinMode(encoderSW,  INPUT_PULLUP);
     encoderState = digitalRead(encoderA);
     sprintf(Text, "%d", encoderCounter);
     TFTscreen.text(Text, XPOS, YPOS);
@@ -64,7 +64,7 @@ void loop() {
     // Encoder button
     int button = digitalRead(encoderSW);
     if (button != encoderButton) {
-        TFTscreen.fillRect(130, 8, 20, 20, button==HIGH? 0: COLOR_BUTTON);
+        TFTscreen.fillRect(100, RECT_Y, 40, HEIGHT, button==HIGH? 0: COLOR_BUTTON);
         encoderButton = button;
     }
 }
