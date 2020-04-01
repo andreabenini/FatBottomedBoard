@@ -1,0 +1,16 @@
+LCD TFT Display
+https://randomnerdtutorials.com/guide-to-1-8-tft-display-with-arduino/
+https://www.hackster.io/electropeak/ultimate-beginner-s-guide-to-run-tft-lcd-displays-by-arduino-081006
+https://electropeak.com/learn/absolute-beginners-guide-to-tft-lcd-displays-by-arduino/
+http://acoptex.com/project/263/basics-project-054a-18-spi-tft-lcd-128x160-module-and-flickering-streaks-at-acoptexcom/#sthash.JQoaN7A7.rqSgureb.dpbs
+
+Rotary Encoders
+https://howtomechatronics.com/tutorials/arduino/rotary-encoder-works-use-arduino/
+https://www.brainy-bits.com/arduino-rotary-encoder-ky-040/  (debouncing and inaccuracy sw fixes)
+
+Buttons
+https://create.arduino.cc/projecthub/muhammad-aqib/arduino-button-tutorial-using-arduino-digitalread-function-08adb5
+
+Keyboard-Mouse
+https://www.arduino.cc/en/Tutorial/KeyboardMessage
+https://www.sparkfun.com/tutorials/337
