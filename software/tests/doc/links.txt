@@ -14,3 +14,10 @@ https://create.arduino.cc/projecthub/muhammad-aqib/arduino-button-tutorial-using
 Keyboard-Mouse
 https://www.arduino.cc/en/Tutorial/KeyboardMessage
 https://www.sparkfun.com/tutorials/337
+
+Software [PC]
+https://github.com/signal11/hidapi          [hidapi lib]
+https://github.com/trezor/cython-hidapi     [Python import]
+
+Software [Arduino]
+https://github.com/NicoHood/HID             [Arduino HID project "HID-Project.h", (RawHID object)]
