@@ -7,7 +7,7 @@ Sheet 1 1
 Title ""
 Date ""
 Rev ""
-Comp ""
+Comp "Ben"
 Comment1 ""
 Comment2 ""
 Comment3 ""
@@ -176,7 +176,7 @@ Wire Wire Line
 Connection ~ 5250 2650
 Wire Wire Line
 	800  2500 800  2750
-Text Notes 7400 7500 0    50   ~ 0
+Text Notes 7400 7500 0    67   ~ 13
 Display Controller
 Text Notes 7300 7250 0    50   ~ 0
 1
