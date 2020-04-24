@@ -1,0 +1,14 @@
+Test program function
+Boot display Chinese, English, pictures
+
+Modify the LCD data pin connection IO in the lcd.h file
+40 * 40 image data and 95 ASCCII character data and test Chinese characters in the font.c file
+
+/ *
+Program default IO connection method:
+sbit LCD_CS = P0 ^ 0; // chip select
+sbit LCD_AO = P0 ^ 2; / / data / command switch
+sbit LCD_SDA = P1 ^ 5; // data
+sbit LCD_SCK = P1 ^ 7; // Clock
+sbit LCD_REST = P0 ^ 1; // Reset
+* /
