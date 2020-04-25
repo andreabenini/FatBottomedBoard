@@ -144,15 +144,16 @@ $Comp
 L Device:Rotary_Encoder_Switch Control
 U 1 1 5E7EB2C9
 P 1300 2850
-F 0 "Control" H 1300 2575 50  0000 C CNN
+F 0 "Control" H 1300 2600 50  0000 C CNN
 F 1 "Rotary_Encoder_Switch" H 1300 3126 50  0001 C CNN
 F 2 "" H 1150 3010 50  0001 C CNN
 F 3 "~" H 1300 3125 50  0001 C CNN
+F 4 "CLK" H 950 2700 50  0000 C CNN "CLK"
+F 5 "DT" H 950 2800 50  0000 C CNN "DT"
+F 6 "SW" H 950 2900 50  0000 C CNN "SW"
 	1    1300 2850
 	-1   0    0    1   
 $EndComp
-Text Notes 1650 2950 0    57   ~ 0
-CLK\nDT\nSW
 Wire Wire Line
 	1600 2750 2600 2750
 Wire Wire Line
@@ -227,4 +228,59 @@ Wire Wire Line
 	1600 1950 4150 1950
 Wire Wire Line
 	4150 1950 4150 2350
+$Comp
+L Device:Rotary_Encoder_Switch Password
+U 1 1 5EA37447
+P 1300 3350
+F 0 "Password" H 1300 3100 50  0000 C CNN
+F 1 "Rotary_Encoder_Switch" H 1300 3626 50  0001 C CNN
+F 2 "" H 1150 3510 50  0001 C CNN
+F 3 "~" H 1300 3625 50  0001 C CNN
+F 4 "CLK" H 900 3200 50  0000 C CNN "CLK"
+F 5 "DT" H 900 3300 50  0000 C CNN "DT"
+F 6 "SW" H 900 3400 50  0000 C CNN "SW"
+	1    1300 3350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1000 3450 700  3450
+Wire Wire Line
+	700  3450 700  2950
+Connection ~ 700  2950
+Wire Wire Line
+	800  2750 800  3250
+Wire Wire Line
+	800  3250 1000 3250
+Connection ~ 800  2750
+Wire Wire Line
+	1600 3250 1850 3250
+Wire Wire Line
+	1850 3250 1850 3050
+Wire Wire Line
+	1850 3050 2600 3050
+Wire Wire Line
+	1600 3350 1950 3350
+Wire Wire Line
+	1950 3350 1950 3150
+Wire Wire Line
+	1950 3150 2600 3150
+Wire Wire Line
+	1600 3450 2050 3450
+Wire Wire Line
+	2050 3450 2050 3250
+Wire Wire Line
+	2050 3250 2600 3250
+$Comp
+L Connector_Generic:Conn_01x04 J?
+U 1 1 5EA4FC54
+P 6950 3350
+F 0 "J?" H 6868 2925 50  0001 C CNN
+F 1 "Conn_01x04" H 6868 3016 50  0001 C CNN
+F 2 "" H 6950 3350 50  0001 C CNN
+F 3 "~" H 6950 3350 50  0001 C CNN
+	1    6950 3350
+	-1   0    0    -1  
+$EndComp
+Text Notes 6900 3550 2    51   ~ 0
+SCK\nMISO\nMOSI\nCS
 $EndSCHEMATC

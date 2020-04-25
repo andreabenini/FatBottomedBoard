@@ -95,9 +95,9 @@ $EndComp
 Wire Wire Line
 	4000 3150 4250 3150
 Wire Wire Line
-	4900 3250 5300 3250
+	4900 3250 5050 3250
 Wire Wire Line
-	4900 3350 5300 3350
+	4900 3350 5150 3350
 Wire Wire Line
 	4900 3450 5300 3450
 Wire Wire Line
@@ -270,4 +270,59 @@ Wire Wire Line
 	2050 3450 2050 3250
 Wire Wire Line
 	2050 3250 2600 3250
+$Comp
+L Connector_Generic:Conn_01x04 J?
+U 1 1 5EA4FC54
+P 6950 3350
+F 0 "J?" H 6868 2925 50  0001 C CNN
+F 1 "Conn_01x04" H 6868 3016 50  0001 C CNN
+F 2 "" H 6950 3350 50  0001 C CNN
+F 3 "~" H 6950 3350 50  0001 C CNN
+	1    6950 3350
+	-1   0    0    -1  
+$EndComp
+Text Notes 6900 3550 2    51   ~ 0
+SCK\nMISO\nMOSI\nCS
+Wire Wire Line
+	5150 3350 5150 4050
+Wire Wire Line
+	5150 4050 7300 4050
+Wire Wire Line
+	7300 4050 7300 3450
+Wire Wire Line
+	7300 3450 7150 3450
+Connection ~ 5150 3350
+Wire Wire Line
+	5150 3350 5300 3350
+Wire Wire Line
+	4000 3050 4150 3050
+Wire Wire Line
+	4150 3050 4150 4150
+Wire Wire Line
+	4150 4150 7200 4150
+Wire Wire Line
+	7200 4150 7200 3550
+Wire Wire Line
+	7200 3550 7150 3550
+Wire Wire Line
+	7150 3350 7400 3350
+Wire Wire Line
+	7400 3350 7400 4250
+Wire Wire Line
+	7400 4250 4050 4250
+Wire Wire Line
+	4050 4250 4050 3250
+Wire Wire Line
+	4050 3250 4000 3250
+Wire Wire Line
+	7150 3250 7500 3250
+Wire Wire Line
+	7500 3250 7500 4350
+Wire Wire Line
+	7500 4350 5050 4350
+Wire Wire Line
+	5050 4350 5050 3250
+Connection ~ 5050 3250
+Wire Wire Line
+	5050 3250 5300 3250
 $EndSCHEMATC
