@@ -3,18 +3,21 @@
 #include <SPI.h>
 
 // Project defines
-#define cs      9
-#define dc      10
-#define reset   8
+#define LCDLED  A4
+#define DC      A5
+#define RESET   A6
+#define CS      A7
 
 
 // create an instance of the library
-TFT TFTscreen = TFT(cs, dc, reset);
+TFT TFTscreen = TFT(CS, DC, RESET);
 
 
 void setup() {
   TFTscreen.begin();
   TFTscreen.background(0, 0, 0);        // clear the screen with a black background
+  pinMode(LCDLED, OUTPUT);              // Set lcdled as output
+  digitalWrite(LCDLED, HIGH);           // Turn on lcd led
   TFTscreen.setTextSize(2);             // set the text size
 }
 

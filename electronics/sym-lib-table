@@ -1,4 +1,3 @@
 (sym_lib_table
-  (lib (name ProMicro)(type Legacy)(uri ${KIPRJMOD}/promicro_library/promicro.lib)(options "")(descr "Arduino Pro Micro MCU"))
-  (lib (name teensypinout)(type Legacy)(uri ${KIPRJMOD}/teensy++20.lib)(options "")(descr "Ben's Teensy Pinout"))
+  (lib (name teensy)(type Legacy)(uri ${KIPRJMOD}/teensy.lib)(options "")(descr ""))
 )
