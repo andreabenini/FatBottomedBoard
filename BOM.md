@@ -18,9 +18,4 @@ https://www.aliexpress.com/item/33045379604.html?spm=a2g0o.productlist.0.0.54bf7
   [this one](
       https://www.aliexpress.com/item/32906859151.html?src=google&src=google&albch=shopping&acnt=494-037-6276&isdl=y&slnk=&plac=&mtctp=&albbt=Google_7_shopping&aff_platform=google&aff_short_key=UneMJZVf&&albagn=888888&albcp=1691306153&albag=64902423734&trgt=743612850714&crea=it32906859151&netw=u&device=c&albpg=743612850714&albpd=it32906859151&gclid=EAIaIQobChMInuu7oIiq6AIVxcmyCh1Fnw5LEAQYAiABEgJ8wPD_BwE&gclsrc=aw.ds
   )
-- The 1.8" TFT display needs a 3.3v Voltage for the internal led so a really cheap DC-DC converter is needed just like
-  [this one](
-      https://www.aliexpress.com/item/32972203174.html?src=google&src=google&albch=shopping&acnt=494-037-6276&isdl=y&slnk=&plac=&mtctp=&albbt=Google_7_shopping&aff_platform=google&aff_short_key=UneMJZVf&&albagn=888888&albcp=1691306153&albag=64902423734&trgt=743612850714&crea=it32972203174&netw=u&device=c&albpg=743612850714&albpd=it32972203174&gclid=EAIaIQobChMIl4bVl4qq6AIVD6aaCh1yGQIyEAQYAyABEgKd4vD_BwE&gclsrc=aw.ds
-  ). Rated with a 95% efficiency seems to be really cheap but quite good, small and affordable for this common task.
-  Really cheap because you can easily find it at 0.2€ (each) in 10pcs packs
 - Spare resistors for the LCD display: 4x1K&#8486;, 1x330&#8486;
