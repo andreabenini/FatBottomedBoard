@@ -4,13 +4,13 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
+Title "Keyboard Controller"
+Date "2020"
+Rev "1.1"
 Comp "Ben"
-Comment1 ""
-Comment2 ""
-Comment3 ""
+Comment1 "Teensy++ 2.0"
+Comment2 "LCD TFT Display (with SD Card reader)"
+Comment3 "2 Rotary Encoders"
 Comment4 ""
 $EndDescr
 $Comp
@@ -123,14 +123,10 @@ F 8 "Vcc" H 3700 4150 50  0000 C CNN "Vcc"
 $EndComp
 Wire Wire Line
 	2800 3050 3950 3050
-Text Notes 7400 7500 0    67   ~ 13
-Display Controller
 Text Notes 7300 7250 0    50   ~ 0
 1
 Text Notes 7400 7250 0    50   ~ 0
 1
-Text Notes 7050 6950 0    50   ~ 0
-AVR 32U4        Keyboard Controller\nLCD TFT Display\nRotary Encoders
 $Comp
 L Device:R R?
 U 1 1 5E9F7B34
