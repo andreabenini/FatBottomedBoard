@@ -9,9 +9,11 @@ Buildlog and materials provided from the hardware section
 
 # Electronics
 Schematics available in the same dir, materials required are listed below:
-- Atmel Pro Micro ATmega32U4 5V 16MHz. Builtin USB controller, 5V Compliant, Arduino toolchain and software. Cheap and
-  available everywhere, price range on **2.50~30 €** from usual far east resellers, just like [this one](
-https://www.aliexpress.com/item/33045379604.html?spm=a2g0o.productlist.0.0.54bf76d2JLe7IG&algo_pvid=697ccc6d-5646-437e-9695-04e402b593a5&algo_expid=697ccc6d-5646-437e-9695-04e402b593a5-1&btsid=0b0a050115847416275707183e055c&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_), but you may purchase it everywhere.
+- #2 Teensy 2.0++ USB AVR Development Board. Builtin USB controller, 5V version, Arduino toolchain and software. Original or cloned versions are both
+  fine, price range on **5~10 €** from usual far east resellers, for example [this one](
+      https://www.aliexpress.com/item/4000431099525.html?spm=a2g0s.9042311.0.0.5e3c4c4djyiYr1
+  ) but there're cheaper alternatives on DX, Banggood and sites like that.  
+  One goes for the controller, one goes for the keyboard firmware.
 - 1.8" TFT display module, 128x160 8PIN TFT LCD, ST7735S Controller Drive 8/16 Bit SPI For Arduino Micro with SD.
   Ultra cheap and quite small head up like display for various keyboard functions, connected to the ATmega32U4 for
   custom configurations, password keeper and fancy setup. Easily available across the **2~3 €** price range, just like
