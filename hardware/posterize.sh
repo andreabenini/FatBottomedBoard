@@ -1,8 +1,7 @@
 # Create a poster from a big image
 
 # File name
-#FILENAME=$1
-FILENAME=keyboard-frame.png
+FILENAME=$1
 
 # Image size on page
 PAGEX=800
@@ -23,6 +22,14 @@ OPTIONS=""
 OUTFILE=poster-
 OUTFILE_EXT=.png
 
+if [ "$FILENAME" == "" ]; then
+    FILENAME=keyboard-frame.png
+fi
+if [ ! -f $FILENAME ]; then
+    echo "$FILENAME not found"
+    exit 1
+fi
+
 DIMENSIONS=`magick identify $FILENAME | cut -d " " -f 3`
 echo "$FILENAME: $DIMENSIONS  (Page: ${PAGEX}x${PAGEY})"
 read -r FILEX FILEY <<<$(echo "$DIMENSIONS" | sed 's/x/ /')
@@ -37,4 +44,3 @@ for (( x=0; x<$FILEX; x=x+PAGEX-MARGIN )); do
         COUNT=$((COUNT+1))
     done
 done
-
