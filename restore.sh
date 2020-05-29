@@ -15,6 +15,7 @@ if [ "$reply" != "y" ]; then
 fi
 
 # Remove archive files from this dir, if any
+echo -e "\n\nplease wait..."
 FILELIST=`tar -tzf backup.tar.gz |sed 's/\/.*//' |uniq`
 for FILE in $FILELIST; do
     rm -rf $FILE 2>/dev/null
@@ -22,4 +23,4 @@ done
 
 # Decompress archive
 tar -zxf backup.tar.gz
-echo -e "\n\nRestore completed\n"
+echo -e "Restore completed\n"
