@@ -1,0 +1,54 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "Keyboard Device"
+Date "2020"
+Rev "1.1"
+Comp "Ben"
+Comment1 "Teensy++ 2.0"
+Comment2 "Keyboard matrix and keys"
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector_Generic:Conn_01x02 J1
+U 1 1 5E771D4E
+P 3400 2200
+F 0 "J1" H 3318 1875 50  0001 C CNN
+F 1 "Input 5v" H 3318 1966 50  0000 C CNB
+F 2 "" H 3400 2200 50  0001 C CNN
+F 3 "~" H 3400 2200 50  0001 C CNN
+F 4 "GND" H 3150 2150 50  0000 C CNN "2"
+F 5 "Vcc" H 3150 2050 50  0000 C CNN "1"
+	1    3400 2200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6150 2700 5900 2700
+Text Notes 7300 7250 0    50   ~ 0
+1
+Text Notes 7400 7250 0    50   ~ 0
+1
+Wire Wire Line
+	6150 2100 6150 2700
+Wire Wire Line
+	4650 2200 4650 2700
+$Comp
+L teensy:Teensy++2.0-teensy++20 IC1
+U 1 1 5EB26E81
+P 5300 2450
+F 0 "IC1" H 5275 2465 50  0000 C CNN
+F 1 "Teensy++2.0" H 5275 2374 50  0000 C CNN
+F 2 "" H 5300 2450 50  0001 C CNN
+F 3 "" H 5300 2450 50  0001 C CNN
+	1    5300 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 2200 4650 2200
+Wire Wire Line
+	3600 2100 6150 2100
+$EndSCHEMATC

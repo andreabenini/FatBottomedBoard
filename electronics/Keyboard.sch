@@ -1,0 +1,180 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "Keyboard Device"
+Date "2020"
+Rev "1.1"
+Comp "Ben"
+Comment1 "Teensy++ 2.0"
+Comment2 "Keyboard matrix and keys"
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector_Generic:Conn_01x02 J1
+U 1 1 5E771D4E
+P 3400 2200
+F 0 "J1" H 3318 1875 50  0001 C CNN
+F 1 "Input 5v" H 3318 1966 50  0000 C CNB
+F 2 "" H 3400 2200 50  0001 C CNN
+F 3 "~" H 3400 2200 50  0001 C CNN
+F 4 "GND" H 3150 2150 50  0000 C CNN "2"
+F 5 "Vcc" H 3150 2050 50  0000 C CNN "1"
+	1    3400 2200
+	-1   0    0    1   
+$EndComp
+Text Notes 7300 7250 0    50   ~ 0
+1
+Text Notes 7400 7250 0    50   ~ 0
+1
+Wire Wire Line
+	5900 2100 5900 2700
+Wire Wire Line
+	4650 2200 4650 2700
+$Comp
+L teensy:Teensy++2.0-teensy++20 IC1
+U 1 1 5EB26E81
+P 5300 2450
+F 0 "IC1" H 5275 2465 50  0000 C CNN
+F 1 "Teensy++2.0" H 5275 2374 50  0000 C CNN
+F 2 "" H 5300 2450 50  0001 C CNN
+F 3 "" H 5300 2450 50  0001 C CNN
+	1    5300 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 2200 4650 2200
+Wire Wire Line
+	3600 2100 5900 2100
+$Comp
+L Connector:Conn_01x06_Male J1
+U 1 1 5EF3CD44
+P 3000 3000
+F 0 "J1" H 2850 3050 50  0000 C CNN
+F 1 "Rows" H 2850 2950 50  0000 C CNN
+F 2 "" H 3000 3000 50  0001 C CNN
+F 3 "~" H 3000 3000 50  0001 C CNN
+	1    3000 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4650 2800 3200 2800
+Wire Wire Line
+	3200 2900 4650 2900
+Wire Wire Line
+	4650 3000 3200 3000
+Wire Wire Line
+	4650 3100 3200 3100
+Wire Wire Line
+	4650 3200 3200 3200
+Wire Wire Line
+	4650 3300 3200 3300
+$Comp
+L Connector:Conn_01x20_Male J2
+U 1 1 5EF43085
+P 7250 3700
+F 0 "J2" H 7000 3750 50  0000 R CNN
+F 1 "Columns" H 7100 3650 50  0000 R CNN
+F 2 "" H 7250 3700 50  0001 C CNN
+F 3 "~" H 7250 3700 50  0001 C CNN
+	1    7250 3700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	5900 2800 7050 2800
+Wire Wire Line
+	5900 2900 7050 2900
+Wire Wire Line
+	5900 3000 7050 3000
+Wire Wire Line
+	5900 3100 7050 3100
+Wire Wire Line
+	5900 3200 7050 3200
+Wire Wire Line
+	5900 3300 7050 3300
+Wire Wire Line
+	5900 3400 7050 3400
+Wire Wire Line
+	5900 3500 7050 3500
+Wire Wire Line
+	5900 3600 7050 3600
+Wire Wire Line
+	5900 3900 6000 3900
+Wire Wire Line
+	6000 3900 6000 3700
+Wire Wire Line
+	6000 3700 7050 3700
+Wire Wire Line
+	5900 4000 6100 4000
+Wire Wire Line
+	6100 4000 6100 3800
+Wire Wire Line
+	6100 3800 7050 3800
+Wire Wire Line
+	5900 4100 6200 4100
+Wire Wire Line
+	6200 4100 6200 3900
+Wire Wire Line
+	6200 3900 7050 3900
+Wire Wire Line
+	5900 4200 6300 4200
+Wire Wire Line
+	6300 4200 6300 4000
+Wire Wire Line
+	6300 4000 7050 4000
+Wire Wire Line
+	5900 4300 6400 4300
+Wire Wire Line
+	6400 4300 6400 4100
+Wire Wire Line
+	6400 4100 7050 4100
+Wire Wire Line
+	5900 4400 6500 4400
+Wire Wire Line
+	6500 4400 6500 4200
+Wire Wire Line
+	6500 4200 7050 4200
+Wire Wire Line
+	5900 4500 6600 4500
+Wire Wire Line
+	6600 4500 6600 4300
+Wire Wire Line
+	6600 4300 7050 4300
+Wire Wire Line
+	5900 4600 6700 4600
+Wire Wire Line
+	6700 4600 6700 4400
+Wire Wire Line
+	6700 4400 7050 4400
+Wire Wire Line
+	4650 4600 4650 4800
+Wire Wire Line
+	4650 4800 6800 4800
+Wire Wire Line
+	6800 4800 6800 4500
+Wire Wire Line
+	6800 4500 7050 4500
+Wire Wire Line
+	4650 4500 4550 4500
+Wire Wire Line
+	4550 4500 4550 4900
+Wire Wire Line
+	4550 4900 6900 4900
+Wire Wire Line
+	6900 4900 6900 4600
+Wire Wire Line
+	6900 4600 7050 4600
+Wire Wire Line
+	4650 4400 4450 4400
+Wire Wire Line
+	4450 4400 4450 5000
+Wire Wire Line
+	4450 5000 7000 5000
+Wire Wire Line
+	7000 5000 7000 4700
+Wire Wire Line
+	7000 4700 7050 4700
+$EndSCHEMATC
