@@ -4,6 +4,11 @@ Hardware designs & layouts
 **Note**
 - keyboard-frame.png and poster-*.png files are just the temp result of keyboard-frame.eps, the could safely removed from here if needed
 - **posterize.sh** splits `keyboard-frame.png` in pieces (`poster-*.png`) so they can be safely printed with 1:1 scale on common A4/US_Letter sheets
+- QMK keyboard firmware builder is way better than TMK counterpart, use it to define wirings and create C defines
+  and `KEYMAP()` proper mappings. Later on you might adapt generated code to TMK firmware. Just take a look at
+  `kb.h` and `kb.c` generated files.  
+  **qmk.config.json** was generated from https://kbfirmware.com/, you might use it again and return
+  to that site to load configuration and alter it if needed.
 
 
 **Links**
@@ -11,6 +16,7 @@ Hardware designs & layouts
   http://www.keyboard-layout-editor.com/
 - Plate & Case builder  
   http://builder.swillkb.com/
+- QMK Keyboard firmware builder https://kbfirmware.com/  
 - Best guide *ever*, tons of suggestions in the entire process  
   https://www.reddit.com/r/MechanicalKeyboards/comments/4l0p41/guide_detailed_guide_to_making_a_custom_keyboard
 - Building a keyboard from scratch (good general intro)  
