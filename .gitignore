@@ -4,3 +4,4 @@ FatBottomedBoard.code-workspace
 software/controller
 software/keyboard
 software/host
+software/qmk_keyboard
