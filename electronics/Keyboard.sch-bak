@@ -72,7 +72,7 @@ Wire Wire Line
 	6050 2500 6050 2900
 Wire Wire Line
 	6100 3000 6100 2450
-Text Notes 4450 3550 0    31   ~ 0
+Text Notes 4625 3550 2    31   ~ 0
 Internal\nLED
 Wire Wire Line
 	5900 3100 6150 3100

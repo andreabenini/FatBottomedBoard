@@ -4,13 +4,13 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
+Title "Keyboard Controller"
+Date "2020"
+Rev "1.1"
 Comp "Ben"
-Comment1 ""
-Comment2 ""
-Comment3 ""
+Comment1 "Teensy++ 2.0"
+Comment2 "LCD TFT Display (with SD Card reader)"
+Comment3 "2 Rotary Encoders"
 Comment4 ""
 $EndDescr
 $Comp
@@ -71,14 +71,14 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x02 J1
 U 1 1 5E771D4E
-P 3400 2200
-F 0 "J1" H 3318 1875 50  0001 C CNN
-F 1 "Input 5v" H 3318 1966 50  0000 C CNB
-F 2 "" H 3400 2200 50  0001 C CNN
-F 3 "~" H 3400 2200 50  0001 C CNN
-F 4 "GND" H 3150 2150 50  0000 C CNN "2"
-F 5 "Vcc" H 3150 2050 50  0000 C CNN "1"
-	1    3400 2200
+P 3150 2200
+F 0 "J1" H 3068 1875 50  0001 C CNN
+F 1 "Input 5v" H 3068 1966 50  0000 C CNB
+F 2 "" H 3150 2200 50  0001 C CNN
+F 3 "~" H 3150 2200 50  0001 C CNN
+F 4 "GND" H 2900 2150 50  0000 C CNN "2"
+F 5 "Vcc" H 2900 2050 50  0000 C CNN "1"
+	1    3150 2200
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
@@ -123,14 +123,10 @@ F 8 "Vcc" H 3700 4150 50  0000 C CNN "Vcc"
 $EndComp
 Wire Wire Line
 	2800 3050 3950 3050
-Text Notes 7400 7500 0    67   ~ 13
-Display Controller
 Text Notes 7300 7250 0    50   ~ 0
 1
 Text Notes 7400 7250 0    50   ~ 0
 1
-Text Notes 7400 7050 0    50   ~ 0
-Teensy++ 2.0        Keyboard Controller\n\nLCD TFT Display\nRotary Encoders\nSD Card
 $Comp
 L Device:R R?
 U 1 1 5E9F7B34
@@ -149,7 +145,7 @@ Wire Wire Line
 Wire Wire Line
 	3950 2200 3950 3050
 Wire Wire Line
-	3600 2100 3850 2100
+	3350 2100 3850 2100
 Wire Wire Line
 	6150 2100 6150 2700
 $Comp
@@ -249,7 +245,7 @@ Wire Wire Line
 Wire Wire Line
 	6600 4200 6600 4600
 Wire Wire Line
-	3600 2200 3950 2200
+	3350 2200 3950 2200
 Connection ~ 3950 2200
 Wire Wire Line
 	3950 2200 4650 2200
@@ -371,4 +367,29 @@ Wire Wire Line
 	9500 3000 9500 4200
 Wire Wire Line
 	9500 4200 9100 4200
+$Comp
+L Connector_Generic:Conn_01x02 J?
+U 1 1 5F0993D1
+P 3150 2700
+F 0 "J?" H 3068 2375 50  0001 C CNN
+F 1 "Serial" H 3068 2466 50  0000 C CNB
+F 2 "" H 3150 2700 50  0001 C CNN
+F 3 "~" H 3150 2700 50  0001 C CNN
+F 4 "TX" H 2900 2650 50  0000 C CNN "2"
+F 5 "RX" H 2900 2550 50  0000 C CNN "1"
+	1    3150 2700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3350 2600 4400 2600
+Wire Wire Line
+	4400 2600 4400 3100
+Wire Wire Line
+	4400 3100 4650 3100
+Wire Wire Line
+	3350 2700 4300 2700
+Wire Wire Line
+	4300 2700 4300 3200
+Wire Wire Line
+	4300 3200 4650 3200
 $EndSCHEMATC
