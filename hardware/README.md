@@ -44,7 +44,7 @@ Hardware designs & layouts
 - DIY resources from geekhack  
   https://geekhack.org/index.php?topic=69582.0
 - Minimal Animal Keyboard  
-  This guy did a really good job with its creation, just take a look at **[imgur]** to see it.  
+  This guy did a really good job with its creation, just take a look at **imgur** to see it.  
   I'm also considering his important notes related to backlight  
   https://deskthority.net/viewtopic.php?f=7&t=7615&start=  
   https://deskthority.net/viewtopic.php?f=7&t=7779&start=  
