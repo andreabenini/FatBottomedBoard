@@ -2,6 +2,8 @@
 .vscode
 FatBottomedBoard.code-workspace
 software/controller
+software/controller/.pio
+software/controller/.vscode
 software/host
 software/keyboard.tmk
 software/keyboard.qmk
