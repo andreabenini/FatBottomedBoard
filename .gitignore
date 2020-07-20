@@ -5,4 +5,4 @@ software/controller
 software/controller/.pio
 software/controller/.vscode
 software/host
-software/keyboard
+software/keyboard/qmk_firmware

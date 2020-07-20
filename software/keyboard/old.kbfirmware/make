@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#
+# Create QMK keyboard firmware
+#
+# vendor  id  0x08DE
+# product id  0xBABE
+# serial  id  0x0666
+
+# Source code patch
+./qmk.patch.py patch
+
+
+#
+# MAKE
+#
+# Avoid dfu-programmer command not found warnings
+touch dfu-programmer
+chmod +x dfu-programmer
+export PATH=$PATH:`pwd`
+# make
+cd ./qmk_firmware/keyboards/kb
+make
+cd -
+rm dfu-programmer
+# output
+printf '━%.0s' $(seq $COLUMNS)
+rm firmware.hex 2>/dev/null
+ln -s qmk_firmware/.build/kb_default.hex firmware.hex
+echo "New firmware                               [firmware.hex]"
+ls -la --color 

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Clean QMK keyboard firmware
+#
+rm -rf qmk_firmware/.build
+rm -rf qmk_firmware/fatbottomedboard_default.hex
+

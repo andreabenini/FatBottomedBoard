@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Upload QMK keyboard firmware
+#
+FILENAME=qmk_firmware/fatbottomedboard_default.hex
+teensy-loader-cli --mcu=TEENSY2PP -w -v $FILENAME

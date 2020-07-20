@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Init repository and environment
+#
+git clone https://github.com/qmk/qmk_firmware
+ln -s ../../config/fatbottomedboard qmk_firmware/keyboards/

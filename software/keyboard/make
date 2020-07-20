@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Build FatBottomedBoard firmware
+#
+cd qmk_firmware/
+make fatbottomedboard
+cd - >/dev/null
