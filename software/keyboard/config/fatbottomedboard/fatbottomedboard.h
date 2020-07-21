@@ -1,5 +1,4 @@
 #pragma once
-
 #include "quantum.h"
 
 /* This is a shortcut to help you visually see your layout.
@@ -10,7 +9,7 @@
  * The second converts the arguments into a two-dimensional array which
  * represents the switch matrix.
  */
-#define KEYMAP( \
+#define LAYOUT( \
 	K000, K001, K002, K003, K004, K005, K006, K007, K008, K009, K010, K011, K012, K013, K114, K014, K015, K016, K017, K018, K019, \
 	K100, K101, K102, K103, K104, K205, K105, K106, K107, K108, K109, K110, K111, K112, K213, K113, K214, K215, K115, K216, K117, K118, K119, \
 	K200, K201, K202, K203, K204, K305, K206, K307, K207, K208, K209, K210, K211, K212, K313, K414, K314, K315, K416, K316, K217, K218, \

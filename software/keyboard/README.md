@@ -15,7 +15,7 @@ git clone https://github.com/qmk/qmk_firmware
 cd qmk_firmware
 # Creating submodule to start your own environment
 make git-submodule
-# Try to compile a basic example
+# Try to compile a basic example (optional)
 make handwired/onekey/teensy_32:default
 # Clean that basic example
 make clean

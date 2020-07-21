@@ -3,5 +3,5 @@
 # Build FatBottomedBoard firmware
 #
 cd qmk_firmware/
-make fatbottomedboard
+make fatbottomedboard:default
 cd - >/dev/null

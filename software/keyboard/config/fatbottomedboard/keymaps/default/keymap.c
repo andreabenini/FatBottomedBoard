@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "benmaps.h"
 
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
@@ -53,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    | Paste| Save |   |  Ctrl  |  Alt   |  Cmd   |                S p a c e                  |  AltG  |   FN   |   Cmd  |  Ctrl  |     |   <  |   ¥  |   >  |     |   0         |   .  |      | 16
      *    `------'------'   `--------'--------'--------`-------------------------------------------'--------'--------'--------'--------'     `------'------'------'     `-------------'------'------'
      */
-	[_BASE_US_INTL_] = KEYMAP(
+	[_BASE_US_INTL_] = LAYOUT(
 
                KC_F20,       KC_ESC,       KC_F1, KC_F2, KC_F3, KC_F4,      KC_F5, KC_F6, KC_F7, KC_F8,     KC_F9, KC_F10,KC_F11,KC_F12,      KC_PSCR,DF(1),RESET,       KC_F21, KC_F22,  KC_F23, KC_F24, 
 
@@ -64,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          KC_PASTE,KC_F19,    KC_LCTL, KC_LALT, KC_LGUI,                   KC_SPC,                    KC_RALT, MO(3),  KC_RGUI,  KC_RCTL,      KC_LEFT,KC_DOWN,KC_RGHT,   KC_P0,  KC_PDOT,         KC_PENT
     ),
 
-    [_BASE_ITA_] = KEYMAP(          // Italian base keyboard
+    [_BASE_ITA_] = LAYOUT(          // Italian base keyboard
 
               KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,DF(2),KC_TRNS,     KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, 
 
@@ -75,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,                     KC_TRNS,                      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,        KC_TRNS,KC_TRNS
     ),
 
-    [_BASE_US_] = KEYMAP(           // US keyboard
+    [_BASE_US_] = LAYOUT(           // US keyboard
 
               KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,DF(0),KC_TRNS,     KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, 
 
@@ -86,25 +87,65 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,                   KC_TRNS,                        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,        KC_TRNS,KC_TRNS
     ),
 
-    [_FN3] = KEYMAP(                // Additional keys for [US International]
+
+    /**   [Layer 3]         { Additional keys for [US International] }  FN = MO(3)
+     * 
+     *    ,-------------.   ,------.      ,------,------,------,------.    ,------,------,------,------.   ,------,------,------,------.     ,------,------,------.     ,------,------,------,------.
+     *    |             |   |      |      |      |      |      |      |    |      |      |      |      |   |      |      |      |      |     |      |      |      |     |      |      |      |      |
+     *    `-------------'   `------'      `------'------'------'------'    `------'------'------'------'   `------'------'------'------'     `------'------'------'     `------'------'------'------'
+     *    ,-------------.   ,------.------.------.------.------.------.------.------.------.------.------.------.------.---------------.     ,------,------,------.     ,------,------,------,------.
+     *    |      |      |   |      |      |      |      |      |      |      |      |      |      |      |      |      |               |     |      |      |      |     |      |      |      |      |
+     *    |------+------'   .----------------------------------------------------------------------------------------------------------'     .------+------+------'     '------+------+------+------'
+     *    |      |      |   |         |      |      |   é  |      |      |      |   ú  |   í  |   ó  |      |      |      |            |     |      |      |      |     |      |      |      |      |
+     *    |------+------'   .----------------------------------------------------------------------------------------------------------'     `------'------'------'     '------+------+------|      |
+     *    |      |      |   |            |   á  |      |      |      |      |      |      |      |      |      |      |                |                                |      |      |      |      |
+     *    |------+------'   .----------------------------------------------------------------------------------------------------------'            ,------.            '------+------+------+------'
+     *    |      |      |   |               |      |      |      |      |      |      |      |      |      |      |                    |            |      |            |      |      |      |      |
+     *    |------+------'   .--------,--------,--------,-------------------------------------------.--------.--------.--------.--------.     ,------+------+------.     '------'------+------|      |
+     *    |      |      |   |        |        |        |                                           |        | --==-- |        |        |     |      |      |      |     |             |      |      |
+     *    `------'------'   `--------'--------'--------`-------------------------------------------'--------'--------'--------'--------'     `------'------'------'     `-------------'------'------'
+     */
+    [_FN3] = LAYOUT(
 
               KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, 
 
           KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS, 
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, 
+          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,_EACUTE,KC_TRNS,KC_TRNS,KC_TRNS,_UACUTE,_IACUTE,_OACUTE,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS, 
+          KC_TRNS,KC_TRNS,   KC_TRNS,_AACUTE,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, 
           KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,          KC_TRNS,              KC_TRNS,           KC_TRNS,KC_TRNS,KC_TRNS, 
           KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,                   KC_TRNS,                        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,        KC_TRNS,KC_TRNS
     )
 };
 
+
+// Free keyboard comment, copy 'n' paste to your new layer
+
+    /**   [Layer n]         { Layer description }
+     * 
+     *    ,-------------.   ,------.      ,------,------,------,------.    ,------,------,------,------.   ,------,------,------,------.     ,------,------,------.     ,------,------,------,------.
+     *    |             |   |      |      |      |      |      |      |    |      |      |      |      |   |      |      |      |      |     |      |      |      |     |      |      |      |      |
+     *    `-------------'   `------'      `------'------'------'------'    `------'------'------'------'   `------'------'------'------'     `------'------'------'     `------'------'------'------'
+     *    ,-------------.   ,------.------.------.------.------.------.------.------.------.------.------.------.------.---------------.     ,------,------,------.     ,------,------,------,------.
+     *    |      |      |   |      |      |      |      |      |      |      |      |      |      |      |      |      |               |     |      |      |      |     |      |      |      |      |
+     *    |------+------'   .----------------------------------------------------------------------------------------------------------'     .------+------+------'     '------+------+------+------'
+     *    |      |      |   |         |      |      |      |      |      |      |      |      |      |      |      |      |            |     |      |      |      |     |      |      |      |      |
+     *    |------+------'   .----------------------------------------------------------------------------------------------------------'     `------'------'------'     '------+------+------|      |
+     *    |      |      |   |            |      |      |      |      |      |      |      |      |      |      |      |                |                                |      |      |      |      |
+     *    |------+------'   .----------------------------------------------------------------------------------------------------------'            ,------.            '------+------+------+------'
+     *    |      |      |   |               |      |      |      |      |      |      |      |      |      |      |                    |            |      |            |      |      |      |      |
+     *    |------+------'   .--------,--------,--------,-------------------------------------------.--------.--------.--------.--------.     ,------+------+------.     '------'------+------|      |
+     *    |      |      |   |        |        |        |                                           |        |        |        |        |     |      |      |      |     |             |      |      |
+     *    `------'------'   `--------'--------'--------`-------------------------------------------'--------'--------'--------'--------'     `------'------'------'     `-------------'------'------'
+     */
+
+
+
+
 /*
 void matrix_init_user(void) {
-
 }
 
 void matrix_scan_user(void) {
-
 }
 
 bool led_update_user(led_t led_state) {

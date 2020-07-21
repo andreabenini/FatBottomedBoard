@@ -2,5 +2,25 @@
 #
 # Init repository and environment
 #
+echo ""
+printf '━%.0s' $(seq $COLUMNS)
+echo "Preparing firmware environment, please wait..."
+printf '━%.0s' $(seq $COLUMNS)
+echo -e "\n"
+
+# Automate git and config setup
+rm -rf qmk_firmware
 git clone https://github.com/qmk/qmk_firmware
-ln -s ../../config/fatbottomedboard qmk_firmware/keyboards/
+cd qmk_firmware
+make git-submodule
+cd keyboards
+ln -s ../../config/fatbottomedboard .
+cd ../..
+
+# some nice output at the end
+echo ""
+printf '━%.0s' $(seq $COLUMNS)
+ls --color -la qmk_firmware/keyboards/fatbottomedboard
+echo "Environment completed, configuration linked to QMK.  Type: 'make fatbottomedboard:default' to build it"
+printf '━%.0s' $(seq $COLUMNS)
+echo -e "\n"

@@ -10,8 +10,8 @@
 #define DESCRIPTION     Ben Keyboard
 
 /* key matrix size */
-#define MATRIX_ROWS 6
-#define MATRIX_COLS 20
+#define MATRIX_ROWS     6
+#define MATRIX_COLS     20
 
 /*
  * Keyboard Matrix Assignments
@@ -35,7 +35,7 @@
 /*
  * Split Keyboard specific options, make sure you have 'SPLIT_KEYBOARD = yes' in your rules.mk, and define SOFT_SERIAL_PIN.
  */
-#define SOFT_SERIAL_PIN E6  // or D1, D2, D3, E6
+//#define SOFT_SERIAL_PIN E6  // or D1, D2, D3, E6
 
 // #define BACKLIGHT_PIN B7
 // #define BACKLIGHT_BREATHING
