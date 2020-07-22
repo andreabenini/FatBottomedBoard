@@ -1,5 +1,7 @@
 #pragma once
 
+#include "config_common.h"
+
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0x08DE
