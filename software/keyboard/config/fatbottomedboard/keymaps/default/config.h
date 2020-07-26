@@ -1,4 +1,4 @@
-/* Copyright 2020 Matt3o
+/* Copyright 2020 Ben
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,4 +16,4 @@
 
 #pragma once
 
-// place overrides here
+// place overrides below
