@@ -39,3 +39,16 @@
 	{ K400,  K401,  K402,  K403,  K404,  K405,  K406,  K407,  K408,  K409,  K410,  K411,  K412,  K413,  K414,  K415,  K416,  K417,  K418,  K419 }, \
 	{ K500,  K501,  K502,  K503,  K504,  K505,  K506,  K507,  K508,  K509,  K510,  K511,  K512,  K513,  K514,  K515,  K516,  K517,  K518,  K519 }  \
 }
+
+
+// display defines
+void layout(const char *str);
+
+// Serial defines
+void uart_init(uint32_t baud);
+void uart_putchar(uint8_t c);
+#define uart_print(s) uart_print_P(PSTR(s))
+void uart_print_P(const char *str);
+void uart_print_P_delay(const char *str);
+uint8_t uart_getchar(void);
+uint8_t uart_available(void);
