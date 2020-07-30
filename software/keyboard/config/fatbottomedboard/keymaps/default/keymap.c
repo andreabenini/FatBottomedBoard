@@ -200,6 +200,15 @@ void matrix_init_user(void) {
 }
 
 void matrix_scan_user(void) {
+
+    // uint8_t layer = biton32(layer_state);
+    // switch (layer) {
+    //     case _BASE_ITA_:
+    //         // INSERT CODE HERE: turn on leds that correspond to YOUR_LAYER_1
+    //         break;
+    //     // add case for each layer
+    // }
+
 }
 
 
@@ -211,10 +220,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         switch (keycode) {
         case AGRAVE:
             // TODO: Rewrite without keyboards shortcuts (not cross portable across OSes)
-            SEND_STRING(SS_DOWN(X_RALT));
-            SEND_STRING(SS_TAP(X_GRV));
-            SEND_STRING(SS_UP(X_RALT));
-            SEND_STRING(SS_TAP(X_A));
+            SEND_STRING(SS_LALT("D83D+DC4D"));
+            // SEND_STRING(SS_DOWN(X_RALT));
+            // SEND_STRING(SS_TAP(X_GRV));
+            // SEND_STRING(SS_UP(X_RALT));
+            // SEND_STRING(SS_TAP(X_A));
             return false;
         case EGRAVE:
             SEND_STRING(SS_DOWN(X_RALT));
