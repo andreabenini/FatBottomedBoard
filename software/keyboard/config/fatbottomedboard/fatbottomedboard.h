@@ -41,9 +41,20 @@
 }
 
 
+typedef enum osType {
+    LINUX,
+    MACOS,
+    WIN
+} osType;
+
+
 // display defines
 void layout(const char *str);
 
+// OS defines
+void osChange(osType osDefault);
+void osToggle(void);
+void osSend(void);
 // Serial defines
 void uart_init(uint32_t baud);
 void uart_putchar(uint8_t c);
