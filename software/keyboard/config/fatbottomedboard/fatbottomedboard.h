@@ -55,6 +55,7 @@ void layout(const char *str);
 void osChange(osType osDefault);
 void osToggle(void);
 void osSend(void);
+osType osCurrent(void);
 // Serial defines
 void uart_init(uint32_t baud);
 void uart_putchar(uint8_t c);

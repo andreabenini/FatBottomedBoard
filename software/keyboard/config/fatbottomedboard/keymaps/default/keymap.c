@@ -14,8 +14,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
-
-
     /**
      * [FatBottomedBoard Layout Template]      { 119 keymap, 20x6 }
      *
@@ -54,12 +52,19 @@ enum layer_names {
 // Defines custom key codes
 enum custom_keycodes {
     CHG_OS = SAFE_RANGE,
-    AGRAVE,
-    EGRAVE,
-    IGRAVE,
-    OGRAVE,
-    UGRAVE
+    AGRAVE,     // à
+    EGRAVE,     // è
+    IGRAVE,     // ì
+    OGRAVE,     // ó
+    UGRAVE,     // ù
+    AACUTE,     // á
+    EACUTE,     // é
+    IACUTE,     // í
+    OACUTE,     // ó
+    UACUTE      // ú
 };
+
+#define EURO RALT(KC_5)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -81,26 +86,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    `------'------'   `--------'--------'--------`-------------------------------------------'--------'--------'--------'--------'     `------'------'------'     `-------------'------'------'
      */  [_BASE_USA_INTL_] = LAYOUT(
 
-               KC_F20,       KC_ESC,       KC_F1, KC_F2, KC_F3, KC_F4,      KC_F5, KC_F6, KC_F7, KC_F8,     KC_F9, KC_F10,KC_F11,KC_F12,      KC_PSCR,TO(1),  KC_TRNS,   KC_F21, KC_F22,  KC_F23, KC_F24, 
+               KC_F20,       KC_ESC,       KC_F1, KC_F2, KC_F3, KC_F4,      KC_F5, KC_F6, KC_F7, KC_F8,     KC_F9, KC_F10,KC_F11,KC_F12,      KC_PSCR,TO(1),  KC_TRNS,   KC_F21, KC_F22,  KC_F23, KC_F24,
 
-          KC_UNDO,KC_AGAIN,  KC_GRV,KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,  KC_9,  KC_0,  KC_MINS, KC_EQL,      KC_BSPC,      KC_INS, KC_HOME,KC_PGUP,   KC_NLCK,KC_PSLS, KC_PAST,KC_PMNS, 
-           KC_F15,KC_F16,    KC_TAB,   KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,  KC_Y,  KC_U,  KC_I,  KC_O,  KC_P,  KC_LBRC,KC_RBRC,   KC_BSLS,      KC_DEL, KC_END, KC_PGDN,   KC_P7,  KC_P8,   KC_P9, 
+          KC_UNDO,KC_AGAIN,  KC_GRV,KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,  KC_9,  KC_0,  KC_MINS, KC_EQL,      KC_BSPC,      KC_INS, KC_HOME,KC_PGUP,   KC_NLCK,KC_PSLS, KC_PAST,KC_PMNS,
+           KC_F15,KC_F16,    KC_TAB,   KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,  KC_Y,  KC_U,  KC_I,  KC_O,  KC_P,  KC_LBRC,KC_RBRC,   KC_BSLS,      KC_DEL, KC_END, KC_PGDN,   KC_P7,  KC_P8,   KC_P9,
            KC_CUT,KC_F17,    KC_CAPS,     KC_A,  KC_S,  KC_D,  KC_F,  KC_G,  KC_H,  KC_J,  KC_K,  KC_L,  KC_SCLN, KC_QUOT,       KC_ENT,                                 KC_P4,  KC_P5,   KC_P6,  KC_PPLS,
           KC_COPY,KC_F18,    KC_LSFT,        KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_N,  KC_M,  KC_COMM,KC_DOT, KC_SLSH,          KC_RSFT,              KC_UP,             KC_P1,  KC_P2,   KC_P3,
          KC_PASTE,KC_F19,    KC_LCTL, KC_LALT, KC_LGUI,                   KC_SPC,                    MO(3),   KC_RALT, KC_RGUI, KC_RCTL,      KC_LEFT,KC_DOWN,KC_RGHT,   KC_P0,           KC_PDOT,KC_PENT
     ),
 
-    /**   [Layer 1]         { Default: Italian layout }
+    /**   [Layer 1]         { Default: Italian layout }   [work in progress]
      * 
      *    ,-------------.   ,------.      ,------,------,------,------.    ,------,------,------,------.   ,------,------,------,------.     ,------,------,------.     ,------,------,------,------.
      *    |             |   |      |      |      |      |      |      |    |      |      |      |      |   |      |      |      |      |     |      |Layout|      |     |      |      |      |      |
      *    `-------------'   `------'      `------'------'------'------'    `------'------'------'------'   `------'------'------'------'     `------'------'------'     `------'------'------'------'
      *    ,-------------.   ,------.------.------.------.------.------.------.------.------.------.------.------.------.---------------.     ,------,------,------.     ,------,------,------,------.
-     *    |      |      |   |      |      |      |      |      |      |      |      |      |      |      |   '  |      |               |     |      |      |      |     |      |      |      |      |
+     *    |      |      |   |   \  |      |      |      |      |      |      |      |      |      |      |   '  |   ì  |               |     |      |      |      |     |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'     .------+------+------'     '------+------+------+------'
-     *    |      |      |   |         |      |      |      |      |      |      |      |      |      |      |      |      |            |     |      |      |      |     |      |      |      |      |
+     *    |      |      |   |         |      |      |      |      |      |      |      |      |      |      |   è  |   +  |      ù     |     |      |      |      |     |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'     `------'------'------'     '------+------+------|      |
-     *    |      |      |   |            |      |      |      |      |      |      |      |      |      |      |      |                |                                |      |      |      |      |
+     *    |      |      |   |            |      |      |      |      |      |      |      |      |      |   ò  |   à  |                |                                |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'            ,------.            '------+------+------+------'
      *    |      |      |   |               |      |      |      |      |      |      |      |      |      |   -  |                    |            |      |            |      |      |      |      |
      *    |------+------'   .--------,--------,--------,-------------------------------------------.--------.--------.--------.--------.     ,------+------+------.     '------'------+------|      |
@@ -108,12 +113,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    `------'------'   `--------'--------'--------`-------------------------------------------'--------'--------'--------'--------'     `------'------'------'     `-------------'------'------'
      */  [_BASE_ITA_] = LAYOUT(
 
-              KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,TO(2),KC_TRNS,     KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, 
+              KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,TO(2),KC_TRNS,     KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
 
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_QUOT,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS, 
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, 
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_MINS,          KC_TRNS,              KC_TRNS,           KC_TRNS,KC_TRNS,KC_TRNS, 
+          KC_TRNS,KC_TRNS,   KC_BSLS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_QUOT,IGRAVE,KC_TRNS,  KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,EGRAVE,KC_PPLS,UGRAVE,   KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, OGRAVE,  AGRAVE,  KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_MINS,          KC_TRNS,              KC_TRNS,           KC_TRNS,KC_TRNS,KC_TRNS,
           KC_TRNS,KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,        KC_TRNS,KC_TRNS
     ),
 
@@ -135,12 +140,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    `------'------'   `--------'--------'--------`-------------------------------------------'--------'--------'--------'--------'     `------'------'------'     `-------------'------'------'
      */  [_BASE_USA_] = LAYOUT(
 
-              KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,TO(0),  KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, 
+              KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,TO(0),  KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
 
           KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS, 
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, 
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_LBRC,          KC_TRNS,              KC_TRNS,           KC_TRNS,KC_TRNS,KC_TRNS, 
+          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_LBRC,          KC_TRNS,              KC_TRNS,           KC_TRNS,KC_TRNS,KC_TRNS,
           KC_TRNS,KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,        KC_TRNS,KC_TRNS
     ),
 
@@ -152,11 +157,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    |             |   |      |      |      |      |      |      |    |      |      |      |      |   |      |      |      |      |     |      |Chg-OS| Reset|     |      |      |      |      |
      *    `-------------'   `------'      `------'------'------'------'    `------'------'------'------'   `------'------'------'------'     `------'------'------'     `------'------'------'------'
      *    ,-------------.   ,------.------.------.------.------.------.------.------.------.------.------.------.------.---------------.     ,------,------,------.     ,------,------,------,------.
-     *    |      |      |   |      |      |      |      |      |      |      |      |      |      |      |      |      |               |     |      |      |      |     |      |      |      |      |
+     *    |      |      |   |      |      |      |      |   €  |      |      |      |      |      |      |      |      |               |     |      |      |      |     |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'     .------+------+------'     '------+------+------+------'
-     *    |      |      |   |         |      |      |   é  |      |      |      |   ú  |   í  |   ó  |      |      |      |            |     |      |      |      |     |      |      |      |      |
+     *    |      |      |   |         |      |      |   è  |      |      |      |   ù  |   ì  |   ò  |      |      |      |            |     |      |      |      |     |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'     `------'------'------'     '------+------+------|      |
-     *    |      |      |   |            |   á  |      |      |      |      |      |      |      |      |      |      |                |                                |      |      |      |      |
+     *    |      |      |   |            |   à  |      |      |      |      |      |      |      |      |      |      |                |                                |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'            ,------.            '------+------+------+------'
      *    |      |      |   |               |      |      |      |      |      |      |      |      |      |      |                    |            |      |            |      |      |      |      |
      *    |------+------'   .--------,--------,--------,-------------------------------------------.--------.--------.--------.--------.     ,------+------+------.     '------'------+------|      |
@@ -165,21 +170,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_EXT_FN_] = LAYOUT(
 
-          KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,CHG_OS, RESET,     KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, 
+          KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,CHG_OS,RESET,      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
 
-     KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-     KC_TRNS,KC_TRNS,       KC_TRNS,KC_TRNS,KC_TRNS,EGRAVE,KC_TRNS,KC_TRNS,KC_TRNS,UGRAVE,IGRAVE,OGRAVE,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS, 
-     KC_TRNS,KC_TRNS,       KC_TRNS, AGRAVE, KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, 
-     KC_TRNS,KC_TRNS,       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS,           KC_TRNS,KC_TRNS,KC_TRNS, 
+     KC_TRNS,KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,EURO,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+     KC_TRNS,KC_TRNS,       KC_TRNS,KC_TRNS,KC_TRNS,EGRAVE,KC_TRNS,KC_TRNS,KC_TRNS,UGRAVE,IGRAVE,OGRAVE,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,
+     KC_TRNS,KC_TRNS,       KC_TRNS, AGRAVE, KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+     KC_TRNS,KC_TRNS,       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS,           KC_TRNS,KC_TRNS,KC_TRNS,
      KC_TRNS,KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,                    KC_TRNS,                  KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,        KC_TRNS,KC_TRNS
     )
 };
 
 
-// Free keyboard comment, copy 'n' paste to your new layer
 
-    /**   [Layer n]         { Layer description }
-     * 
+
+    /**   [Layer n]         { Layer description }       // Free keyboard comment, Copy'n'Paste to your new layer
+     *
      *    ,-------------.   ,------.      ,------,------,------,------.    ,------,------,------,------.   ,------,------,------,------.     ,------,------,------.     ,------,------,------,------.
      *    |             |   |      |      |      |      |      |      |    |      |      |      |      |   |      |      |      |      |     |      |      |      |     |      |      |      |      |
      *    `-------------'   `------'      `------'------'------'------'    `------'------'------'------'   `------'------'------'------'     `------'------'------'     `------'------'------'------'
@@ -198,19 +203,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 void matrix_init_user(void) {
-    osChange(LINUX);            // Default OS
+    osChange(LINUX);            // Default OS at startup
 }
 
 void matrix_scan_user(void) {
-
-    // uint8_t layer = biton32(layer_state);
-    // switch (layer) {
-    //     case _BASE_ITA_:
-    //         // INSERT CODE HERE: turn on leds that correspond to YOUR_LAYER_1
-    //         break;
-    //     // add case for each layer
-    // }
-
 }
 
 
@@ -222,46 +218,75 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         switch (keycode) {
         case CHG_OS:
             osToggle();
+            return false;
         case AGRAVE:
-            // TODO: Rewrite without keyboards shortcuts (not cross portable across OSes)
-            SEND_STRING(SS_LALT("D83D+DC4D"));
-            // SEND_STRING(SS_DOWN(X_RALT));
-            // SEND_STRING(SS_TAP(X_GRV));
-            // SEND_STRING(SS_UP(X_RALT));
-            // SEND_STRING(SS_TAP(X_A));
-            return false;
+            if (osCurrent()==LINUX || osCurrent()==MACOS) {
+                SEND_STRING(SS_DOWN(X_RALT));
+                SEND_STRING(SS_TAP(X_GRV));
+                SEND_STRING(SS_UP(X_RALT));
+                SEND_STRING(SS_TAP(X_A));
+                return false;
+            }
         case EGRAVE:
-            SEND_STRING(SS_DOWN(X_RALT));
-            SEND_STRING(SS_TAP(X_GRV));
-            SEND_STRING(SS_UP(X_RALT));
-            SEND_STRING(SS_TAP(X_E));
-            return false;
+            if (osCurrent()==LINUX || osCurrent()==MACOS) {
+                SEND_STRING(SS_DOWN(X_RALT));
+                SEND_STRING(SS_TAP(X_GRV));
+                SEND_STRING(SS_UP(X_RALT));
+                SEND_STRING(SS_TAP(X_E));
+                return false;
+            }
         case IGRAVE:
-            SEND_STRING(SS_DOWN(X_RALT));
-            SEND_STRING(SS_TAP(X_GRV));
-            SEND_STRING(SS_UP(X_RALT));
-            SEND_STRING(SS_TAP(X_I));
-            return false;
+            if (osCurrent()==LINUX || osCurrent()==MACOS) {
+                SEND_STRING(SS_DOWN(X_RALT));
+                SEND_STRING(SS_TAP(X_GRV));
+                SEND_STRING(SS_UP(X_RALT));
+                SEND_STRING(SS_TAP(X_I));
+                return false;
+            }
         case OGRAVE:
-            SEND_STRING(SS_DOWN(X_RALT));
-            SEND_STRING(SS_TAP(X_GRV));
-            SEND_STRING(SS_UP(X_RALT));
-            SEND_STRING(SS_TAP(X_O));
-            return false;
+            if (osCurrent()==LINUX || osCurrent()==MACOS) {
+                SEND_STRING(SS_DOWN(X_RALT));
+                SEND_STRING(SS_TAP(X_GRV));
+                SEND_STRING(SS_UP(X_RALT));
+                SEND_STRING(SS_TAP(X_O));
+                return false;
+            }
         case UGRAVE:
-            SEND_STRING(SS_DOWN(X_RALT));
-            SEND_STRING(SS_TAP(X_GRV));
-            SEND_STRING(SS_UP(X_RALT));
-            SEND_STRING(SS_TAP(X_U));
-            return false;
+            if (osCurrent()==LINUX || osCurrent()==MACOS) {
+                SEND_STRING(SS_DOWN(X_RALT));
+                SEND_STRING(SS_TAP(X_GRV));
+                SEND_STRING(SS_UP(X_RALT));
+                SEND_STRING(SS_TAP(X_U));
+                return false;
+            }
         }
     }
+    //
+    // send_unicode_hex_string("00E4");
+    //
+    // if (record->event.pressed) {     UPPERCASE & LOWERCASE
+    //     uint8_t temp_mod = get_mods();
+    //     clear_mods();
+    //     register_code(KC_LALT);
+    //     if (temp_mod & MODS_SHIFT_MASK) {
+    //         tap_code(KC_P1);
+    //         tap_code(KC_P4);
+    //         tap_code(KC_P2); // Ä
+    //     } else {
+    //         tap_code(KC_P1);
+    //         tap_code(KC_P3);
+    //         tap_code(KC_P2); // ä
+    //     }
+    //     unregister_code(KC_LALT);
+    //     return false;
+    // }
     return true;
 } /**/
 
 
 /**
  * User function, activated when layer changes
+ * When layer changes inform the other Teensy about that through serial
  */
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (biton32(state)) {
@@ -280,4 +305,5 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 
 void led_set_user(uint8_t usb_led) {
-}
+    // No leds to handle here
+} /**/

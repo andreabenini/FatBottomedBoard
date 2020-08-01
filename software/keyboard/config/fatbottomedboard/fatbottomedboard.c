@@ -30,7 +30,7 @@ static volatile uint8_t rx_buffer_head;
 static volatile uint8_t rx_buffer_tail;
 
 // Current operating system (default: linux)
-osType osCurrent;
+osType osTypeCurrent;
 
 /**/
 
@@ -81,10 +81,11 @@ void layout(const char *str) {
  * OS FUNCTIONS
  */
 void osChange(osType osDefault) {
-    osCurrent = osDefault;
-}
+    osTypeCurrent = osDefault;
+} /**/
+
 void osToggle(void) {
-    switch (osCurrent) {
+    switch (osTypeCurrent) {
     case LINUX:
         osChange(MACOS);
         break;
@@ -96,27 +97,31 @@ void osToggle(void) {
         osChange(LINUX);
         break;
     }
+    osSend();
 } /**/
+
 void osSend(void) {
     _delay_ms(100);
     uart_putchar('o');
     _delay_ms(20);
-    switch (osCurrent) {
+    switch (osTypeCurrent) {
     case LINUX:
-        uart_putchar('L');
+        uart_print_P_delay(PSTR("Linux"));
         break;
     case MACOS:
-        uart_putchar('M');
+        uart_print_P_delay(PSTR("MacOS"));
         break;
     case WIN:    
     default:
-        uart_putchar('W');
+        uart_print_P_delay(PSTR("Windows"));
         break;
     }
-    _delay_ms(20);
     uart_putchar('\n');
-    _delay_ms(20);
-}
+} /**/
+
+osType osCurrent(void) {
+    return osTypeCurrent;
+} /**/
 
 
 /**
