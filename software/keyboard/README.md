@@ -1,11 +1,13 @@
 # Firmware mod
 Firmware for FatBottomedBoard
 
+
 # Environment setup
 ```sh
 # or use your favorite package manager to get those packages
 sudo pacman -S arm-none-eabi-gcc arm-none-eabi-newlib
 ```
+
 
 # Project setup
 ```sh
@@ -21,6 +23,7 @@ make handwired/onekey/teensy_32:default
 make clean
 ```
 
+
 # Copy project configuration
 ```sh
 # Add current configuration to qmk project
@@ -32,6 +35,9 @@ ln -s ../../config/fatbottomedboard .
 ## Links 
 - Hints on classics layouts http://www.quadibloc.com/comp/kyb0301.htm  
 - QMK Keyboard firmware builder https://kbfirmware.com/  
+- QMK Cheat sheet https://jayliu50.github.io/qmk-cheatsheet/
+- List of unicode characters https://en.wikipedia.org/wiki/List_of_Unicode_characters
+
 
 ## Notes
 QMK keyboard firmware builder is way better than TMK counterpart, use it to define wirings and create C defines

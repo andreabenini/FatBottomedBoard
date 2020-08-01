@@ -280,6 +280,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     //     unregister_code(KC_LALT);
     //     return false;
     // }
+    // Type: "`" when ALT+E os [pressed]
+    // if (keycode == KC_E && keyboard_report->mods & (MOD_BIT(KC_LALT))) {
+    //     process_unicode(UC_GRV, record);
+    //     return false;
+    // }
+    // But you can also replace the process_unicode line with this:
+    // register_code(KC_GRAVE);
+    // unregister_code(KC_GRAVE);
     return true;
 } /**/
 
