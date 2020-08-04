@@ -1,6 +1,5 @@
 .pio
 .vscode
 FatBottomedBoard.code-workspace
-software/controller
 software/host
 software/keyboard/qmk_firmware
