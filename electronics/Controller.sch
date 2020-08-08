@@ -103,8 +103,6 @@ Wire Wire Line
 	6400 3900 6600 3900
 Wire Wire Line
 	6400 4000 6600 4000
-Wire Wire Line
-	6150 2700 5900 2700
 $Comp
 L Device:Rotary_Encoder_Switch Control
 U 1 1 5E7EB2C9
@@ -147,7 +145,7 @@ Wire Wire Line
 Wire Wire Line
 	3350 2100 3850 2100
 Wire Wire Line
-	6150 2100 6150 2700
+	5900 2100 5900 2700
 $Comp
 L Device:Rotary_Encoder_Switch Macro
 U 1 1 5EA37447
@@ -255,12 +253,12 @@ Wire Wire Line
 	2700 2950 3850 2950
 Connection ~ 3850 2100
 Wire Wire Line
-	3850 2100 6150 2100
+	3850 2100 5900 2100
 Wire Wire Line
 	7350 4400 7150 4400
 Wire Wire Line
 	7150 4400 7150 2100
-Connection ~ 6150 2100
+Connection ~ 5900 2100
 Wire Wire Line
 	4650 2200 4650 2700
 Wire Wire Line
@@ -334,7 +332,7 @@ Wire Wire Line
 Wire Wire Line
 	6300 3700 6600 3700
 Wire Wire Line
-	6150 2100 7150 2100
+	5900 2100 7150 2100
 Wire Wire Line
 	4650 2200 7250 2200
 Wire Wire Line
@@ -392,4 +390,46 @@ Wire Wire Line
 	4300 2700 4300 3200
 Wire Wire Line
 	4300 3200 4650 3200
+$Comp
+L Connector_Generic:Conn_01x05 J?
+U 1 1 5F2EB678
+P 3150 1450
+F 0 "J?" H 3068 1867 50  0001 C CNN
+F 1 "LED PWM" H 3050 1800 50  0000 C CNB
+F 2 "" H 3150 1450 50  0001 C CNN
+F 3 "~" H 3150 1450 50  0001 C CNN
+F 4 "vcc" H 2900 1400 50  0000 C CNN "vcc"
+F 5 "gnd" H 2900 1300 50  0000 C CNN "gnd"
+F 6 "general" H 2850 1700 50  0000 C CNN "general"
+F 7 "num" H 2900 1600 50  0000 C CNN "num"
+F 8 "caps" H 2900 1500 50  0000 C CNN "caps"
+	1    3150 1450
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 2100 3850 1650
+Wire Wire Line
+	3850 1650 3350 1650
+Wire Wire Line
+	3950 2200 3950 1550
+Wire Wire Line
+	3950 1550 3350 1550
+Wire Wire Line
+	5900 4100 6200 4100
+Wire Wire Line
+	6200 4100 6200 1250
+Wire Wire Line
+	6200 1250 3350 1250
+Wire Wire Line
+	5900 4000 6150 4000
+Wire Wire Line
+	6150 4000 6150 1350
+Wire Wire Line
+	6150 1350 3350 1350
+Wire Wire Line
+	5900 3900 6100 3900
+Wire Wire Line
+	6100 3900 6100 1450
+Wire Wire Line
+	6100 1450 3350 1450
 $EndSCHEMATC
