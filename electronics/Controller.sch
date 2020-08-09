@@ -400,9 +400,9 @@ F 2 "" H 3150 1450 50  0001 C CNN
 F 3 "~" H 3150 1450 50  0001 C CNN
 F 4 "vcc" H 2900 1400 50  0000 C CNN "vcc"
 F 5 "gnd" H 2900 1300 50  0000 C CNN "gnd"
-F 6 "general" H 2850 1700 50  0000 C CNN "general"
+F 6 " general" H 2850 1500 50  0000 C CNN "general"
 F 7 "num" H 2900 1600 50  0000 C CNN "num"
-F 8 "caps" H 2900 1500 50  0000 C CNN "caps"
+F 8 "caps" H 2900 1700 50  0000 C CNN "caps"
 	1    3150 1450
 	-1   0    0    -1  
 $EndComp
@@ -432,4 +432,43 @@ Wire Wire Line
 	6100 3900 6100 1450
 Wire Wire Line
 	6100 1450 3350 1450
+$Comp
+L Transistor_FET:IRF540N Q?
+U 1 1 5F304FB3
+P 850 2150
+F 0 "Q?" H 1054 2196 50  0001 L CNN
+F 1 "IRF520" H 1054 2150 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 1100 2075 50  0001 L CIN
+F 3 "http://www.irf.com/product-info/datasheets/data/irf540n.pdf" H 850 2150 50  0001 L CNN
+	1    850  2150
+	1    0    0    -1  
+$EndComp
+Wire Notes Line style solid rgb(255, 0, 0)
+	550  1850 1400 1850
+Wire Notes Line style solid rgb(255, 0, 0)
+	1400 1850 1400 2450
+Wire Notes Line style solid rgb(255, 0, 0)
+	1400 2450 550  2450
+Wire Notes Line style solid rgb(255, 0, 0)
+	550  2450 550  1850
+$Comp
+L Connector_Generic:Conn_01x03 J?
+U 1 1 5F32334A
+P 1400 2300
+F 0 "J?" H 1480 2342 50  0001 L CNN
+F 1 "IRF 520" H 1650 2350 50  0001 C CNN
+F 2 "" H 1400 2300 50  0001 C CNN
+F 3 "~" H 1400 2300 50  0001 C CNN
+F 4 "Sig" H 1100 2450 50  0000 C CNN "SIG"
+F 5 "Vcc" H 1100 2350 50  0000 C CNN "Vcc"
+F 6 "Gnd" H 1100 2250 50  0000 C CNN "Gnd"
+	1    1400 2300
+	-1   0    0    -1  
+$EndComp
+Wire Bus Line
+	1850 2300 3000 1550
+Entry Bus Bus
+	1800 2250 1900 2350
+Entry Bus Bus
+	2950 1500 3050 1600
 $EndSCHEMATC
