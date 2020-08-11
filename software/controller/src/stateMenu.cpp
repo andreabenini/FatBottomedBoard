@@ -46,7 +46,7 @@ void menuSelect(byte Choice) {
         gauge.handler(VolumeControl);
         gauge.init(&AudioVolume, DB_AUDIO, 0, 100, 6, F("%"), F("AUDIO VOLUME"));
         break;
-    case 1:                         // LED Backlight // TODO: Backlight LED, prima costruire il circuito
+    case 1:                         // LED Backlight // TODO: Backlight LED
         break;
     case 2:                         // Keyboard Settings
         stateSet(STATUS_SETUP);

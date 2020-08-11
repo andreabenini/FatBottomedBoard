@@ -37,6 +37,7 @@ gaugeObject
 byte
     status,                                                             // State Machine status
     keyboardLeds,                                                       // Current keyboard leds status
+    ledMode, ledLight,                                                  // Backlight leds (Light Mode, Light intensity)
     AudioVolume,                                                        // Current audio volume (percentage)
     screenSaver,                                                        // Screen inactivity timeout (1 x 10s)
     controlScroll;                                                      // Lines to scroll
@@ -143,6 +144,85 @@ void stateAction(byte Action) {
 
 
 /**
+ * LED MODE SET - Setup led backlight (based on [ledMode] and [ledLight])
+ */
+void ledModeSet() {
+    // General backlight leds
+    switch (ledMode) {
+    case LED_MODE_ON:
+    case LED_MODE_ON_MORELIGHT:
+    case LED_MODE_REVERSE:
+        analogWrite(PIN_LED_GENERAL, ledLight);
+        break;    
+    default:
+        analogWrite(PIN_LED_GENERAL, 0);
+        break;
+    }
+} /**/
+
+/**
+ * SET CAPS LOCK
+ */
+void ledCapsLockSet(byte Active) {
+    byte light = ledLight;
+    switch (ledMode) {
+    case LED_MODE_OFF:
+        return;
+    case LED_MODE_ON:
+        analogWrite(PIN_LED_CAPS_LOCK, light);
+        return;
+    case LED_MODE_ON_MORELIGHT:
+        light = ledLight*2-1;
+    case LED_MODE_NORMAL:
+        if (Active == LOW) {
+            analogWrite(PIN_LED_CAPS_LOCK, 0);
+        } else {
+            analogWrite(PIN_LED_CAPS_LOCK, light);
+        }
+        return;
+    case LED_MODE_REVERSE:
+        if (Active == LOW) {
+            analogWrite(PIN_LED_CAPS_LOCK, light);
+        } else {
+            analogWrite(PIN_LED_CAPS_LOCK, 0);
+        }
+        return;
+    }
+} /**/
+
+
+/**
+ * SET NUM LOCK
+ */
+void ledNumLockSet(byte Active) {
+    byte light = ledLight;
+    switch (ledMode) {
+    case LED_MODE_OFF:
+        return;
+    case LED_MODE_ON:
+        analogWrite(PIN_LED_NUM_LOCK, light);
+        return;
+    case LED_MODE_ON_MORELIGHT:
+        light = ledLight*2-1;
+    case LED_MODE_NORMAL:
+        if (Active == LOW) {
+            analogWrite(PIN_LED_NUM_LOCK, 0);
+        } else {
+            analogWrite(PIN_LED_NUM_LOCK, light);
+        }
+        return;
+    case LED_MODE_REVERSE:
+        if (Active == LOW) {
+            analogWrite(PIN_LED_NUM_LOCK, light);
+        } else {
+            analogWrite(PIN_LED_NUM_LOCK, 0);
+        }
+        return;
+    }
+} /**/
+
+
+/**
  * Set required layout (on TFT display)
  */
 void layout(const char *Layout) {
@@ -207,6 +287,9 @@ void setup() {
     controlScroll = configRead(DB_SCROLL_SIZE,  1);
     AudioVolume   = configRead(DB_AUDIO,        50);
     screenSaver   = configRead(DB_SCREEN_SAVER, 30);// Default: 5mins ([30] x 10s)
+    ledMode       = configRead(DB_LED_MODE,     LED_MODE_NORMAL);
+    ledLight      = configRead(DB_LED_LIGHT,    2);
+    ledModeSet();
     // Menu
     memset(sCompose, 0x00, 3); memcpy_P(sCompose, F("UI"),     2);
     memset(sOSType,  0x00, 6); memcpy_P(sOSType,  F("Linux"),  5);

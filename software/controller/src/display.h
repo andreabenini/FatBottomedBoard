@@ -7,13 +7,15 @@
 #include "data.h"
 #include "defines.h"
 
+// Display functions
 void displayClear();
 void displayErrorMessage(const __FlashStringHelper *errorType);
 void displayRemoteConfigWaiting();
 
+// Gauge
 void displayGauge(byte *variable, byte dbPosition, byte valueMin, byte valueMax, byte valueStep, const __FlashStringHelper *measureUnit, const __FlashStringHelper *Title);
 
-
+// Menu
 class menuObject {
 private:
     byte

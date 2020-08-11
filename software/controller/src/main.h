@@ -12,4 +12,9 @@ void loop();
 void layout(const char *Layout);
 void osType(char *osType);
 
+// Backlight leds
+void ledModeSet();
+void ledCapsLockSet(byte Active);
+void ledNumLockSet(byte Active);
+
 #endif

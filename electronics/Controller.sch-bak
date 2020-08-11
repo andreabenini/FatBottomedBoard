@@ -414,24 +414,6 @@ Wire Wire Line
 	3950 2200 3950 1550
 Wire Wire Line
 	3950 1550 3350 1550
-Wire Wire Line
-	5900 4100 6200 4100
-Wire Wire Line
-	6200 4100 6200 1250
-Wire Wire Line
-	6200 1250 3350 1250
-Wire Wire Line
-	5900 4000 6150 4000
-Wire Wire Line
-	6150 4000 6150 1350
-Wire Wire Line
-	6150 1350 3350 1350
-Wire Wire Line
-	5900 3900 6100 3900
-Wire Wire Line
-	6100 3900 6100 1450
-Wire Wire Line
-	6100 1450 3350 1450
 $Comp
 L Transistor_FET:IRF540N Q?
 U 1 1 5F304FB3
@@ -471,4 +453,32 @@ Entry Bus Bus
 	1800 2250 1900 2350
 Entry Bus Bus
 	2950 1500 3050 1600
+Wire Wire Line
+	4600 2800 4650 2800
+Wire Wire Line
+	4550 2900 4650 2900
+Wire Wire Line
+	4500 3000 4650 3000
+Wire Wire Line
+	4500 1450 4500 3000
+Wire Wire Line
+	4500 1450 3350 1450
+Wire Wire Line
+	4550 1350 3350 1350
+Wire Wire Line
+	4550 2900 4550 1350
+Wire Wire Line
+	4600 1250 3350 1250
+Wire Wire Line
+	4600 2800 4600 1250
+Wire Notes Line
+	4800 3050 4800 2750
+Wire Notes Line
+	4800 2750 5350 2750
+Wire Notes Line
+	5350 2750 5350 3050
+Wire Notes Line
+	5350 3050 4800 3050
+Text Notes 5200 3050 0    35   ~ 0
+PWM
 $EndSCHEMATC

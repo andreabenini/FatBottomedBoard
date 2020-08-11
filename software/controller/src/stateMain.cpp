@@ -105,6 +105,7 @@ void mainNumLock(byte Active) {
         display.print(F("NUM"));
         display.stroke(255, 255, 255);
     }
+    ledNumLockSet(Active);
 } /**/
 
 
@@ -121,4 +122,5 @@ void mainCapsLock(byte Active) {
         display.print(F("CAPS"));
         display.stroke(255, 255, 255);
     }
+    ledCapsLockSet(Active);
 } /**/

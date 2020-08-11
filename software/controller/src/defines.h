@@ -15,6 +15,15 @@
 #define FONT1_MAXCOLS               25
 #define LCD_WIDTH                   160
 #define LCD_HEIGHT                  128
+// LED Backlight
+#define PIN_LED_GENERAL             27      // PB7  (PWM)
+#define PIN_LED_CAPS_LOCK           0       // PD0  (PWM)
+#define PIN_LED_NUM_LOCK            1       // PD1  (PWM)
+#define LED_MODE_OFF                0
+#define LED_MODE_NORMAL             1
+#define LED_MODE_ON                 2
+#define LED_MODE_ON_MORELIGHT       3
+#define LED_MODE_REVERSE            4
 // Encoders
 #define ENCODER_CONTROL_SW          8
 #define ENCODER_CONTROL_DT          9
@@ -44,6 +53,8 @@
 #define DB_SCROLL_SIZE              0x00
 #define DB_SCREEN_SAVER             0x01
 #define DB_AUDIO                    0x02
+#define DB_LED_MODE                 0x03
+#define DB_LED_LIGHT                0x04
 // PC Configuration actions
 #define DATAMODE_NONE               0b00
 #define DATAMODE_MACRO              0b01

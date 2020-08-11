@@ -50,9 +50,6 @@ def patchMakefile():
     data = data.replace("files exist", "files  exist\n#Enable Unicode\nUCIS_ENABLE = yes")
     fileWrite(data)
 
-# # TODO: Remove
-# def buildPostAction(source, target, env):
-#     shutil.move(fileNameBackup, fileName)
 # fileName = os.path.sep.join([env['CPPPATH'][1]]+["usb_hid","usb_private.h"])
 # shutil.copyfile(fileName, fileNameBackup)
 def patchKeymap():

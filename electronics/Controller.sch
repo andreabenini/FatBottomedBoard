@@ -479,6 +479,6 @@ Wire Notes Line
 	5350 2750 5350 3050
 Wire Notes Line
 	5350 3050 4800 3050
-Text Notes 5200 3050 0    35   ~ 0
-PWM
+Text Notes 5350 3050 2    35   ~ 0
+Led\nPWM
 $EndSCHEMATC
