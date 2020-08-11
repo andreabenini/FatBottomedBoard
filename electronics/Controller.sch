@@ -447,12 +447,6 @@ F 6 "Gnd" H 1100 2250 50  0000 C CNN "Gnd"
 	1    1400 2300
 	-1   0    0    -1  
 $EndComp
-Wire Bus Line
-	1850 2300 3000 1550
-Entry Bus Bus
-	1800 2250 1900 2350
-Entry Bus Bus
-	2950 1500 3050 1600
 Wire Wire Line
 	4600 2800 4650 2800
 Wire Wire Line
@@ -481,4 +475,105 @@ Wire Notes Line
 	5350 3050 4800 3050
 Text Notes 5350 3050 2    35   ~ 0
 Led\nPWM
+$Comp
+L Device:R R?
+U 1 1 5F335569
+P 1750 1100
+F 0 "R?" V 1543 1100 50  0001 C CNN
+F 1 "330" V 1750 1100 50  0000 C CNN
+F 2 "" V 1680 1100 50  0001 C CNN
+F 3 "~" H 1750 1100 50  0001 C CNN
+	1    1750 1100
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED num
+U 1 1 5F3383DE
+P 1450 1100
+F 0 "num" H 1500 1000 50  0000 C CNN
+F 1 "LED" H 1443 1226 50  0001 C CNN
+F 2 "" H 1450 1100 50  0001 C CNN
+F 3 "~" H 1450 1100 50  0001 C CNN
+	1    1450 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5F3485EF
+P 1750 900
+F 0 "R?" V 1543 900 50  0001 C CNN
+F 1 "330" V 1750 900 50  0000 C CNN
+F 2 "" V 1680 900 50  0001 C CNN
+F 3 "~" H 1750 900 50  0001 C CNN
+	1    1750 900 
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED caps
+U 1 1 5F356812
+P 1450 900
+F 0 "caps" H 1500 800 50  0000 C CNN
+F 1 "LED" H 1443 1026 50  0001 C CNN
+F 2 "" H 1450 900 50  0001 C CNN
+F 3 "~" H 1450 900 50  0001 C CNN
+	1    1450 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDREF #PWR?
+U 1 1 5F369D14
+P 950 1200
+F 0 "#PWR?" H 950 950 50  0001 C CNN
+F 1 "GNDREF" H 955 1027 50  0001 C CNN
+F 2 "" H 950 1200 50  0001 C CNN
+F 3 "" H 950 1200 50  0001 C CNN
+	1    950  1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	950  1100 1300 1100
+Wire Wire Line
+	950  1100 950  900 
+Wire Wire Line
+	950  900  1300 900 
+Connection ~ 950  1100
+$Comp
+L Connector_Generic:Conn_01x02 J?
+U 1 1 5F373DAA
+P 2100 900
+F 0 "J?" H 2018 575 50  0001 C CNN
+F 1 "Serial IC2" H 2018 666 50  0001 C CNN
+F 2 "" H 2100 900 50  0001 C CNN
+F 3 "~" H 2100 900 50  0001 C CNN
+	1    2100 900 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 1000 1900 1100
+Wire Wire Line
+	950  1100 950  1200
+Wire Bus Line
+	2200 1000 2600 1000
+Wire Bus Line
+	2600 1000 2600 1350
+Wire Bus Line
+	2600 1350 3050 1350
+Wire Bus Line
+	3050 1450 2600 1450
+Wire Bus Line
+	2600 1450 2600 2200
+Wire Bus Line
+	2600 2200 1800 2200
+Wire Bus Line
+	1800 2400 2700 2400
+Wire Bus Line
+	2700 2400 2700 1650
+Wire Bus Line
+	2700 1650 3050 1650
+Wire Bus Line
+	2200 900  2700 900 
+Wire Bus Line
+	2700 900  2700 1250
+Wire Bus Line
+	2700 1250 3050 1250
 $EndSCHEMATC
