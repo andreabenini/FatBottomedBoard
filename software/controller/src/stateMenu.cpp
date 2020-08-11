@@ -46,7 +46,8 @@ void menuSelect(byte Choice) {
         gauge.handler(VolumeControl);
         gauge.init(&AudioVolume, DB_AUDIO, 0, 100, 6, F("%"), F("AUDIO VOLUME"));
         break;
-    case 1:                         // LED Backlight // TODO: Backlight LED
+    case 1:                         // LED Backlight
+        stateSet(STATUS_BACKLIGHT);
         break;
     case 2:                         // Keyboard Settings
         stateSet(STATUS_SETUP);
@@ -59,7 +60,7 @@ void menuSelect(byte Choice) {
         delay(500);
         stateSet(STATUS_NONE);
         break;
-    case 4:
+    case 4:                         // Play Pong! what else...
         stateSet(STATUS_GAME_PONG);
         break;
     default:                        // Return to default state

@@ -20,6 +20,7 @@
 #include "stateMenu.h"
 #include "stateMacro.h"
 #include "stateSetup.h"
+#include "stateBacklight.h"
 #include "gamepong.h"
 
 // Project objects
@@ -59,22 +60,25 @@ void stateSet(byte newStatus) {
     case STATUS_NONE:
         mainPage();
         keyboardLeds = 0xFF;
-        break;
+        return;
     case STATUS_MENU:
         menuPage();
-        break;
+        return;
     case STATUS_SETUP:
         setupPage();
-        break;
+        return;
+    case STATUS_BACKLIGHT:
+        backlightPage();
+        return;
     case STATUS_GAUGE:
         gauge.Show();
-        break;
+        return;
     case STATUS_MACRO:
         macroPage();
-        break;
+        return;
     case STATUS_REMOTECONFIG:
         displayRemoteConfigWaiting();
-        break;
+        return;
     case STATUS_GAME_PONG:
         gamepongPage();
     }
@@ -130,6 +134,9 @@ void stateAction(byte Action) {
     case STATUS_SETUP:
         setupAction(Action);
         break;
+    case STATUS_BACKLIGHT:
+        backlightAction(Action);
+        break;
     case STATUS_GAUGE:
         gauge.action(Action);
         break;
@@ -160,31 +167,37 @@ void ledModeSet() {
     }
 } /**/
 
+
 /**
- * SET CAPS LOCK
+ * @see Internally used by [ledCapsLockSet] [ledNumLockSet]
  */
-void ledCapsLockSet(byte Active) {
-    byte light = ledLight;
+void ledServiceSet(byte Active, byte LedPin) {
     switch (ledMode) {
     case LED_MODE_OFF:
+        analogWrite(LedPin, 0);
         return;
     case LED_MODE_ON:
-        analogWrite(PIN_LED_CAPS_LOCK, light);
+        analogWrite(LedPin, ledLight);
         return;
     case LED_MODE_ON_MORELIGHT:
-        light = ledLight*2-1;
+        if (Active == LOW) {
+            analogWrite(LedPin, ledLight);
+        } else {
+            analogWrite(LedPin, ledLight*2);
+        }
+        return;
     case LED_MODE_NORMAL:
         if (Active == LOW) {
-            analogWrite(PIN_LED_CAPS_LOCK, 0);
+            analogWrite(LedPin, 0);
         } else {
-            analogWrite(PIN_LED_CAPS_LOCK, light);
+            analogWrite(LedPin, ledLight);
         }
         return;
     case LED_MODE_REVERSE:
         if (Active == LOW) {
-            analogWrite(PIN_LED_CAPS_LOCK, light);
+            analogWrite(LedPin, ledLight);
         } else {
-            analogWrite(PIN_LED_CAPS_LOCK, 0);
+            analogWrite(LedPin, 0);
         }
         return;
     }
@@ -192,33 +205,18 @@ void ledCapsLockSet(byte Active) {
 
 
 /**
+ * SET CAPS LOCK
+ */
+void ledCapsLockSet(byte Active) {
+    ledServiceSet(Active, PIN_LED_CAPS_LOCK);
+} /**/
+
+
+/**
  * SET NUM LOCK
  */
 void ledNumLockSet(byte Active) {
-    byte light = ledLight;
-    switch (ledMode) {
-    case LED_MODE_OFF:
-        return;
-    case LED_MODE_ON:
-        analogWrite(PIN_LED_NUM_LOCK, light);
-        return;
-    case LED_MODE_ON_MORELIGHT:
-        light = ledLight*2-1;
-    case LED_MODE_NORMAL:
-        if (Active == LOW) {
-            analogWrite(PIN_LED_NUM_LOCK, 0);
-        } else {
-            analogWrite(PIN_LED_NUM_LOCK, light);
-        }
-        return;
-    case LED_MODE_REVERSE:
-        if (Active == LOW) {
-            analogWrite(PIN_LED_NUM_LOCK, light);
-        } else {
-            analogWrite(PIN_LED_NUM_LOCK, 0);
-        }
-        return;
-    }
+    ledServiceSet(Active, PIN_LED_NUM_LOCK);
 } /**/
 
 

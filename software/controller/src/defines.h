@@ -15,10 +15,14 @@
 #define FONT1_MAXCOLS               25
 #define LCD_WIDTH                   160
 #define LCD_HEIGHT                  128
-// LED Backlight
+// LED backlight pins
 #define PIN_LED_GENERAL             27      // PB7  (PWM)
 #define PIN_LED_CAPS_LOCK           0       // PD0  (PWM)
 #define PIN_LED_NUM_LOCK            1       // PD1  (PWM)
+// 1=num lock, 2=caps lock, 4=scroll lock, 8=compose, 16=kana
+#define LED_NUM_LOCK                0b01    // Teensy keyboard_leds value for NumLock
+#define LED_CAPS_LOCK               0b10    //                      value for CapsLock
+// LED Modes
 #define LED_MODE_OFF                0
 #define LED_MODE_NORMAL             1
 #define LED_MODE_ON                 2
@@ -35,9 +39,10 @@
 #define STATUS_NONE                 0b0000
 #define STATUS_MENU                 0b0001
 #define STATUS_SETUP                0b0010
-#define STATUS_GAUGE                0b0011
-#define STATUS_MACRO                0b0100
-#define STATUS_REMOTECONFIG         0b0101
+#define STATUS_BACKLIGHT            0b0011
+#define STATUS_GAUGE                0b0100
+#define STATUS_MACRO                0b0101
+#define STATUS_REMOTECONFIG         0b0110
 #define STATUS_GAME_PONG            0b1000
 // Actions
 #define ACTION_NONE                 0b0000

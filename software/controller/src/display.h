@@ -28,7 +28,6 @@ private:
         PageMax;                // Page maximum items
     void
         (*show)();
-    void showMenu();            // Display menu on screen
 public:
     menuObject()  {}
     ~menuObject() {}
@@ -42,6 +41,8 @@ public:
     void itemShowStr(char *ItemName);
     byte itemGet() { return itemCurrent; }
     byte itemNum() { return itemCount;   }
+
+    void showMenu();            // Display menu on screen
 
     void moveUp();
     void moveDown();

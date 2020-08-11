@@ -9,8 +9,6 @@ extern char         sCompose[3];
 
 #define SCROLL_UP(color)    display.fillTriangle(20, 40, 140, 40, 80, 10,  color)
 #define SCROLL_DOWN(color)  display.fillTriangle(20, 80, 140, 80, 80, 110, color)
-#define LED_NUM_LOCK        0b01
-#define LED_CAPS_LOCK       0b10
 
 
 /**
@@ -78,6 +76,9 @@ void mainLoop() {
 } /**/
 
 
+/**
+ * MAIN COMPOSE - Show keyboard layout on screen
+ */
 void mainCompose() {
     display.setTextSize(1);
     display.fillRect(122, 0, 37, 28, 0xFFFF);
