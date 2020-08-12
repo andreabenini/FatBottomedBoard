@@ -454,17 +454,11 @@ Wire Wire Line
 Wire Wire Line
 	4500 3000 4650 3000
 Wire Wire Line
-	4500 1450 4500 3000
-Wire Wire Line
-	4500 1450 3350 1450
-Wire Wire Line
-	4550 1350 3350 1350
+	4500 1250 4500 3000
 Wire Wire Line
 	4550 2900 4550 1350
 Wire Wire Line
-	4600 1250 3350 1250
-Wire Wire Line
-	4600 2800 4600 1250
+	4600 2800 4600 1450
 Wire Notes Line
 	4800 3050 4800 2750
 Wire Notes Line
@@ -576,4 +570,10 @@ Wire Bus Line
 	2700 900  2700 1250
 Wire Bus Line
 	2700 1250 3050 1250
+Wire Wire Line
+	3350 1250 4500 1250
+Wire Wire Line
+	4550 1350 3350 1350
+Wire Wire Line
+	4600 1450 3350 1450
 $EndSCHEMATC
