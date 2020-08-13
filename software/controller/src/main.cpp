@@ -93,11 +93,12 @@ byte stateGet() {
 
 // Show controls or changing widgets in the current state
 void stateLoop() {
-    // Screensaver detection                                                    // ([screenSaver] * 10s)
+    // Screensaver detection, turn off display when needed                      // ([screenSaver] * 10s)
     if ((millis()-inactivity)/1000 > screenSaver*10) {
         inactivity = 0;                                                         // inactivity is 0 when display is turned off
         displayLed(LOW);
     }
+    // Screen is on
     if (inactivity > 0) {
         // Menus loop operations, if any
         switch (status) {
