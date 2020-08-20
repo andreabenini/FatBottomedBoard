@@ -160,7 +160,17 @@ void ledModeSet() {
     case LED_MODE_ON:
     case LED_MODE_ON_MORELIGHT:
     case LED_MODE_REVERSE:
-        analogWrite(PIN_LED_GENERAL, ledLight);
+        for (byte times=0; times<5; times++) {
+            for (byte b=0; b<50; b++) {
+                analogWrite(PIN_LED_GENERAL, b); // TODO: ledLight
+                delay(50);
+            }
+            for (byte b=50; b>0; b--) {
+                analogWrite(PIN_LED_GENERAL, b); // TODO: ledLight
+                delay(50);
+            }
+        }
+        analogWrite(PIN_LED_GENERAL, 0);
         break;    
     default:
         analogWrite(PIN_LED_GENERAL, 0);
