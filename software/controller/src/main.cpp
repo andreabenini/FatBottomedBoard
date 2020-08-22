@@ -160,17 +160,7 @@ void ledModeSet() {
     case LED_MODE_ON:
     case LED_MODE_ON_MORELIGHT:
     case LED_MODE_REVERSE:
-        for (byte times=0; times<5; times++) {
-            for (byte b=0; b<50; b++) {
-                analogWrite(PIN_LED_GENERAL, b); // TODO: ledLight
-                delay(50);
-            }
-            for (byte b=50; b>0; b--) {
-                analogWrite(PIN_LED_GENERAL, b); // TODO: ledLight
-                delay(50);
-            }
-        }
-        analogWrite(PIN_LED_GENERAL, 0);
+        analogWrite(PIN_LED_GENERAL, ledLight);
         break;    
     default:
         analogWrite(PIN_LED_GENERAL, 0);
@@ -216,7 +206,7 @@ void ledServiceSet(byte Active, byte LedPin) {
 
 
 /**
- * SET CAPS LOCK
+ * SET CAPS LOCK - Set capslock light
  */
 void ledCapsLockSet(byte Active) {
     ledServiceSet(Active, PIN_LED_CAPS_LOCK);
@@ -224,7 +214,7 @@ void ledCapsLockSet(byte Active) {
 
 
 /**
- * SET NUM LOCK
+ * SET NUM LOCK - Set numlock light
  */
 void ledNumLockSet(byte Active) {
     ledServiceSet(Active, PIN_LED_NUM_LOCK);

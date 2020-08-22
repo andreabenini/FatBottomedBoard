@@ -72,9 +72,10 @@ public:
 
 
     void init(byte *variable, byte dbPosition, byte valueMin, byte valueMax, byte valueStep, const __FlashStringHelper *measureUnit, const __FlashStringHelper *Title);
-    void action(byte Action);
-    void handler(void (*functionHandler)(byte Action));
+    void action(byte Action);   // Receive current action from [stateAction() main.cpp loop]
+    void handler(void (*functionHandler)(byte Action)); // Custom action handler to execute when gauge is set
     void Show();                // Display current value
+    byte Value() { return *gaugevalue; }
 };
 
 #endif

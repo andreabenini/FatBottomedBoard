@@ -12,6 +12,7 @@ void backlightPage();
 void backlightShow();
 void backlightAction(byte Action);
 void backlightSelect(byte Choice);
+void backlightControl(byte Action);
 
 
 #endif

@@ -68,8 +68,10 @@ void backlightSelect(byte Choice) {
         ledNumLockSet(keyboardLeds  & LED_NUM_LOCK  ? HIGH: LOW);
         delay(500);
         break;
-    case 1:                         // Inactivity: screen saver
-        gauge.init(&ledLight, DB_LED_LIGHT, 0, 5, 1, F("unit"), F("LED backlight intensity"));
+    case 1:                         // Change LED brightness
+        gauge.handler(backlightControl);
+        analogWrite(PIN_LED_GENERAL, ledLight);
+        gauge.init(&ledLight, DB_LED_LIGHT, 0, 25, 1, F("glow"), F("LED backlight intensity"));
         delay(500);
         ledModeSet();
         ledCapsLockSet(keyboardLeds & LED_CAPS_LOCK ? HIGH: LOW);
@@ -77,5 +79,18 @@ void backlightSelect(byte Choice) {
         break;
     default:                        // Return to default state
         stateSet(STATUS_MENU);
+    }
+} /**/
+
+
+/**
+ * VOLUME CONTROL - Volume control with rotary encoder (because everyone love knobs !)
+ */
+void backlightControl(byte Action) {
+    switch (Action) {
+    case GAUGE_UP:
+    case GAUGE_DOWN:
+        analogWrite(PIN_LED_GENERAL, gauge.Value());
+        break;
     }
 } /**/
