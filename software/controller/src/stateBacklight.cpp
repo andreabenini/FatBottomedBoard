@@ -71,7 +71,7 @@ void backlightSelect(byte Choice) {
     case 1:                         // Change LED brightness
         gauge.handler(backlightControl);
         analogWrite(PIN_LED_GENERAL, ledLight);
-        gauge.init(&ledLight, DB_LED_LIGHT, 0, 25, 1, F("glow"), F("LED backlight intensity"));
+        gauge.init(&ledLight, DB_LED_LIGHT, 0, 20, 1, F("brightness"), F("LED backlight intensity"));
         delay(500);
         ledModeSet();
         ledCapsLockSet(keyboardLeds & LED_CAPS_LOCK ? HIGH: LOW);
