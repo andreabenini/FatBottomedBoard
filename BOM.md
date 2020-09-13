@@ -47,15 +47,18 @@ Schematics available in the same dir, materials required are listed below:
   can handle more than 2A even if I won't use nominal 20mA on LEDs, they're really bright with just 10mA so this Darlington is fine
   as well.
 - 1 1K&#8486 resistor for the Darlington base
-- 117 470&#8486 resistors (for the diodes)
-- 2 330&#8486 resistors (numlock and capslock), these are controlled directly from the Teensy++ not from the Darlington
+- 117 470&#8486 resistors (backlight LEDs)
+- 2 330&#8486 resistors (numlock and capslock leds), these are controlled directly from the Teensy++ not from the Darlington
 - Spare resistors for the LCD display: 6x1K&#8486;, 1x330&#8486;, 1x100&#8486;
+- Heat shrink tubing, wirings get complicated if you sum backlight wirings (one resistor, one key) and common keyboard matrix (one diode
+  for each key). See buildlog for details.  You'd better insulate cables when you use your soldering iron. Alternatively you might use
+  enameled wire but when you weld diodes you still have some tin to insulate
 
 
 # Software
-Everything is open source from this repository, no external deps.  
-You can pickup ready made _.hex_ binary files or compile them on your own. GitHub pull requests, issues and comments here or on chat
-for your getting in touch.
+Everything is open source from this repository, no external deps required. You can pickup ready made _.hex_ binary files or compile them
+on your own.  
+Use GitHub pull requests, issues and comments here or on chat for your getting in touch.
 
 
 &nbsp;
