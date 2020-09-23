@@ -23,10 +23,10 @@ https://www.banggood.com/Mechanical-Keyboard-Plate-Mounted-Stabilizer-6_25u-Modi
   but there're even cheaper ones, pick up your favorite color or theme, I was looking for black keycaps with backlight capabilities.
 - _(R4)_ 10Pcs Transparent ABS Keycaps Mechanical keyboard Keycaps Matte Backlit Keycaps For Cherry Switch. Standard keycaps set
   (104-108) does not cover my keyboard schema and I need something more to keep up with my 119 switches. I don't want to paint them
-  externally or ruin the touch so I bought them for some tests, pretty cheap too (**~2$**) so I can make a lot of tries. I results
-  are nice I can even buy R1..R4 keys to match current switches.  
+  externally or ruin the touch so I bought them for some tests, pretty cheap too (**~2$**) so I can make a lot of tries. If results
+  are decent I can even buy R1..R4 keys to match current switches.  
   I've found these https://www.aliexpress.com/item/4000645380162.html?spm=a2g0s.9042311.0.0.1dc24c4dvSdjEP but other alternatives
-  are accepted as well.
+  are accepted as well, drop me a note or few hints on this.
 
 
 # Electronics
