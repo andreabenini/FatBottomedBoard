@@ -101,12 +101,12 @@ password and macro keeper/scroller on left side. In setup mode right encoder is 
 ---
 
 ## Resources
-- BOM (Bill Of Materials) available and up to date, links, costs and resources
+- [BOM (Bill Of Materials)](BOM.md) available and up to date, links, costs and resources
 - Three basic sections
-    - **hardware** Frame schematics, credits, resource links and a photo buildlog. Everything is
+    - **[electronics](electronics)** Kicad schematics, pdf, lcd references and specs
+    - **[hardware](hardware)** Frame schematics, credits, resource links and a photo buildlog. Everything is
     documented and photos are available to document the entire process
-    - **electronics** Kicad schematics, pdf, lcd references and specs
-    - **software** keyboard (QMK with custom code) firmware and controller firmare (encoders, LCD,
+    - **[software](software)** keyboard (QMK with custom code) firmware and controller firmare (encoders, LCD,
     SD Card). Open source and available to everyone
 
 ## To Be Done
@@ -118,8 +118,8 @@ password and macro keeper/scroller on left side. In setup mode right encoder is 
 - Black Keyset is full PBT with variable heights (R1..R4), I'd like to add new R1..R3 transparent
   keys and replace part of the R4 keys (just placed there to fill the blank)
 - Black paint from the inside and carve transparent keysets
-- Replace white F1-F4 keys (now taken from an old keyboard) below the right rotary encoder with
-  custom made ones (backlight capable)
+- Replace white F1-F4 keys (taken from an old keyboard) below the right rotary encoder with custom
+  made ones (backlight capable)
 - Remove the Windows keycap with something else, I don't want it in my keyboard
 - Add more games. Arkanoids, maybe Pacman and few more
 - Audio capabilities to the Teensy (maybe). When you play Pacman is somewhat important :)

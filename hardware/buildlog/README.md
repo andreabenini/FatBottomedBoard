@@ -1,2 +1,2 @@
 # Build Log
-Photos and progress
+Build log photos and project progress.
