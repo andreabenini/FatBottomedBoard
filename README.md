@@ -9,6 +9,8 @@ features are constantly added. This is not a blog but just a repository where al
 reported, released and shared to the public, hopefully you can contribute to it, pull request or add
 features to the project as well.
 
+![Keyboard overview](logo.png)
+
 ---
 ## Notes on the project
 - _"This is my keyboard. There are many like it, but this one is mine."_ 
