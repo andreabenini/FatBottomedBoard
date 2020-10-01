@@ -73,7 +73,7 @@ No keyboard drivers or special layouts are needed on the host side, just US-Inte
 - Two rotary encoders with push buttons. Customizable behavior. Now using: mouse scroll on right side,
 password and macro keeper/scroller on left side. In setup mode right encoder is used to navigate menus.
 - Builtin GAMES. Two rotary encoders and a small LCD screen ? Pong obviously ! More games coming btw..
-  probably Arcanoid and other retro 80s games. There's a lot of space on Teensy++
+  probably Arkanoid and other retro 80s games. There's a lot of space on Teensy++
 - Special programs keys. Just like Type5 I prefer to have specific Cut/Copy/Paste keys and few more
   for most frequently used programs (need to map them on your OS)
     - Browser button, the big one below the left rotary encoder. Heavily used. (note: keycap from
