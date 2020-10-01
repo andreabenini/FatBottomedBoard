@@ -46,9 +46,9 @@ Schematics available in the same dir, materials required are listed below:
 - TIP112 NPN Darlington Transistor. 60V 2A. Because I already had it around but you can use whatever Darlington you've, better if it
   can handle more than 2A even if I won't use nominal 20mA on LEDs, they're really bright with just 10mA so this Darlington is fine
   as well.
-- 1 1K&#8486 resistor for the Darlington base
-- 117 470&#8486 resistors (backlight LEDs)
-- 2 330&#8486 resistors (numlock and capslock leds), these are controlled directly from the Teensy++ not from the Darlington
+- 1 1K&#8486; resistor for the Darlington base
+- 117 470&#8486; resistors (backlight LEDs)
+- 2 330&#8486; resistors (numlock and capslock leds), these are controlled directly from the Teensy++ not from the Darlington
 - Spare resistors for the LCD display: 6x1K&#8486;, 1x330&#8486;, 1x100&#8486;
 - Heat shrink tubing, wirings get complicated if you sum backlight wirings (one resistor, one key) and common keyboard matrix (one diode
   for each key). See buildlog for details.  You'd better insulate cables when you use your soldering iron. Alternatively you might use
