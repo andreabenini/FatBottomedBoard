@@ -12,8 +12,9 @@ void macroShow();
 void macroAction(byte Action);
 void macroExecute(unsigned int macroNumber);
 void macroGetLineNumber(unsigned int macroNumber, char *buffer, unsigned int bufferlen, unsigned long currentLine);
-void macroCompile(char *buffer);
+void macroCompileAndExecute(char *buffer);
 void macroSendShow(byte SendShow);
 void macroDecodeHex(char *pointer);
+char *macroDelay(char *pointer);
 
 #endif

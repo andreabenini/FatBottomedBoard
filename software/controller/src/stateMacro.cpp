@@ -3,6 +3,8 @@
 extern TFT          display;
 extern menuObject   menu;
 extern File         fileMacro;
+extern char         cmdBuffer[BUFFERMAX];
+
 
 /**
  * Show macro page controls after changing the state
@@ -79,6 +81,9 @@ void macroAction(byte Action) {
 } /**/
 
 
+/**
+ * MACRO EXECUTE - Executes a selected macro number (getting contents from file on SD)
+ */
 void macroExecute(unsigned int macroNumber) {
     char macro[MACROBUFFER_SIZE];
     fileMacro.seek(0);
@@ -86,14 +91,16 @@ void macroExecute(unsigned int macroNumber) {
     if (!strcmp_P(macro, (PGM_P) F(""))) {
         return;
     }
-    macroCompile(macro);
+    macroCompileAndExecute(macro);
     macroSendShow(1);
-    Keyboard.print(macro);
     delay(1000);
     macroSendShow(0);
 } /**/
 
 
+/**
+ * MACRO SEND SHOW - Display macro menu on screen
+ */
 void macroSendShow(byte SendShow) {
     if (SendShow == 1) {
         display.fillRect(0, 0, 160, 18, 0x001F);
@@ -138,22 +145,59 @@ void macroGetLineNumber(unsigned int macroNumber, char *buffer, unsigned int buf
 } /**/
 
 
-void macroCompile(char *buffer) {
-    char *p;
-    p = buffer;
+void macroCompileAndExecute(char *buffer) {
+    char *p, *pStart;
+    p = pStart = buffer;
     while (*p != 0x00) {
-        if (*p == '\\') {
-            if (*(p+1) == '\\') {           // "\\" -> "\"
+        if (*p == '\\') {       // Special separator detected '\'
+            // "\\"  -> "\"
+            if (*(p+1) == '\\') {
                 memmove(p, p+1, strlen(p));
-            } else {                        // "\0D" -> "\n"    (hexdump to real char)
+            
+            // "s"   -> Sleep (example: "\s1000/"  Sleep 1 sec)
+            } else if (*(p+1) == 's') {
+                *p = 0x00;      // *p=='\'
+                if (*pStart != 0x00) {
+                    Keyboard.print(pStart);
+                }
+                p = macroDelay(p+2);        // p (after)='/'.  p+2="1000"
+                pStart = p+1;               // First char after '/'
+
+            // "\xx" -> "?"   (hexdump to real char, example: "\0D" -> "\r")
+            } else {
                 macroDecodeHex(p);
             }
         }
-        p++;
+        if (*p != 0x00) {
+            p++;
+        }
+    }
+    if (*pStart != 0x00) {
+        Keyboard.print(pStart);
     }
 } /**/
 
 
+/**
+ * MACRO DELAY - When detected process a delay in the macro
+ * @see Syntax: "\s1000/": Delay 1s
+ */
+char *macroDelay(char *pointer) {           // First char after "\s" (Example: "1000/")
+    memset(cmdBuffer, 0x00, BUFFERMAX);
+    while (*pointer != 0x00  &&  *pointer != '/') {
+        *(cmdBuffer+strlen(cmdBuffer)) = *pointer;
+        pointer++;
+    }
+    delay(atol(cmdBuffer));
+    return pointer; // pointer=='/'
+} /**/
+
+
+/**
+ * MACRO DECODE HEX - Convert a macro encoded hex code into a real char
+ * @see "\0A" -> '\n'
+ *      "\20" -> ' '
+ */
 void macroDecodeHex(char *pointer) {
     char hexString[3];
     // Skip leading '\' and copy next two chars ("\0D" -> "0D") into [hexString]

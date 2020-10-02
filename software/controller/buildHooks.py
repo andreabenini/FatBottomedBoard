@@ -8,7 +8,7 @@
 #   - Make a backup copy of usb_hid/usb_private.h -> usb_hid/usb_private.h.backup (just once, the first time)
 #       It's commented but you can resume it if you're running for the first time
 #   - Change: VID,PID,Name in the usb_hid profile (file: usb_private.h)
-# NOTE: this hook is not necessary, I'm using it to change device name on firmware (I don't like the default)
+# Slightly modified version: it creates a backup only if it does not exist yet
 #
 import os
 import shutil
@@ -44,10 +44,10 @@ print("----------------------------------------------- Compilation setup [BEGIN]
 # usb_private.h backup
 fileName = os.path.sep.join([env['CPPPATH'][1]]+["usb_hid","usb_private.h"])
 fileNameBackup = fileName+".backup"
-# shutil.copyfile(fileName, fileNameBackup)
+if not os.path.exists(fileNameBackup):
+    shutil.copyfile(fileName, fileNameBackup)
 editUSBsettings(fileName)
 print("----------------------------------------------- Compilation setup [ END ]")
-
 
 
 env.AddPostAction("buildprog", buildPostAction)
