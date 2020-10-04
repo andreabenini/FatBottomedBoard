@@ -35,8 +35,8 @@ I would be really happy to change that.
 If you're looking for another instructables.com project with some sort of kit purchasable on Amazon
 this is not the keyboard for you. Everything here starts from scratch. Leds, keys/keycaps, MCUs and
 you manually need to build or add everything else.
-[Hardware buildlog](hardware/buildlog) and each step is pretty well
-documented, drop me a note for everything else.
+[Hardware buildlog](hardware/buildlog/README.md) and each step is
+pretty well documented, drop me a note for everything else.
 - Full _Metal_. Frame comes from manually carved, drilled, sanded, bended and adapted piece
 of 3mm stainless steel. Some paint, a drill, files, a Dremel, nut and bolts... and your time...
 - **Sun Type 5 was the best layout ever**. I was a big Sun Microsystems fan before obscurantism and
@@ -102,6 +102,7 @@ password and macro keeper/scroller on left side. In setup mode right encoder is 
 
 ## Resources
 - [BOM (Bill Of Materials)](BOM.md) available and up to date, links, costs and resources
+- [Hardware buildlog](hardware/buildlog/README.md)
 - Three basic sections
     - **[electronics](electronics)** Kicad schematics, pdf, lcd references and specs
     - **[hardware](hardware)** Frame schematics, credits, resource links and a photo buildlog. Everything is
