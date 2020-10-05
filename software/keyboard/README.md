@@ -2,14 +2,13 @@
 Firmware for FatBottomedBoard
 
 
-# Environment setup
+## Setup
+#### Software installation
 ```sh
 # or use your favorite package manager to get those packages
 sudo pacman -S arm-none-eabi-gcc arm-none-eabi-newlib
 ```
-
-
-# Project setup
+#### Project setup
 ```sh
 # cloning github project
 git clone https://github.com/qmk/qmk_firmware
@@ -22,9 +21,7 @@ make handwired/onekey/teensy_32:default
 # Clean that basic example
 make clean
 ```
-
-
-# Copy project configuration
+#### Copy project configuration
 ```sh
 # Add current configuration to qmk project
 cd qmk_firmare/keyboards
@@ -37,6 +34,11 @@ ln -s ../../config/fatbottomedboard .
 - QMK Keyboard firmware builder https://kbfirmware.com/  
 - QMK Cheat sheet https://jayliu50.github.io/qmk-cheatsheet/
 - List of unicode characters https://en.wikipedia.org/wiki/List_of_Unicode_characters
+
+
+## Keyboard Manual
+
+[This is up to date keyboard](manual.md) manual with keys, macros, layouts and current configuration.
 
 
 ## Notes

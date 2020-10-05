@@ -65,7 +65,8 @@ my personal touch and improvements to that.
   power supply, your're not tied to USB limitations
 - US International layout on host side, internally switchable layouts (with a dedicated key) for all
 non native english speakers. Starts with a EN-US layout (linux rules on that) but you can type latin
-(or non latin) accented letters for your language. Available layouts: EN-US/std, EN-US/int, IT/std.
+(or non latin) accented letters for your language.
+Available layouts: UI: USA International EN-US/std, EN-US/int, IT/std.
 Firmware extensible to any language
 - Switchable OS (Linux: default, MacOS, Windows) [with a key combination] to enter special chars for
 your favorite OS, no need to type unicode stuff (even if it remaps to it internally for some letters).
