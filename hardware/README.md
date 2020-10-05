@@ -9,6 +9,9 @@ Hardware designs & layouts
   `kb.h` and `kb.c` generated files.
   **fatbottomedboard.json** was generated from https://kbfirmware.com/, you might use it again and return
   to that site to load configuration and alter it if needed.
+  **keyboard-layout.json** was generated from http://www.keyboard-layout-editor.com/, you might use it again and return
+  to that site to load configuration and alter it if needed.
+  **keyboard-layout.[png|svg]** were generated from http://www.keyboard-layout-editor.com/ along with the json file
 
 
 **Links**
