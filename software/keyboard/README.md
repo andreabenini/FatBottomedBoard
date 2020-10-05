@@ -29,16 +29,15 @@ ln -s ../../config/fatbottomedboard .
 ```
 
 
+## Keyboard Manual
+[This is up to date keyboard manual](manual.md) with keys, macros, layouts and current configuration.  
+Complete keyboard layout is available in the [hardware section](../../hardware)
+
 ## Links 
 - Hints on classics layouts http://www.quadibloc.com/comp/kyb0301.htm  
 - QMK Keyboard firmware builder https://kbfirmware.com/  
 - QMK Cheat sheet https://jayliu50.github.io/qmk-cheatsheet/
 - List of unicode characters https://en.wikipedia.org/wiki/List_of_Unicode_characters
-
-
-## Keyboard Manual
-
-[This is up to date keyboard](manual.md) manual with keys, macros, layouts and current configuration.
 
 
 ## Notes
