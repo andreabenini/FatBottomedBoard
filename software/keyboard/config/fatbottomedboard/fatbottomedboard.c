@@ -1,4 +1,4 @@
-/* Copyright 2020 Ben
+/** Copyright 2020 Ben
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -47,23 +47,24 @@ void matrix_init_kb(void) {
     matrix_init_user();
 }
 
+/**
+ * put your looping keyboard code here
+ * runs every cycle (a lot)
+ */
 void matrix_scan_kb(void) {
-    // put your looping keyboard code here
-    // runs every cycle (a lot)
-
     matrix_scan_user();
 }
 
+/**
+ * put your per-action keyboard code here
+ * runs for every action, just before processing by the firmware
+ */
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
-    // put your per-action keyboard code here
-    // runs for every action, just before processing by the firmware
-
     return process_record_user(keycode, record);
 }
 
+// put your keyboard LED indicator (ex: Caps Lock LED) toggling code here
 void led_set_kb(uint8_t usb_led) {
-    // put your keyboard LED indicator (ex: Caps Lock LED) toggling code here
-
     led_set_user(usb_led);
 }
 
@@ -80,10 +81,11 @@ void layout(const char *str) {
 /**
  * OS FUNCTIONS
  */
-void osChange(osType osDefault) {
-    osTypeCurrent = osDefault;
-} /**/
 
+
+/**
+ * OS TOGGLE - Change current OS (and key behavior as well)
+ */
 void osToggle(void) {
     switch (osTypeCurrent) {
     case LINUX:
@@ -100,6 +102,18 @@ void osToggle(void) {
     osSend();
 } /**/
 
+
+/**
+ * OS CHANGE - Change current OS (and key behavior as well)
+ * @see Do NOT use this function to change the OS, use osToggle() instead.
+ *      osToggle() calls this function internally
+ */
+void osChange(osType osDefault) {
+    osTypeCurrent = osDefault;
+} /**/
+
+
+// Send OS information through serial port to the other controller
 void osSend(void) {
     _delay_ms(100);
     uart_putchar('o');
@@ -119,6 +133,8 @@ void osSend(void) {
     uart_putchar('\n');
 } /**/
 
+
+// Return selected OS
 osType osCurrent(void) {
     return osTypeCurrent;
 } /**/
@@ -127,6 +143,7 @@ osType osCurrent(void) {
 /**
  * SERIAL FUNCTIONS (communicate with the other teensy board)
  */
+
 
 // Initialize the UART
 void uart_init(uint32_t baud) {
@@ -155,6 +172,7 @@ void uart_putchar(uint8_t c) {
     //sei();
 } /**/
 
+// Send a byte to serial port
 void uart_print_P(const char *str) {
     char c;
     while (1) {
@@ -166,7 +184,7 @@ void uart_print_P(const char *str) {
     }
 } /**/
 
-
+// Send a byte to serial port and wait (20ms, fixed)
 void uart_print_P_delay(const char *str) {
     char c;
     while (1) {
@@ -178,7 +196,6 @@ void uart_print_P_delay(const char *str) {
         _delay_ms(20);
     }
 } /**/
-
 
 // Receive a byte
 uint8_t uart_getchar(void) {

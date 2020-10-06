@@ -1,12 +1,3 @@
-# **WORK IN PROGRESS**
-This manual is a draft, accent letters are fine, but some parts are still a work in progress
-for the next few days
-
----
-TODO:
-
----
-
 # Keyboard manual _(BABE)_
 
 ![Keyboard layout](../../hardware/keyboard-layout.png)
