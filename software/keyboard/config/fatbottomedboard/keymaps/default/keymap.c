@@ -70,15 +70,16 @@ enum custom_keycodes {
 };
 
 // Define useful macros
-#define UNDO    LCTL(KC_Z)          // KC_UNDO  seems the right choice but a lot of programs ignores it and direcly map UNDO to Ctrl+Z (vscode is one of them)
-#define REDO1   LCTL(KC_Y)          // KC_AGAIN same behavior of KC_UNDO but unfortunately there's no common choiche among programs    (vscode  uses CTRL+Y)
-#define REDO2   LCTL(LSFT(KC_Z))    // KC_AGAIN                                                                                        (eclipse uses CTRL+SHIFT+Z)
-#define BCUT1   LCTL(KC_X)          // KC_CUT/COPY/PASTE follow same problems had above with KC_UNDO where most programs use them but someone doesn't (Terminal programs for example)
-#define BCOPY1  LCTL(KC_C)          // KC_CUT/COPY/PASTE
-#define BPASTE1 LCTL(KC_V)          // KC_CUT/COPY/PASTE
-#define BCUT2   LSFT(KC_DEL)        // KC_CUT/COPY/PASTE same as above but some programs still use Ctrl+Ins, Shift+Ins, Shift+Canc (GIT Terminal under windows for example)
-#define BCOPY2  LCTL(KC_INS)        // KC_CUT/COPY/PASTE
-#define BPASTE2 LSFT(KC_INS)        // KC_CUT/COPY/PASTE
+#define FKEY(value) LCTL(LSFT(LGUI(KC_##value)))// Remapping for custom function keys, to avoid collision "Shift+Control+Super+<yourKey>" is used
+#define UNDO        LCTL(KC_Z)                  // KC_UNDO  seems the right choice but a lot of programs ignores it and direcly map UNDO to Ctrl+Z (vscode is one of them)
+#define REDO1       LCTL(KC_Y)                  // KC_AGAIN same behavior of KC_UNDO but unfortunately there's no common choiche among programs    (vscode  uses CTRL+Y)
+#define REDO2       LCTL(LSFT(KC_Z))            // KC_AGAIN                                                                                        (eclipse uses CTRL+SHIFT+Z)
+#define BCUT1       LCTL(KC_X)                  // KC_CUT/COPY/PASTE follow same problems had above with KC_UNDO where most programs use them but someone doesn't (Terminal programs for example)
+#define BCOPY1      LCTL(KC_C)                  // KC_CUT/COPY/PASTE
+#define BPASTE1     LCTL(KC_V)                  // KC_CUT/COPY/PASTE
+#define BCUT2       LSFT(KC_DEL)                // KC_CUT/COPY/PASTE same as above but some programs still use Ctrl+Ins, Shift+Ins, Shift+Canc (GIT Terminal under windows for example)
+#define BCOPY2      LCTL(KC_INS)                // KC_CUT/COPY/PASTE
+#define BPASTE2     LSFT(KC_INS)                // KC_CUT/COPY/PASTE
 
 // Send unicode strings with your OS
 #define LINUX_UNICODE(string)       SEND_STRING(SS_LCTL(SS_LSFT("u")) string "\n")
@@ -103,13 +104,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    `------'------'   `--------'--------'--------`-------------------------------------------'--------'--------'--------'--------'     `------'------'------'     `-------------'------'------'
      */  [_BASE_USA_] = LAYOUT(
 
-            LSFT(KC_F24),    KC_ESC,       KC_F1, KC_F2, KC_F3, KC_F4,      KC_F5, KC_F6, KC_F7, KC_F8,     KC_F9, KC_F10,KC_F11,KC_F12,      KC_PSCR,TO(1),  MO(4),     KC_F16,KC_F17,KC_F18,KC_F19, // MacOS Group
+            FKEY(F10),       KC_ESC,       KC_F1, KC_F2, KC_F3, KC_F4,      KC_F5, KC_F6, KC_F7, KC_F8,     KC_F9, KC_F10,KC_F11,KC_F12,      KC_PSCR,TO(1),  MO(4),  FKEY(F1),FKEY(F2),FKEY(F3),FKEY(F4),
 
-             UNDO,REDO1,     KC_GRV,KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,  KC_9,  KC_0,  KC_MINS, KC_EQL,      KC_BSPC,      KC_INS, KC_HOME,KC_PGUP,   KC_NLCK,KC_PSLS, KC_PAST,KC_PMNS,
-  LSFT(KC_F19),LSFT(KC_F20), KC_TAB,   KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,  KC_Y,  KC_U,  KC_I,  KC_O,  KC_P,  KC_LBRC,KC_RBRC,   KC_BSLS,      KC_DEL, KC_END, KC_PGDN,   KC_P7,  KC_P8,   KC_P9,
-         BCUT1,LSFT(KC_F21), KC_CAPS,     KC_A,  KC_S,  KC_D,  KC_F,  KC_G,  KC_H,  KC_J,  KC_K,  KC_L,  KC_SCLN, KC_QUOT,       KC_ENT,                                 KC_P4,  KC_P5,   KC_P6,  KC_PPLS,
-        BCOPY1,LSFT(KC_F22), KC_LSFT,        KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_N,  KC_M,  KC_COMM,KC_DOT, KC_SLSH,          KC_RSFT,              KC_UP,             KC_P1,  KC_P2,   KC_P3,
-       BPASTE1,LSFT(KC_F23), KC_LCTL, KC_LALT, KC_LGUI,                   KC_SPC,                    MO(3),   KC_RALT, KC_RGUI, KC_RCTL,      KC_LEFT,KC_DOWN,KC_RGHT,   KC_P0,           KC_PDOT,KC_PENT
+           UNDO,REDO1,       KC_GRV,KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,  KC_9,  KC_0,  KC_MINS, KC_EQL,      KC_BSPC,      KC_INS, KC_HOME,KC_PGUP,   KC_NLCK,KC_PSLS, KC_PAST,KC_PMNS,
+       FKEY(F5),FKEY(F6),    KC_TAB,   KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,  KC_Y,  KC_U,  KC_I,  KC_O,  KC_P,  KC_LBRC,KC_RBRC,   KC_BSLS,      KC_DEL, KC_END, KC_PGDN,   KC_P7,  KC_P8,   KC_P9,
+          BCUT1,FKEY(F7),    KC_CAPS,     KC_A,  KC_S,  KC_D,  KC_F,  KC_G,  KC_H,  KC_J,  KC_K,  KC_L,  KC_SCLN, KC_QUOT,       KC_ENT,                                 KC_P4,  KC_P5,   KC_P6,  KC_PPLS,
+         BCOPY1,FKEY(F8),    KC_LSFT,        KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_N,  KC_M,  KC_COMM,KC_DOT, KC_SLSH,          KC_RSFT,              KC_UP,             KC_P1,  KC_P2,   KC_P3,
+        BPASTE1,FKEY(F9),    KC_LCTL, KC_LALT, KC_LGUI,                   KC_SPC,                    MO(3),   KC_RALT, KC_RGUI, KC_RCTL,      KC_LEFT,KC_DOWN,KC_RGHT,   KC_P0,           KC_PDOT,KC_PENT
     ),
 
     // TODO: italian keyboard layout, work in progress
@@ -257,6 +258,7 @@ void matrix_init_user(void) {
 void matrix_scan_user(void) {
 }
 
+// TODO: Set unicode OFF [UNICODE_ENABLE = yes]
 
 // TODO: mapping each single char not directly mapped from keyboard defines
 /**
@@ -269,9 +271,6 @@ void matrix_scan_user(void) {
  * £ -> Alt+156                                 (ASCII)
  * € -> Alt+0128                                (UNICODE)
  * 
- * @see Working notes from QMK manual: 
- *      SEND_STRING(SS_LCTL("a"));
- *          Which would send Left Control+a (Left Control down, a, Left Control up). Notice that they take strings (eg "k"), and not the X_K keycodes
  * grave
  * § 00A7
  */
@@ -281,6 +280,10 @@ void matrix_scan_user(void) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         switch (keycode) {
+        
+        /**
+         * One shot keys. Not using ALTgr or other keys to compose
+         */
         case CHG_OS:
             osToggle();
             return false;
@@ -373,9 +376,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     //     process_unicode(UC_GRV, record);
     //     return false;
     // }
-    // But you can also replace the process_unicode line with this:
-    // register_code(KC_GRAVE);
-    // unregister_code(KC_GRAVE);
     return true;
 } /**/
 
