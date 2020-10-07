@@ -83,6 +83,10 @@ enum custom_keycodes {
 
 // Send unicode strings with your OS
 #define LINUX_UNICODE(string)       SEND_STRING(SS_LCTL(SS_LSFT("u")) string "\n")
+#define WINDOWS_CODE(string)        SEND_STRING(SS_LALT(string))
+#define MACOS_CODE(string)          SEND_STRING(string)
+#define MACOS_CODE1(string)         SEND_STRING(SS_LALT(string))
+#define MACOS_CODE2(string)         SEND_STRING(SS_LALT(SS_LSFT(string)))
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -258,21 +262,10 @@ void matrix_init_user(void) {
 void matrix_scan_user(void) {
 }
 
-// TODO: Set unicode OFF [UNICODE_ENABLE = yes]
-
 // TODO: mapping each single char not directly mapped from keyboard defines
 /**
- * LINUX
- * € -> Ctrl+Shift+u <release> 20ac <enter>     (UNICODE)
- * MacOS
- * £ -> Alt+3
- * € -> Alt+Shift+2
- * Windows
- * £ -> Alt+156                                 (ASCII)
- * € -> Alt+0128                                (UNICODE)
  * 
- * grave
- * § 00A7
+ * ALT (acute) § 00A7
  */
 /**
  * Detect and process custom keycodes
@@ -283,76 +276,115 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         
         /**
          * One shot keys. Not using ALTgr or other keys to compose
+         * @see one liner case looks ugly but it's more compact in a quite crowded switch()
          */
         case CHG_OS:
             osToggle();
             return false;
 
-        case POUND:
+        case POUND:     // £
             switch (osCurrent()) {
-            case WIN:
-            case MACOS:
-                break;
+            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_1) SS_TAP(X_KP_5) SS_TAP(X_KP_6)); return false;
+            case MACOS: MACOS_CODE1("3"); return false;
             case LINUX:
-            default:
-                LINUX_UNICODE("a3");
-                return false;
+            default:    LINUX_UNICODE("a3"); return false;
             }
 
-        case AGRAVE:
+        // TODO: Upper case for grave letters to handle
+        case AGRAVE:    // à
             switch (osCurrent()) {
-            case WIN:
-            case MACOS:
-                break;
+            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_2) SS_TAP(X_KP_4)); return false;
+            case MACOS: MACOS_CODE(SS_LALT("`") "a"); return false;
             case LINUX:
-            default:
-                LINUX_UNICODE("e0");
-                return false;
+            default:    LINUX_UNICODE("e0"); return false;
             }
 
-        case EGRAVE:
+        case EGRAVE:    // è
             switch (osCurrent()) {
-            case WIN:
-            case MACOS:
-                break;
+            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_2)); return false;
+            case MACOS: MACOS_CODE(SS_LALT("`") "e"); return false;
             case LINUX:
-            default:
-                LINUX_UNICODE("e8");
-                return false;
+            default:    LINUX_UNICODE("e8"); return false;
             }
 
-        case IGRAVE:
+        case IGRAVE:    // ì
             switch (osCurrent()) {
-            case WIN:
-            case MACOS:
-                break;
+            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_6)); return false;
+            case MACOS: MACOS_CODE(SS_LALT("`") "i"); return false;
             case LINUX:
-            default:
-                LINUX_UNICODE("ec");
-                return false;
+            default:    LINUX_UNICODE("ec"); return false;
             }
 
-        case OGRAVE:
+        case OGRAVE:    // ò
             switch (osCurrent()) {
-            case WIN:
-            case MACOS:
-                break;
+            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_4) SS_TAP(X_KP_2)); return false;
+            case MACOS: MACOS_CODE(SS_LALT("`") "o"); return false;
             case LINUX:
-            default:
-                LINUX_UNICODE("f2");
-                return false;
+            default:    LINUX_UNICODE("f2"); return false;
             }
 
-        case UGRAVE:
+        case UGRAVE:    // ù
             switch (osCurrent()) {
-            case WIN:
-            case MACOS:
-                break;
+            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_4) SS_TAP(X_KP_9)); return false;
+            case MACOS: MACOS_CODE(SS_LALT("`") "u"); return false;
             case LINUX:
-            default:
-                LINUX_UNICODE("f9");
-                return false;
+            default:    LINUX_UNICODE("f9"); return false;
             }
+
+        default:        // Dealing with everything else
+            // Key composed with RIGHT ALT          (ACUTE)
+            if (get_mods() & MOD_BIT(KC_RALT)) {
+                switch (keycode) {
+                case KC_A:  // á
+                    switch (osCurrent()) {
+                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_2) SS_TAP(X_KP_5)); return false;
+                    case MACOS: MACOS_CODE(SS_LALT("e") "a"); return false;
+                    case LINUX:
+                    default:    LINUX_UNICODE("e1"); return false;
+                    }
+
+                case KC_E:  // é
+                    switch (osCurrent()) {
+                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_3)); return false;
+                    case MACOS: MACOS_CODE(SS_LALT("e") "e"); return false;
+                    case LINUX:
+                    default:    LINUX_UNICODE("e9"); return false;
+                    }
+
+                case KC_I:  // í
+                    switch (osCurrent()) {
+                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_7)); return false;
+                    case MACOS: MACOS_CODE(SS_LALT("e") "i"); return false;
+                    case LINUX:
+                    default:    LINUX_UNICODE("ed"); return false;
+                    }
+
+                case KC_O:  // ó
+                    switch (osCurrent()) {
+                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_4) SS_TAP(X_KP_3)); return false;
+                    case MACOS: MACOS_CODE(SS_LALT("e") "o"); return false;
+                    case LINUX:
+                    default:    LINUX_UNICODE("f3"); return false;
+                    }
+
+                case KC_U:  // ú
+                    switch (osCurrent()) {
+                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_5) SS_TAP(X_KP_0)); return false;
+                    case MACOS: MACOS_CODE(SS_LALT("e") "u"); return false;
+                    case LINUX:
+                    default:    LINUX_UNICODE("fa"); return false;
+                    }
+
+                case KC_4:  // Euro Sign [€]
+                    switch (osCurrent()) {
+                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_2) SS_TAP(X_KP_8)); return false;
+                    case MACOS: MACOS_CODE2("2"); return false;
+                    case LINUX:
+                    default:    LINUX_UNICODE("20ac"); return false;
+                    }
+                }
+            }
+            break;          // Right ALT end
         }
     }
     // if (record->event.pressed) {     UPPERCASE & LOWERCASE

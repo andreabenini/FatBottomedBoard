@@ -43,6 +43,7 @@ osType osTypeCurrent;
  * put your keyboard start-up code here, runs once when the firmware starts up
  */
 void matrix_init_kb(void) {
+    wait_ms(1000);      // XXX: sometime kbd hangs on startup, seems to be a qmk problem but I'd like to see if this fixes. Remove if not needed
     uart_init(9600);
     matrix_init_user();
 }
