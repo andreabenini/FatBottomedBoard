@@ -5,6 +5,6 @@
 cd qmk_firmware/
 make fatbottomedboard:default
 cd - >/dev/null
-if [ ! -f fatbottomedboard_default.hex ]; then
-    ln qmk_firmware/fatbottomedboard_default.hex .
+if [ -f qmk_firmware/fatbottomedboard_default.hex ]; then
+    cp qmk_firmware/fatbottomedboard_default.hex fatbottomedboard_babe.hex
 fi
