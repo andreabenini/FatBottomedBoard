@@ -24,17 +24,17 @@ special keyboard layouts to override US-Intl behavior with dead keys, there's no
 | **\<ALT>**+**_\<letter>_**    | [**´**] Acute accent letter   | ALT+e = é |
 | **\<ALT>**+**_<4>_**          | [**€**] Euro sign             | _where **$** sign is reported_ |
 | **\<FN>**+**_<4>_**           | [**£**] Pount sign            | _where **$** sign is reported_ |
-| **\<ALT>+\<\\>**              | §                             | § |
+| **\<FN>+\<\\>**               | §                             | § |
 | _Editing Functions_ |||
 | **\<UNDO>**                   | Ctrl+Z                        | Generic undo key |
 | **\<REDO>**                   | Ctrl+Y                        | Redo with Ctrl+Y (vscode) |
 | **\<FN>+\<REDO>**             | Ctrl+Shift+Z                  | Redo with Ctrl+Shift+Z (eclipse) |
-| **\<Shift>+\<Del>**           |                               | _cut_ |
-| **\<Ctrl>+\<X>**              | Cut                           | Cut |
-| **\<Ctrl>+\<Insert>**         |                               | _copy_ |
-| **\<Ctrl>+\<C>**              | Copy                          | Copy |
-| **\<Shift>+\<Insert>**        |                               | _paste_ |
-| **\<Ctrl>+\<V>**              | Paste                         | Paste |
+| **\<CUT>**                    | \<Ctrl>+\<X>                  | Cut |
+| **\<FN>+\<CUT>**              | \<Shift>+\<Del>               | _cut_  _(classic)_|
+| **\<COPY>**                   | \<Ctrl>+\<C>                  | Copy |
+| **\<FN>+\<COPY>**             | \<Ctrl>+\<Insert>             | _copy_ _(classic)_|
+| **\<PASTE>**                  | \<Ctrl>+\<V>                  | Paste |
+| **\<FN>+\<PASTE>**            | \<Shift>+\<Insert>            | _paste_ _(classic)_|
 | _OS Features_ |||
 | **\<Browser>**                | Start chrome browser          | Mapped to LSFT(KC_F20) on OS  |
 | **\<FN>+\<Browser>**          | Browser Home (Windows)        | _#define KC_WWW_HOME_  |
