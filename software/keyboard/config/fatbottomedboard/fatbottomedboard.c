@@ -29,8 +29,7 @@ static volatile uint8_t rx_buffer[RX_BUFFER_SIZE];
 static volatile uint8_t rx_buffer_head;
 static volatile uint8_t rx_buffer_tail;
 
-// Current operating system (default: linux)
-osType osTypeCurrent;
+osType osTypeCurrent;           // Current operating system (default: linux)
 
 /**/
 
@@ -43,7 +42,7 @@ osType osTypeCurrent;
  * put your keyboard start-up code here, runs once when the firmware starts up
  */
 void matrix_init_kb(void) {
-    wait_ms(1000);      // XXX: sometime kbd hangs on startup, seems to be a qmk problem but I'd like to see if this fixes. Remove if not needed
+    wait_ms(1000);      // XXX: sometime kbd hangs on startup, seems to be a QMK problem but I'd like to see if this delay will fix it. Remove if not needed
     uart_init(9600);
     matrix_init_user();
 }
