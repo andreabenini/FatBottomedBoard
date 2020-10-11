@@ -35,6 +35,8 @@
 #define BPASTE2     LSFT(KC_INS)                // KC_CUT/COPY/PASTE
 #define MOD_SHIFTS  (MOD_BIT(KC_LSHIFT)|MOD_BIT(KC_RSHIFT)) // Both shift keys (OR)
 
+
+
 // Send unicode strings with your OS
 #define LINUX_UNICODE(string)       SEND_STRING(SS_LCTL(SS_LSFT("u")) string "\n")
 #define WINDOWS_CODE(string)        SEND_STRING(SS_LALT(string))
@@ -45,11 +47,27 @@
 // required functions
 bool keyboardPrintPound(void);
 bool keyboardPrintSection1(void);
+
+// ITA Keyboard
+bool keyboardPrintQuotIT(void);
+bool keyboardPrintIGraveIT(void);
+bool keyboardPrintEGraveIT(void);
+bool keyboardPrintPlusIT(void);
+bool keyboardPrintUGraveIT(void);
+bool keyboardPrintOGraveIT(void);
+bool keyboardPrintAGraveIT(void);
+bool keyboardPrintCommaIT(void);
+bool keyboardPrintDotIT(void);
+bool keyboardPrintMinusIT(void);
+
+// Generic keys (EN-USA)
 bool keyboardPrintAGrave(void);
 bool keyboardPrintEGrave(void);
 bool keyboardPrintIGrave(void);
 bool keyboardPrintOGrave(void);
 bool keyboardPrintUGrave(void);
+bool keyboardPrintAAcute(void);
+bool keyboardPrintEAcute(void);
 bool keyboardPrintEuroIfNeeded(void);
 bool keyboardPrintAAcuteIfNeeded(void);
 bool keyboardPrintEAcuteIfNeeded(void);

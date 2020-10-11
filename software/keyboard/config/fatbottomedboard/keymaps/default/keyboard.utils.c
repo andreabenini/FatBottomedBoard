@@ -21,11 +21,6 @@ bool keyboardPrintSection1(void) {
 
 
 bool keyboardPrintAGrave(void) {
-    // TODO: work in progress on keyboard detection
-    // char sss[10];       
-    // sprintf(sss, "%lu", layer_state);
-    // send_string(sss);
-    // TODO: END
     // À
     if (get_mods() & MOD_SHIFTS) {       
         clear_mods();
@@ -130,12 +125,112 @@ bool keyboardPrintUGrave(void) {
     }
 } /**/
 
+bool keyboardPrintAAcute(void) {            // á
+    switch (osCurrent()) {
+        case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_2) SS_TAP(X_KP_5)); return false;
+        case MACOS: MACOS_CODE(SS_LALT("e") "a"); return false;
+        case LINUX:
+        default:    LINUX_UNICODE("e1"); return false;
+    }
+} /**/
+
+bool keyboardPrintEAcute(void) {            // é
+    switch (osCurrent()) {
+        case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_3)); return false;
+        case MACOS: MACOS_CODE(SS_LALT("e") "e"); return false;
+        case LINUX:
+        default:    LINUX_UNICODE("e9"); return false;
+    }
+} /**/
+
+bool keyboardPrintQuotIT(void) {            // '?
+    if (get_mods() & MOD_SHIFTS) {          // ?
+        SEND_STRING(SS_TAP(X_SLSH));
+    } else {
+        SEND_STRING(SS_TAP(X_QUOT));        // '
+    }
+    return false;
+} /**/
+
+bool keyboardPrintIGraveIT(void) {          // ì^
+    if (get_mods() & MOD_SHIFTS) {          // ^
+        SEND_STRING(SS_LSFT(SS_TAP(X_6)));
+        return false;
+    }                                       // ì
+    keyboardPrintIGrave();
+    return true;
+} /**/
+
+bool keyboardPrintEGraveIT(void) {          // èé[
+    uint8_t modifier = get_mods();
+    clear_mods();
+    if (modifier & MOD_SHIFTS) {            // é
+        keyboardPrintEAcute();
+        set_mods(modifier);
+        return false;
+    }
+    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // [
+        SEND_STRING(SS_TAP(X_LBRC));
+        set_mods(modifier);
+        return false;
+    }
+    keyboardPrintEGrave();                  // è
+    set_mods(modifier);
+    return false;
+} /**/
+
+bool keyboardPrintPlusIT(void) {            // +*]
+    uint8_t modifier = get_mods();
+    clear_mods();
+    if (modifier & MOD_SHIFTS) {            // +
+        SEND_STRING(SS_LSFT(SS_TAP(X_8)));
+        return false;
+    }
+    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // ]
+        SEND_STRING(SS_TAP(X_RBRC));
+        return false;
+    }
+    SEND_STRING(SS_LSFT(SS_TAP(X_EQL)));    // *
+    return false;
+} /**/
+
+bool keyboardPrintUGraveIT(void) {          // ù§
+    // TODO:
+    return true;
+} /**/
+
+bool keyboardPrintOGraveIT(void) {          // òç@
+    // TODO:
+    return true;
+} /**/
+
+bool keyboardPrintAGraveIT(void) {          // à°#
+    // TODO:
+    return true;
+} /**/
+
+bool keyboardPrintCommaIT(void) {           // ,;<
+    // TODO:
+    return true;
+} /**/
+
+bool keyboardPrintDotIT(void) {             // .:>
+    // TODO:
+    return true;
+} /**/
+
+bool keyboardPrintMinusIT(void) {           // -_
+    // TODO:
+    return true;
+} /**/
+
+
 
 bool keyboardPrintAAcuteIfNeeded() {
     uint8_t modifiers = get_mods();         // Key modifiers (ALT,SHIFT,CTRL,...), used in process_record_user()
     if (modifiers & MOD_BIT(KC_RALT)) {     // áÁ
         clear_mods();
-        if (modifiers & MOD_SHIFTS) {       // Á
+        if (modifiers & MOD_SHIFTS) {       // Á (A acute uppercase)
             switch (osCurrent()) {
                 case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_9) SS_TAP(X_KP_3)); return false;
                 case MACOS: MACOS_CODE(SS_LALT("e") "A"); return false;
@@ -143,13 +238,7 @@ bool keyboardPrintAAcuteIfNeeded() {
                 default:    LINUX_UNICODE("c1"); return false;
             }
         }
-        // á
-        switch (osCurrent()) {
-            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_2) SS_TAP(X_KP_5)); return false;
-            case MACOS: MACOS_CODE(SS_LALT("e") "a"); return false;
-            case LINUX:
-            default:    LINUX_UNICODE("e1"); return false;
-        }
+        return keyboardPrintAAcute();       // á
     }
     return true;
 } /**/
@@ -166,13 +255,7 @@ bool keyboardPrintEAcuteIfNeeded() {
                 default:    LINUX_UNICODE("c9"); return false;
             }
         }
-        // é
-        switch (osCurrent()) {
-            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_3)); return false;
-            case MACOS: MACOS_CODE(SS_LALT("e") "e"); return false;
-            case LINUX:
-            default:    LINUX_UNICODE("e9"); return false;
-        }
+        return keyboardPrintEAcute();       // é
     }
     return true;
 } /**/
@@ -258,3 +341,28 @@ bool keyboardPrintEuroIfNeeded() {
     }
     return true;
 } /**/
+
+
+    // TODO: work in progress on keyboard detection
+    // sprintf(sss, "%lu %d %d %d ..%d..", layer_state, 
+    //         _BASE_USA_,
+    //         _BASE_ITA_,
+    //         _BASE_USA_INTL_,
+    //         IS_LAYER_ON(_BASE_USA_) // Funziona !!!
+    //         );
+    // send_string(sss);
+
+    // #define IS_LAYER_ON(layer)  (layer_state & (1UL << (layer)))
+    // 8 0 1 2 ..0..Abs
+    // 10 0 1 2 ..0..Abs
+    // 10 0 1 2 ..0..Abs
+    // 12 0 1 2 ..0..Abs
+    // -------
+    // 9 0 1 2 ..1..Abs
+    // 9 0 1 2 ..1..Abs
+    // 10 0 1 2 ..0..Abs
+    // 10 0 1 2 ..0..Abs
+    // 12 0 1 2 ..0..Abs
+    // 12 0 1 2 ..0..Abs
+    // TODO: END
+

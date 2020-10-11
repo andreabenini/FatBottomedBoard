@@ -59,7 +59,7 @@ enum custom_keycodes {
     CHG_OS = SAFE_RANGE,
     EURO,       // €
     POUND,      // £
-    SECT1,      // §
+    SECT1,      // § (separator)
     AGRAVE,     // à
     EGRAVE,     // è
     IGRAVE,     // ì
@@ -69,7 +69,18 @@ enum custom_keycodes {
     EACUTE,     // é
     IACUTE,     // í
     OACUTE,     // ó
-    UACUTE      // ú
+    UACUTE,     // ú
+    BAGRV,      // à°#
+    BEGRV,      // èé[
+    BIGRV,      // ì^
+    BOGRV,      // òç@
+    BUGRV,      // ù§
+    BPLS,       // +*]
+    BMNS,       // -_
+    BCOMMA,     // ,;<
+    BDOT,       // .:>
+    BQUOT       // '?
+
 };
 
 
@@ -108,13 +119,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    |             |   |      |      |      |      |      |      |    |      |      |      |      |   |      |      |      |      |     |      |Layout|      |     |      |      |      |      |
      *    `-------------'   `------'      `------'------'------'------'    `------'------'------'------'   `------'------'------'------'     `------'------'------'     `------'------'------'------'
      *    ,-------------.   ,------.------.------.------.------.------.------.------.------.------.------.------.------.---------------.     ,------,------,------.     ,------,------,------,------.
-     *    |      |      |   |   \  |      |      |      |      |      |      |      |      |      |      |   '  |   ì  |               |     |      |      |      |     |      |      |      |      |
+     *    |      |      |   |   \| |      |      |      |      |      |      |      |      |      |      |   '? |   ì^ |               |     |      |      |      |     |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'     .------+------+------'     '------+------+------+------'
-     *    |      |      |   |         |      |      |      |      |      |      |      |      |      |      |   è  |   +  |      ù     |     |      |      |      |     |      |      |      |      |
+     *    |      |      |   |         |      |      |      |      |      |      |      |      |      |      |  èé[ |  +*] |     ù§     |     |      |      |      |     |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'     `------'------'------'     '------+------+------|      |
-     *    |      |      |   |            |      |      |      |      |      |      |      |      |      |   ò  |   à  |                |                                |      |      |      |      |
+     *    |      |      |   |            |      |      |      |      |      |      |      |      |      |  òç@ |  à°# |                |                                |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'            ,------.            '------+------+------+------'
-     *    |      |      |   |               |      |      |      |      |      |      |      |      |      |   -  |                    |            |      |            |      |      |      |      |
+     *    |      |      |   |               |      |      |      |      |      |      |      |  ,;< |  .:> |   -_ |                    |            |      |            |      |      |      |      |
      *    |------+------'   .--------,--------,--------,-------------------------------------------.--------.--------.--------.--------.     ,------+------+------.     '------'------+------|      |
      *    |      |      |   |        |        |        |                                           |        |        |        |        |     |      |      |      |     |             |      |      |
      *    `------'------'   `--------'--------'--------`-------------------------------------------'--------'--------'--------'--------'     `------'------'------'     `-------------'------'------'
@@ -122,10 +133,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
               KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,TO(2),  KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
 
-          KC_TRNS,KC_TRNS,   KC_BSLS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_QUOT,IGRAVE,KC_TRNS,  KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,EGRAVE,KC_PPLS,UGRAVE,   KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, OGRAVE,  AGRAVE,  KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_MINS,          KC_TRNS,              KC_TRNS,           KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_BSLS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,BQUOT,BIGRV,KC_TRNS,     KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,BEGRV, BPLS, BUGRV,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,  BOGRV,  BAGRV,   KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,  BCOMMA,  BDOT,   BMNS,           KC_TRNS,              KC_TRNS,           KC_TRNS,KC_TRNS,KC_TRNS,
           KC_TRNS,KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,        KC_TRNS,KC_TRNS
     ),
 
@@ -250,6 +261,7 @@ void matrix_scan_user(void) {
  * Detect and process custom keycodes
  */
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // char sss[20];
     if (record->event.pressed) {
         switch (keycode) {
         
@@ -257,6 +269,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case CHG_OS:
             osToggle();
             return false;
+
+        //  Generic keys
         case POUND:     // £
             return keyboardPrintPound();
         case SECT1:     // §
@@ -271,6 +285,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return keyboardPrintOGrave();
         case UGRAVE:    // ùÙ
             return keyboardPrintUGrave();
+        
+        // ITA keyboard special keys
+        case BQUOT:     // '?
+            return keyboardPrintQuotIT();
+        case BIGRV:     // ì^
+            return keyboardPrintIGraveIT();
+        case BEGRV:     // èé[
+            return keyboardPrintEGraveIT();
+        case BPLS:      // +*]
+            return keyboardPrintPlusIT();
+        case BUGRV:     // ù§
+            return keyboardPrintUGraveIT();
+        case BOGRV:     // òç@
+            return keyboardPrintOGraveIT();
+        case BAGRV:     // à°#
+            return keyboardPrintAGraveIT();
+        case BCOMMA:    // ,;<
+            return keyboardPrintCommaIT();
+        case BDOT:      // .:>
+            return keyboardPrintDotIT();
+        case BMNS:      // -_
+            return keyboardPrintMinusIT();
 
         // AltGr dependent keys. Convert to symbol only if needed
         case KC_A:      // áÁ

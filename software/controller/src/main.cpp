@@ -290,7 +290,7 @@ void setup() {
     ledLight      = configRead(DB_LED_LIGHT,    2);
     ledModeSet();
     // Menu
-    memset(sCompose, 0x00, 3); memcpy_P(sCompose, F("UI"),     2);
+    memset(sCompose, 0x00, 3); memcpy_P(sCompose, F("EN"),     2);
     memset(sOSType,  0x00, 6); memcpy_P(sOSType,  F("Linux"),  5);
     stateSet(STATUS_NONE);
 } /**/

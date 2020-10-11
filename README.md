@@ -20,9 +20,9 @@ black, bad ass, heavy & huge board for a big desk, it's not portable and it's no
 pickup in a bag with your laptop. It's the kind of keyboard you always leave on your desk with your
 trusty mouse and big monitors
 - _"I already had some parts lying around"_. Another recurring phrase, but it's true. I dismantled two
-acient AT/XT (switchable) keyboards I already had around and I discovered Cherry Black keys inside,
-it's a real pity to throw them away and that's why I've created this project. Personal time and these
-keys (lockdown helped too...) are main factors for the project
+broken and acient AT/XT (with mechanical switches) keyboards I already had around and I discovered 
+Cherry Black keys inside, it's a real pity to throw them away and that's why I've created this project.
+Personal time and these keys (lockdown helped too...) are main factors for the project
 - **It has to be cheap.** Cherry keys are quite expensive but with these already sourced parts I've
 decided to create a really cheap project without breaking the bank. Approx cost is now ~40$ , even
 lower if you already have Teensy boards (like me) and you'd like to manually build something on your
