@@ -16,6 +16,8 @@
  * 
  */
 #include QMK_KEYBOARD_H
+#include "keyboard.utils.h"
+
     /**
      * [FatBottomedBoard Layout Template]      { 119 keymap, 20x6 }
      *
@@ -57,7 +59,7 @@ enum custom_keycodes {
     CHG_OS = SAFE_RANGE,
     EURO,       // €
     POUND,      // £
-    SECT1,      //
+    SECT1,      // §
     AGRAVE,     // à
     EGRAVE,     // è
     IGRAVE,     // ì
@@ -69,27 +71,6 @@ enum custom_keycodes {
     OACUTE,     // ó
     UACUTE      // ú
 };
-
-
-// Define useful macros
-#define FKEY(value) LCTL(LSFT(LGUI(KC_##value)))// Remapping for custom function keys, to avoid collision "Shift+Control+Super+<yourKey>" is used
-#define UNDO        LCTL(KC_Z)                  // KC_UNDO  seems the right choice but a lot of programs ignores it and direcly map UNDO to Ctrl+Z (vscode is one of them)
-#define REDO1       LCTL(KC_Y)                  // KC_AGAIN same behavior of KC_UNDO but unfortunately there's no common choiche among programs    (vscode  uses CTRL+Y)
-#define REDO2       LCTL(LSFT(KC_Z))            // KC_AGAIN                                                                                        (eclipse uses CTRL+SHIFT+Z)
-#define BCUT1       LCTL(KC_X)                  // KC_CUT/COPY/PASTE follow same problems had above with KC_UNDO where most programs use them but someone doesn't (Terminal programs for example)
-#define BCOPY1      LCTL(KC_C)                  // KC_CUT/COPY/PASTE
-#define BPASTE1     LCTL(KC_V)                  // KC_CUT/COPY/PASTE
-#define BCUT2       LSFT(KC_DEL)                // KC_CUT/COPY/PASTE same as above but some programs still use Ctrl+Ins, Shift+Ins, Shift+Canc (GIT Terminal under windows for example)
-#define BCOPY2      LCTL(KC_INS)                // KC_CUT/COPY/PASTE
-#define BPASTE2     LSFT(KC_INS)                // KC_CUT/COPY/PASTE
-#define MOD_SHIFTS  (MOD_BIT(KC_LSHIFT)|MOD_BIT(KC_RSHIFT)) // Both shift keys (OR)
-
-// Send unicode strings with your OS
-#define LINUX_UNICODE(string)       SEND_STRING(SS_LCTL(SS_LSFT("u")) string "\n")
-#define WINDOWS_CODE(string)        SEND_STRING(SS_LALT(string))
-#define MACOS_CODE(string)          SEND_STRING(string)
-#define MACOS_CODE1(string)         SEND_STRING(SS_LALT(string))
-#define MACOS_CODE2(string)         SEND_STRING(SS_LALT(SS_LSFT(string)))
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -269,251 +250,43 @@ void matrix_scan_user(void) {
  * Detect and process custom keycodes
  */
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    uint8_t modifiers;              // Key modifiers (ALT,SHIFT,CTRL,...), used in process_record_user()
     if (record->event.pressed) {
         switch (keycode) {
         
-        /**
-         * One shot keys. Not using ALTgr or other keys to compose
-         * @see one liner case looks ugly but it's more compact in a quite crowded switch()
-         */
+        // One shot keys. Not using ALTgr or other keys to compose
         case CHG_OS:
             osToggle();
             return false;
-
         case POUND:     // £
-            switch (osCurrent()) {
-            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_1) SS_TAP(X_KP_5) SS_TAP(X_KP_6)); return false;
-            case MACOS: MACOS_CODE1("3"); return false;
-            case LINUX:
-            default:    LINUX_UNICODE("a3"); return false;
-            }
+            return keyboardPrintPound();
         case SECT1:     // §
-            switch (osCurrent()) {
-            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_6) SS_TAP(X_KP_7)); return false;
-            case MACOS: MACOS_CODE("6"); return false;
-            case LINUX:
-            default:    LINUX_UNICODE("a7"); return false;
-            }
+            return keyboardPrintSection1();
         case AGRAVE:    // àÀ
-            modifiers = get_mods();
-            clear_mods();
-            char sss[10];
-            sprintf(sss, "%lu", layer_state);
-            send_string(sss);
-            if (modifiers & MOD_SHIFTS) {   // À
-                switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_9) SS_TAP(X_KP_2)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("`") "A"); return false;
-                case LINUX:
-                default:    LINUX_UNICODE("c0"); return false;
-                }
-            } else {                        // à
-                switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_2) SS_TAP(X_KP_4)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("`") "a"); return false;
-                case LINUX:
-                default:    LINUX_UNICODE("e0"); return false;
-                }
-            }
+            return keyboardPrintAGrave();
         case EGRAVE:    // èÈ
-            modifiers = get_mods();
-            clear_mods();
-            if (modifiers & MOD_SHIFTS) {   // È
-                switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_0) SS_TAP(X_KP_0)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("`") "E"); return false;
-                case LINUX:
-                default:    LINUX_UNICODE("c8"); return false;
-                }
-            } else {                        // è
-                switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_2)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("`") "e"); return false;
-                case LINUX:
-                default:    LINUX_UNICODE("e8"); return false;
-                }
-            }
+            return keyboardPrintEGrave();
         case IGRAVE:    // ìÌ
-            modifiers = get_mods();
-            clear_mods();
-            if (modifiers & MOD_SHIFTS) {   // Ì
-                switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_0) SS_TAP(X_KP_4)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("`") "I"); return false;
-                case LINUX:
-                default:    LINUX_UNICODE("cc"); return false;
-                }
-            } else {                        // ì
-                switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_6)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("`") "i"); return false;
-                case LINUX:
-                default:    LINUX_UNICODE("ec"); return false;
-                }
-            }
+            return keyboardPrintIGrave();
         case OGRAVE:    // òÒ
-            modifiers = get_mods();
-            clear_mods();
-            if (modifiers & MOD_SHIFTS) {   // Ò
-                switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_1) SS_TAP(X_KP_0)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("`") "O"); return false;
-                case LINUX:
-                default:    LINUX_UNICODE("d2"); return false;
-                }
-            } else {                        // ò
-                switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_4) SS_TAP(X_KP_2)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("`") "o"); return false;
-                case LINUX:
-                default:    LINUX_UNICODE("f2"); return false;
-                }
-            }
+            return keyboardPrintOGrave();
         case UGRAVE:    // ùÙ
-            modifiers = get_mods();
-            clear_mods();
-            if (modifiers & MOD_SHIFTS) {   // Ù
-                switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_1) SS_TAP(X_KP_7)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("`") "U"); return false;
-                case LINUX:
-                default:    LINUX_UNICODE("d9"); return false;
-                }
-            } else {                        // ù
-                switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_4) SS_TAP(X_KP_9)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("`") "u"); return false;
-                case LINUX:
-                default:    LINUX_UNICODE("f9"); return false;
-                }
-            }
+            return keyboardPrintUGrave();
 
-        case KC_A:
-            modifiers = get_mods();
-            if (modifiers & MOD_BIT(KC_RALT)) { // áÁ
-                clear_mods();
-                if (modifiers & MOD_SHIFTS) {   // Á
-                    switch (osCurrent()) {
-                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_9) SS_TAP(X_KP_3)); return false;
-                    case MACOS: MACOS_CODE(SS_LALT("e") "A"); return false;
-                    case LINUX:
-                    default:    LINUX_UNICODE("c1"); return false;
-                    }
-                } else {                        // á
-                    switch (osCurrent()) {
-                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_2) SS_TAP(X_KP_5)); return false;
-                    case MACOS: MACOS_CODE(SS_LALT("e") "a"); return false;
-                    case LINUX:
-                    default:    LINUX_UNICODE("e1"); return false;
-                    }
-                }
-            }
-            break;
-
-        case KC_E:
-            modifiers = get_mods();
-            if (modifiers & MOD_BIT(KC_RALT)) { // éÉ
-                clear_mods();
-                if (modifiers & MOD_SHIFTS) {   // É
-                    switch (osCurrent()) {
-                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_0) SS_TAP(X_KP_1)); return false;
-                    case MACOS: MACOS_CODE(SS_LALT("e") "E"); return false;
-                    case LINUX:
-                    default:    LINUX_UNICODE("c9"); return false;
-                    }
-                } else {                        // é
-                    switch (osCurrent()) {
-                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_3)); return false;
-                    case MACOS: MACOS_CODE(SS_LALT("e") "e"); return false;
-                    case LINUX:
-                    default:    LINUX_UNICODE("e9"); return false;
-                    }
-                }
-            }
-            break;
-
-        case KC_I:
-            modifiers = get_mods();
-            if (modifiers & MOD_BIT(KC_RALT)) { // íÍ
-                clear_mods();
-                if (modifiers & MOD_SHIFTS) {   // Í
-                    switch (osCurrent()) {
-                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_0) SS_TAP(X_KP_5)); return false;
-                    case MACOS: MACOS_CODE(SS_LALT("e") "I"); return false;
-                    case LINUX:
-                    default:    LINUX_UNICODE("cd"); return false;
-                    }
-                } else {                        // í
-                    switch (osCurrent()) {
-                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_7)); return false;
-                    case MACOS: MACOS_CODE(SS_LALT("e") "i"); return false;
-                    case LINUX:
-                    default:    LINUX_UNICODE("ed"); return false;
-                    }
-                }
-            }
-            break;
-
-        case KC_O:
-            modifiers = get_mods();
-            if (modifiers & MOD_BIT(KC_RALT)) { // óÓ
-                clear_mods();
-                if (modifiers & MOD_SHIFTS) {   // Ó
-                    switch (osCurrent()) {
-                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_1) SS_TAP(X_KP_1)); return false;
-                    case MACOS: MACOS_CODE(SS_LALT("e") "O"); return false;
-                    case LINUX:
-                    default:    LINUX_UNICODE("d3"); return false;
-                    }
-                } else {                        // ó
-                    switch (osCurrent()) {
-                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_4) SS_TAP(X_KP_3)); return false;
-                    case MACOS: MACOS_CODE(SS_LALT("e") "o"); return false;
-                    case LINUX:
-                    default:    LINUX_UNICODE("f3"); return false;
-                    }
-                }
-            }
-            break;
-
-        case KC_U:
-            modifiers = get_mods();
-            if (modifiers & MOD_BIT(KC_RALT)) { // úÚ
-                clear_mods();
-                if (modifiers & MOD_SHIFTS) {   // Ú
-                    switch (osCurrent()) {
-                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_1) SS_TAP(X_KP_8)); return false;
-                    case MACOS: MACOS_CODE(SS_LALT("e") "U"); return false;
-                    case LINUX:
-                    default:    LINUX_UNICODE("da"); return false;
-                    }
-                } else {                        // ú
-                    switch (osCurrent()) {
-                    case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_5) SS_TAP(X_KP_0)); return false;
-                    case MACOS: MACOS_CODE(SS_LALT("e") "u"); return false;
-                    case LINUX:
-                    default:    LINUX_UNICODE("fa"); return false;
-                    }
-                }
-            }
-            break;
-
-        case KC_4:
-            modifiers = get_mods();
-            if (modifiers & MOD_BIT(KC_RALT)) { // Euro Sign [€]
-                clear_mods();
-                switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_2) SS_TAP(X_KP_8)); return false;
-                case MACOS: MACOS_CODE2("2"); return false;
-                case LINUX:
-                default:    LINUX_UNICODE("20ac"); return false;
-                }
-            }
-            break;
-
-        }   // Switch end
-    }       // if keyPressed end
+        // AltGr dependent keys. Convert to symbol only if needed
+        case KC_A:      // áÁ
+            return keyboardPrintAAcuteIfNeeded();
+        case KC_E:      // éÉ
+            return keyboardPrintEAcuteIfNeeded();
+        case KC_I:      // íÍ
+            return keyboardPrintIAcuteIfNeeded();
+        case KC_O:      // íÍ
+            return keyboardPrintOAcuteIfNeeded();
+        case KC_U:      // úÚ
+            return keyboardPrintUAcuteIfNeeded();
+        case KC_4:      // €
+            return keyboardPrintEuroIfNeeded();
+        }
+    }   // if keyPressed end
     return true;
 } /**/
 

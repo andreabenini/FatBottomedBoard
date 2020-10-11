@@ -49,6 +49,10 @@ OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
 BOOTLOADER = halfkay
 
 
+# Ben special options, adding source files to project
+SRC += keyboard.utils.c
+
+
 # Build Options
 #   change yes to no to disable
 #
