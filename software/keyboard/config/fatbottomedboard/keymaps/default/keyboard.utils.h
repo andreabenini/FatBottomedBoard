@@ -45,8 +45,10 @@
 #define MACOS_CODE2(string)         SEND_STRING(SS_LALT(SS_LSFT(string)))
 
 // required functions
-bool keyboardPrintPound(void);
-bool keyboardPrintSection1(void);
+bool keyboardPrintPound(void);      // £
+bool keyboardPrintSection1(void);   // §
+bool keyboardPrintCedilla(void);    // ç
+bool keyboardPrintDegree(void);     // °
 
 // ITA Keyboard
 bool keyboardPrintQuotIT(void);

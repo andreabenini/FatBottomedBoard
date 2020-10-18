@@ -1,7 +1,7 @@
 #include "keyboard.utils.h"
 #include "fatbottomedboard.h"
 
-bool keyboardPrintPound(void) {
+bool keyboardPrintPound(void) {     // £
     switch (osCurrent()) {
         case WIN:   WINDOWS_CODE(SS_TAP(X_KP_1) SS_TAP(X_KP_5) SS_TAP(X_KP_6)); return false;
         case MACOS: MACOS_CODE1("3"); return false;
@@ -10,7 +10,7 @@ bool keyboardPrintPound(void) {
     }
 } /**/
 
-bool keyboardPrintSection1(void) {
+bool keyboardPrintSection1(void) {  // §
     switch (osCurrent()) {
         case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_6) SS_TAP(X_KP_7)); return false;
         case MACOS: MACOS_CODE("6"); return false;
@@ -19,6 +19,23 @@ bool keyboardPrintSection1(void) {
     }
 } /**/
 
+bool keyboardPrintCedilla(void) {   // ç
+    switch (osCurrent()) {
+        case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_1)); return false;
+        case MACOS: MACOS_CODE1("c"); return false;
+        case LINUX:
+        default:    LINUX_UNICODE("e7"); return false;
+    }
+} /**/
+
+bool keyboardPrintDegree(void) {    // °
+    switch (osCurrent()) {
+        case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_7) SS_TAP(X_KP_6)); return false;
+        case MACOS: MACOS_CODE2("8"); return false;
+        case LINUX:
+        default:    LINUX_UNICODE("b0"); return false;
+    }
+}
 
 bool keyboardPrintAGrave(void) {
     // À
@@ -182,7 +199,7 @@ bool keyboardPrintEGraveIT(void) {          // èé[
 bool keyboardPrintPlusIT(void) {            // +*]
     uint8_t modifier = get_mods();
     clear_mods();
-    if (modifier & MOD_SHIFTS) {            // +
+    if (modifier & MOD_SHIFTS) {            // *
         SEND_STRING(SS_LSFT(SS_TAP(X_8)));
         return false;
     }
@@ -190,23 +207,41 @@ bool keyboardPrintPlusIT(void) {            // +*]
         SEND_STRING(SS_TAP(X_RBRC));
         return false;
     }
-    SEND_STRING(SS_LSFT(SS_TAP(X_EQL)));    // *
+    SEND_STRING(SS_LSFT(SS_TAP(X_EQL)));    // +
     return false;
 } /**/
 
 bool keyboardPrintUGraveIT(void) {          // ù§
-    // TODO:
-    return true;
+    if (get_mods() & MOD_SHIFTS) {          // §
+        return keyboardPrintSection1();
+    }                                       // ù
+    return keyboardPrintUGrave();
 } /**/
 
 bool keyboardPrintOGraveIT(void) {          // òç@
-    // TODO:
-    return true;
+    uint8_t modifier = get_mods();
+    clear_mods();
+    if (modifier & MOD_SHIFTS) {            // ç
+        return keyboardPrintCedilla();
+    }
+    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // @
+        SEND_STRING(SS_LSFT(SS_TAP(X_2)));
+        return false;
+    }
+    return keyboardPrintOGrave();           // ò
 } /**/
 
 bool keyboardPrintAGraveIT(void) {          // à°#
-    // TODO:
-    return true;
+    uint8_t modifier = get_mods();
+    clear_mods();
+    if (modifier & MOD_SHIFTS) {            // °
+        return keyboardPrintDegree();
+    }
+    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // #
+        SEND_STRING(SS_LSFT(SS_TAP(X_3)));
+        return false;
+    }
+    return keyboardPrintAGrave();           // à
 } /**/
 
 bool keyboardPrintCommaIT(void) {           // ,;<
