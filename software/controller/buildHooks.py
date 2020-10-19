@@ -48,6 +48,6 @@ if not os.path.exists(fileNameBackup):
     shutil.copyfile(fileName, fileNameBackup)
 editUSBsettings(fileName)
 print("----------------------------------------------- Compilation setup [ END ]")
-
+shutil.copyfile(".pio/build/teensy2pp/firmware.hex", "fatbottomedboard_code.hex")
 
 env.AddPostAction("buildprog", buildPostAction)
