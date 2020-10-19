@@ -1,6 +1,19 @@
 #include "keyboard.utils.h"
 #include "fatbottomedboard.h"
 
+/**
+ * @see keyboard detection
+ *      sprintf(sss, "%lu %d %d %d ..%d..", layer_state, 
+ *                   _BASE_USA_,
+ *                   _BASE_ITA_,
+ *                   _BASE_USA_INTL_,
+ *                   IS_LAYER_ON(_BASE_USA_) // Funziona !!!
+ *      );
+ *      send_string(sss);
+ * #define IS_LAYER_ON(layer)  (layer_state & (1UL << (layer)))
+ */
+
+
 bool keyboardPrintPound(void) {     // £
     switch (osCurrent()) {
         case WIN:   WINDOWS_CODE(SS_TAP(X_KP_1) SS_TAP(X_KP_5) SS_TAP(X_KP_6)); return false;
@@ -160,6 +173,78 @@ bool keyboardPrintEAcute(void) {            // é
     }
 } /**/
 
+bool keyboardPrintTwoIT(void) {             // 2"
+    if (get_mods() & MOD_SHIFTS) {          // "
+        SEND_STRING(SS_TAP(X_QUOTE));
+    } else {
+        SEND_STRING(SS_TAP(X_2));           // 2
+    }
+    return false;
+} /**/
+
+bool keyboardPrintThreeIT(void) {           // 3£
+    uint8_t modifier = get_mods();
+    if (modifier & MOD_SHIFTS) {            // £
+        clear_mods();
+        keyboardPrintPound();
+        set_mods(modifier);
+    } else {
+        SEND_STRING(SS_TAP(X_3));           // 3
+    }
+    return false;
+} /**/
+
+bool keyboardPrintSixIT(void) {             // 6&
+    if (get_mods() & MOD_SHIFTS) {          // &
+        SEND_STRING(SS_TAP(X_7));
+    } else {
+        SEND_STRING(SS_TAP(X_6));           // 6
+    }
+    return false;
+} /**/
+
+bool keyboardPrintSevenIT(void) {           // 7/
+    uint8_t modifier = get_mods();
+    if (modifier & MOD_SHIFTS) {            // /
+        clear_mods();
+        SEND_STRING(SS_TAP(X_SLASH));
+        set_mods(modifier);
+    } else {
+        SEND_STRING(SS_TAP(X_7));           // 7
+    }
+    return false;
+} /**/
+
+bool keyboardPrintEightIT(void) {           // 8(
+    if (get_mods() & MOD_SHIFTS) {          // (
+        SEND_STRING(SS_TAP(X_9));
+    } else {
+        SEND_STRING(SS_TAP(X_8));           // 8
+    }
+    return false;
+} /**/
+
+bool keyboardPrintNineIT(void) {            // 9)
+    if (get_mods() & MOD_SHIFTS) {          // )
+        SEND_STRING(SS_TAP(X_0));
+    } else {
+        SEND_STRING(SS_TAP(X_9));           // 9
+    }
+    return false;
+} /**/
+
+bool keyboardPrintZeroIT(void) {            // 0=
+    uint8_t modifier = get_mods();
+    if (modifier & MOD_SHIFTS) {            // =
+        clear_mods();
+        SEND_STRING(SS_TAP(X_EQUAL));
+        set_mods(modifier);
+    } else {
+        SEND_STRING(SS_TAP(X_0));           // 0
+    }
+    return false;
+} /**/
+
 bool keyboardPrintQuotIT(void) {            // '?
     if (get_mods() & MOD_SHIFTS) {          // ?
         SEND_STRING(SS_TAP(X_SLSH));
@@ -170,12 +255,15 @@ bool keyboardPrintQuotIT(void) {            // '?
 } /**/
 
 bool keyboardPrintIGraveIT(void) {          // ì^
-    if (get_mods() & MOD_SHIFTS) {          // ^
+    uint8_t modifier = get_mods();
+    clear_mods();
+    if (modifier & MOD_SHIFTS) {            // ^
         SEND_STRING(SS_LSFT(SS_TAP(X_6)));
-        return false;
-    }                                       // ì
-    keyboardPrintIGrave();
-    return true;
+    } else {                                // ì
+        keyboardPrintIGrave();
+    }
+    set_mods(modifier);
+    return false;
 } /**/
 
 bool keyboardPrintEGraveIT(void) {          // èé[
@@ -201,62 +289,110 @@ bool keyboardPrintPlusIT(void) {            // +*]
     clear_mods();
     if (modifier & MOD_SHIFTS) {            // *
         SEND_STRING(SS_LSFT(SS_TAP(X_8)));
+        set_mods(modifier);
         return false;
     }
     if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // ]
         SEND_STRING(SS_TAP(X_RBRC));
+        set_mods(modifier);
         return false;
     }
     SEND_STRING(SS_LSFT(SS_TAP(X_EQL)));    // +
+    set_mods(modifier);
     return false;
 } /**/
 
 bool keyboardPrintUGraveIT(void) {          // ù§
-    if (get_mods() & MOD_SHIFTS) {          // §
-        return keyboardPrintSection1();
-    }                                       // ù
-    return keyboardPrintUGrave();
+    uint8_t modifier = get_mods();
+    clear_mods();
+    if (modifier & MOD_SHIFTS) {            // §
+        keyboardPrintSection1();
+    } else {                                // ù
+        keyboardPrintUGrave();
+    }
+    set_mods(modifier);
+    return false;
 } /**/
 
 bool keyboardPrintOGraveIT(void) {          // òç@
     uint8_t modifier = get_mods();
     clear_mods();
     if (modifier & MOD_SHIFTS) {            // ç
-        return keyboardPrintCedilla();
+        keyboardPrintCedilla();
+        set_mods(modifier);
+        return false;
     }
     if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // @
         SEND_STRING(SS_LSFT(SS_TAP(X_2)));
+        set_mods(modifier);
         return false;
     }
-    return keyboardPrintOGrave();           // ò
+    keyboardPrintOGrave();                  // ò
+    set_mods(modifier);
+    return false;
 } /**/
 
 bool keyboardPrintAGraveIT(void) {          // à°#
     uint8_t modifier = get_mods();
     clear_mods();
     if (modifier & MOD_SHIFTS) {            // °
-        return keyboardPrintDegree();
+        keyboardPrintDegree();
+        set_mods(modifier);
+        return false;
     }
     if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // #
         SEND_STRING(SS_LSFT(SS_TAP(X_3)));
+        set_mods(modifier);
         return false;
     }
-    return keyboardPrintAGrave();           // à
+    keyboardPrintAGrave();                  // à
+    set_mods(modifier);
+    return false;
 } /**/
 
 bool keyboardPrintCommaIT(void) {           // ,;<
-    // TODO:
-    return true;
+    uint8_t modifier = get_mods();
+    clear_mods();
+    if (modifier & MOD_SHIFTS) {            // ;
+        SEND_STRING(SS_TAP(X_SCLN));
+        set_mods(modifier);
+        return false;
+    }
+    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // <
+        SEND_STRING(SS_LSFT(SS_TAP(X_COMMA)));
+        set_mods(modifier);
+        return false;
+    }
+    SEND_STRING(SS_TAP(X_COMMA));           // ,
+    set_mods(modifier);
+    return false;
 } /**/
 
 bool keyboardPrintDotIT(void) {             // .:>
-    // TODO:
-    return true;
+    uint8_t modifier = get_mods();
+    clear_mods();
+    if (modifier & MOD_SHIFTS) {            // :
+        SEND_STRING(SS_LSFT(SS_TAP(X_SCLN)));
+        set_mods(modifier);
+        return false;
+    }
+    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // >
+        SEND_STRING(SS_LSFT(SS_TAP(X_DOT)));
+        set_mods(modifier);
+        return false;
+    }
+    SEND_STRING(SS_TAP(X_DOT));             // .
+    set_mods(modifier);
+    return false;                           
 } /**/
 
 bool keyboardPrintMinusIT(void) {           // -_
-    // TODO:
-    return true;
+    if (get_mods() & MOD_SHIFTS) {          // _
+        SEND_STRING(SS_LSFT(SS_TAP(X_MINUS)));
+        return false;
+    }                                       // -
+    SEND_STRING(SS_TAP(X_MINUS));
+    return false;
 } /**/
 
 
@@ -376,28 +512,3 @@ bool keyboardPrintEuroIfNeeded() {
     }
     return true;
 } /**/
-
-
-    // TODO: work in progress on keyboard detection
-    // sprintf(sss, "%lu %d %d %d ..%d..", layer_state, 
-    //         _BASE_USA_,
-    //         _BASE_ITA_,
-    //         _BASE_USA_INTL_,
-    //         IS_LAYER_ON(_BASE_USA_) // Funziona !!!
-    //         );
-    // send_string(sss);
-
-    // #define IS_LAYER_ON(layer)  (layer_state & (1UL << (layer)))
-    // 8 0 1 2 ..0..Abs
-    // 10 0 1 2 ..0..Abs
-    // 10 0 1 2 ..0..Abs
-    // 12 0 1 2 ..0..Abs
-    // -------
-    // 9 0 1 2 ..1..Abs
-    // 9 0 1 2 ..1..Abs
-    // 10 0 1 2 ..0..Abs
-    // 10 0 1 2 ..0..Abs
-    // 12 0 1 2 ..0..Abs
-    // 12 0 1 2 ..0..Abs
-    // TODO: END
-

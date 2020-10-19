@@ -51,6 +51,13 @@ bool keyboardPrintCedilla(void);    // ç
 bool keyboardPrintDegree(void);     // °
 
 // ITA Keyboard
+bool keyboardPrintTwoIT(void);
+bool keyboardPrintThreeIT(void);
+bool keyboardPrintSixIT(void);
+bool keyboardPrintSevenIT(void);
+bool keyboardPrintEightIT(void);
+bool keyboardPrintNineIT(void);
+bool keyboardPrintZeroIT(void);
 bool keyboardPrintQuotIT(void);
 bool keyboardPrintIGraveIT(void);
 bool keyboardPrintEGraveIT(void);

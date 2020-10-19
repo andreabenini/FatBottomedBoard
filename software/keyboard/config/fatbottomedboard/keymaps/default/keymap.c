@@ -70,6 +70,15 @@ enum custom_keycodes {
     IACUTE,     // í
     OACUTE,     // ó
     UACUTE,     // ú
+
+    BTWO,       // 2"
+    BTHREE,     // 3£
+    B_SIX,      // 6&
+    B_SEVEN,    // 7/
+    B_EIGHT,    // 8(
+    B_NINE,     // 9)
+    B_ZERO,     // 0=
+
     BAGRV,      // à°#
     BEGRV,      // èé[
     BIGRV,      // ì^
@@ -112,14 +121,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         BPASTE1,FKEY(F9),    KC_LCTL, KC_LALT, KC_LGUI,                   KC_SPC,                    MO(3),   KC_RALT, KC_RGUI, KC_RCTL,      KC_LEFT,KC_DOWN,KC_RGHT,   KC_P0,           KC_PDOT,KC_PENT
     ),
 
-    // TODO: italian keyboard layout, work in progress
     /**   [Layer 1]         { Default: Italian layout }
      * 
      *    ,-------------.   ,------.      ,------,------,------,------.    ,------,------,------,------.   ,------,------,------,------.     ,------,------,------.     ,------,------,------,------.
      *    |             |   |      |      |      |      |      |      |    |      |      |      |      |   |      |      |      |      |     |      |Layout|      |     |      |      |      |      |
      *    `-------------'   `------'      `------'------'------'------'    `------'------'------'------'   `------'------'------'------'     `------'------'------'     `------'------'------'------'
      *    ,-------------.   ,------.------.------.------.------.------.------.------.------.------.------.------.------.---------------.     ,------,------,------.     ,------,------,------,------.
-     *    |      |      |   |   \| |      |      |      |      |      |      |      |      |      |      |   '? |   ì^ |               |     |      |      |      |     |      |      |      |      |
+     *    |      |      |   |   \| |      |   2" |   3£ |      |      |   6& |   7/ |   8( |   9) |   0= |   '? |   ì^ |               |     |      |      |      |     |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'     .------+------+------'     '------+------+------+------'
      *    |      |      |   |         |      |      |      |      |      |      |      |      |      |      |  èé[ |  +*] |     ù§     |     |      |      |      |     |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'     `------'------'------'     '------+------+------|      |
@@ -133,21 +141,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
               KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,TO(2),  KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
 
-          KC_TRNS,KC_TRNS,   KC_BSLS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,BQUOT,BIGRV,KC_TRNS,     KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_BSLS,KC_TRNS, BTWO,BTHREE, KC_TRNS,KC_TRNS, B_SIX, B_SEVEN, B_EIGHT, B_NINE, B_ZERO,BQUOT,BIGRV,KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
           KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,BEGRV, BPLS, BUGRV,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,
           KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,  BOGRV,  BAGRV,   KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
           KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,  BCOMMA,  BDOT,   BMNS,           KC_TRNS,              KC_TRNS,           KC_TRNS,KC_TRNS,KC_TRNS,
           KC_TRNS,KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,        KC_TRNS,KC_TRNS
     ),
 
-    // TODO: USA International keyboard layout, work in progress
-    /**   [Layer 2]         { Default: USA International Layout }
+    /**   [Layer 2]         { Default: USA International Layout } Working, but without dead keys
      * 
      *    ,-------------.   ,------.      ,------,------,------,------.    ,------,------,------,------.   ,------,------,------,------.     ,------,------,------.     ,------,------,------,------.
      *    |             |   |      |      |      |      |      |      |    |      |      |      |      |   |      |      |      |      |     |      |Layout|      |     |      |      |      |      |
      *    `-------------'   `------'      `------'------'------'------'    `------'------'------'------'   `------'------'------'------'     `------'------'------'     `------'------'------'------'
      *    ,-------------.   ,------.------.------.------.------.------.------.------.------.------.------.------.------.---------------.     ,------,------,------.     ,------,------,------,------.
-     *    |      |      |   |   `  |      |      |      |      |      |      |      |      |      |      |   -  |   =  |               |     |      |      |      |     |      |      |      |      |
+     *    |      |      |   |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  |   -  |   =  |               |     |      |      |      |     |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'     .------+------+------'     '------+------+------+------'
      *    |      |      |   |         |      |      |      |      |      |      |      |      |      |      |   [  |   ]  |       \    |     |      |      |      |     |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'     `------'------'------'     '------+------+------|      |
@@ -161,9 +168,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
               KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,TO(0),  KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
 
-          KC_TRNS,KC_TRNS,   KC_GRV,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_MINS,KC_EQL,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_LBRC,KC_RBRC,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,
-          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_SCLN,KC_QUOT,   KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_GRV,KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,  KC_9,  KC_0,  KC_MINS, KC_EQL,      KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_LBRC,KC_RBRC,KC_BSLS, KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_SCLN, KC_QUOT,  KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
           KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_COMM, KC_DOT, KC_SLSH,         KC_TRNS,              KC_TRNS,           KC_TRNS,KC_TRNS,KC_TRNS,
           KC_TRNS,KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,        KC_TRNS,KC_TRNS
     ),
@@ -217,7 +224,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_EXT_PLAY_] = LAYOUT(
 
-          KC_TRNS,          KC_TRNS, DM_PLY1, DM_PLY2, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,       KC_TRNS,KC_TRNS, KC_TRNS,  KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,          KC_TRNS, DM_PLY1, DM_PLY2,  KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,       KC_TRNS,KC_TRNS, KC_TRNS,  KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
 
      KC_TRNS,KC_TRNS,       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,  KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
      KC_TRNS,KC_TRNS,       KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,  KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,
@@ -287,6 +294,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return keyboardPrintUGrave();
         
         // ITA keyboard special keys
+        case BTWO:      // 2"
+            return keyboardPrintTwoIT();
+        case BTHREE:    // 3£
+            return keyboardPrintThreeIT();
+        case B_SIX:     // 6&
+            return keyboardPrintSixIT();
+        case B_SEVEN:   // 7/
+            return keyboardPrintSevenIT();
+        case B_EIGHT:   // 8(
+            return keyboardPrintEightIT();
+        case B_NINE:    // 9)
+            return keyboardPrintNineIT();
+        case B_ZERO:    // 0=
+            return keyboardPrintZeroIT();
         case BQUOT:     // '?
             return keyboardPrintQuotIT();
         case BIGRV:     // ì^
