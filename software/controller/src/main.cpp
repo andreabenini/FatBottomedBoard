@@ -225,6 +225,7 @@ void ledNumLockSet(byte Active) {
  * Set required layout (on TFT display)
  */
 void layout(const char *Layout) {
+    displayTurnOn();
     memcpy(sCompose, Layout, 2);
     sCompose[2] = 0x00;
     mainCompose();
@@ -235,6 +236,7 @@ void layout(const char *Layout) {
  * Show current OS (just a label sent from qmk fw)
  */
 void osType(char *osType) {
+    displayTurnOn();
     // memcpy(sOSType, osType, strlen(osType));
     // sOSType[strlen(osType)] = 0x00;
     display.fillRect(0, 0, 55, 10, 0x0000);

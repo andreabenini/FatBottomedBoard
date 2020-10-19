@@ -72,5 +72,6 @@
 // Project function defines
 #define displayLed(Active)                      digitalWrite(LCD_LED,Active)
 #define menuInit(Title, TitleX, DisplayFun)     menu.init(Title, TitleX, 1, 0, 0, 7, 5, 20, 16, DisplayFun)
+#define displayTurnOn()                         inactivity=millis();displayLed(HIGH)
 
 #endif

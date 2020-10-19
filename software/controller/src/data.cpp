@@ -118,10 +118,10 @@ void cmdDataProcess() {
 
 void cmdDataProcessTeensy() {
     switch (cmdBuffer1[0]) {
-    case 'l':
+    case 'l':                               // Change current layout on display
         layout(cmdBuffer1+1);
         break;
-    case 'o':
+    case 'o':                               // Display new OS type (string: Linux, MacOS, Windows)
         osType(cmdBuffer1+1);
         break;
     }
