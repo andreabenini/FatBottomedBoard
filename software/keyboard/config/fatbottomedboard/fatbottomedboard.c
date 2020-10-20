@@ -42,7 +42,6 @@ osType osTypeCurrent;           // Current operating system (default: linux)
  * put your keyboard start-up code here, runs once when the firmware starts up
  */
 void matrix_init_kb(void) {
-    wait_ms(1500);      // XXX: sometime kbd hangs on startup, seems to be a QMK problem but I'd like to see if this delay could fix it. Remove if not needed
     uart_init(9600);
     matrix_init_user();
 }
