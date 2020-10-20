@@ -68,6 +68,7 @@ void led_set_kb(uint8_t usb_led) {
 }
 
 
+// Send current keboard layout to display
 void layout(const char *str) {
     _delay_ms(100);
     uart_putchar('l');
