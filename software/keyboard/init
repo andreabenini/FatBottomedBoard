@@ -15,7 +15,9 @@ cd qmk_firmware
 make git-submodule
 cd keyboards
 ln -s ../../config/fatbottomedboard .
-cd ../..
+cd ..
+rm -rf .git
+cd ..
 
 # some nice output at the end
 echo ""
