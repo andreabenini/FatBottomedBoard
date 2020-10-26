@@ -73,11 +73,11 @@ enum custom_keycodes {
 
     BTWO,       // 2"
     BTHREE,     // 3£
-    B_SIX,      // 6&
-    B_SEVEN,    // 7/
-    B_EIGHT,    // 8(
-    B_NINE,     // 9)
-    B_ZERO,     // 0=
+    BSIX,       // 6&
+    BSEVEN,     // 7/
+    BEIGHT,     // 8(
+    BNINE,      // 9)
+    BZERO,      // 0=
 
     BAGRV,      // à°#
     BEGRV,      // èé[
@@ -141,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
               KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,TO(2),  KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
 
-          KC_TRNS,KC_TRNS,   KC_BSLS,KC_TRNS, BTWO,BTHREE, KC_TRNS,KC_TRNS, B_SIX, B_SEVEN, B_EIGHT, B_NINE, B_ZERO,BQUOT,BIGRV,KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,KC_TRNS,   KC_BSLS, KC_TRNS, BTWO, BTHREE, KC_TRNS,KC_TRNS, BSIX, BSEVEN, BEIGHT, BNINE, BZERO, BQUOT, BIGRV, KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
           KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,BEGRV, BPLS, BUGRV,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,
           KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,  BOGRV,  BAGRV,   KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
           KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,  BCOMMA,  BDOT,   BMNS,           KC_TRNS,              KC_TRNS,           KC_TRNS,KC_TRNS,KC_TRNS,
@@ -182,7 +182,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *    |  Home Page  |   |StopM.|      |RecM.1|RecM.2|      |      |    |      |      |      |      |   |      |      |      |      |     |      |Chg-OS|      |     |      |      |      | Reset|
      *    `-------------'   `------'      `------'------'------'------'    `------'------'------'------'   `------'------'------'------'     `------'------'------'     `------'------'------'------'
      *    ,-------------.   ,------.------.------.------.------.------.------.------.------.------.------.------.------.---------------.     ,------,------,------.     ,------,------,------,------.
-     *    |      | Redo |   |      |      |      |      |   £  |      |      |      |      |      |      |      |      |               |     |      |      |      |     |      |      |      |      |
+     *    |      | Redo |   |      |      |      |      |   €  |      |      |      |      |      |      |      |      |               |     |      |      |      |     |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'     .------+------+------'     '------+------+------+------'
      *    |      |      |   |         |      |      |   è  |      |      |      |   ù  |   ì  |   ò  |      |      |      |        §   |     |      |      |      |     |      |      |      |      |
      *    |------+------'   .----------------------------------------------------------------------------------------------------------'     `------'------'------'     '------+------+------|      |
@@ -197,7 +197,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
            KC_WWW_HOME,     DM_RSTP,  DM_REC1,DM_REC2,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,      KC_TRNS,CHG_OS, KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,RESET,
 
-          KC_TRNS,REDO2,    KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,POUND,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,    KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
+          KC_TRNS,REDO2,    KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,EURO,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,     KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
           KC_TRNS,KC_TRNS,  KC_TRNS,KC_TRNS,KC_TRNS,EGRAVE, KC_TRNS,KC_TRNS,KC_TRNS,UGRAVE,IGRAVE,OGRAVE, KC_TRNS,KC_TRNS,KC_TRNS,SECT1,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,KC_TRNS,KC_TRNS,
             BCUT2,KC_TRNS,  KC_TRNS, AGRAVE, KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS, KC_TRNS,                                 KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
            BCOPY2,KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_MUTE, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS,           KC_TRNS,KC_TRNS,KC_TRNS,
@@ -268,20 +268,20 @@ void matrix_scan_user(void) {
  * Detect and process custom keycodes
  */
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    // char sss[20];
-    if (record->event.pressed) {
+    if (record->event.pressed) {        // Key pressed
         switch (keycode) {
-        
         // One shot keys. Not using ALTgr or other keys to compose
         case CHG_OS:
             osToggle();
             return false;
 
-        //  Generic keys
-        case POUND:     // £
-            return keyboardPrintPound();
+        //  Custom keys
+        case EURO:      // €
+            return keyboardPrintEuro();
         case SECT1:     // §
             return keyboardPrintSection1();
+
+        //  Generic keys
         case AGRAVE:    // àÀ
             return keyboardPrintAGrave();
         case EGRAVE:    // èÈ
@@ -292,58 +292,97 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return keyboardPrintOGrave();
         case UGRAVE:    // ùÙ
             return keyboardPrintUGrave();
-        
-        // ITA keyboard special keys
-        case BTWO:      // 2"
-            return keyboardPrintTwoIT();
-        case BTHREE:    // 3£
-            return keyboardPrintThreeIT();
-        case B_SIX:     // 6&
-            return keyboardPrintSixIT();
-        case B_SEVEN:   // 7/
-            return keyboardPrintSevenIT();
-        case B_EIGHT:   // 8(
-            return keyboardPrintEightIT();
-        case B_NINE:    // 9)
-            return keyboardPrintNineIT();
-        case B_ZERO:    // 0=
-            return keyboardPrintZeroIT();
-        case BQUOT:     // '?
-            return keyboardPrintQuotIT();
-        case BIGRV:     // ì^
-            return keyboardPrintIGraveIT();
-        case BEGRV:     // èé[
-            return keyboardPrintEGraveIT();
-        case BPLS:      // +*]
-            return keyboardPrintPlusIT();
-        case BUGRV:     // ù§
-            return keyboardPrintUGraveIT();
-        case BOGRV:     // òç@
-            return keyboardPrintOGraveIT();
-        case BAGRV:     // à°#
-            return keyboardPrintAGraveIT();
-        case BCOMMA:    // ,;<
-            return keyboardPrintCommaIT();
-        case BDOT:      // .:>
-            return keyboardPrintDotIT();
-        case BMNS:      // -_
-            return keyboardPrintMinusIT();
 
-        // AltGr dependent keys. Convert to symbol only if needed
+        // ITA keyboard layout, special keys
+        case BTWO:      // 2"
+            return keyboardPrintTwoIT_ON();
+        case BTHREE:    // 3£
+            return keyboardPrintThreeIT_ON();
+        case BSIX:      // 6&
+            return keyboardPrintSixIT_ON();
+        case BSEVEN:    // 7/
+            return keyboardPrintSevenIT_ON();
+        case BEIGHT:    // 8(
+            return keyboardPrintEightIT_ON();
+        case BNINE:     // 9)
+            return keyboardPrintNineIT_ON();
+        case BZERO:     // 0=
+            return keyboardPrintZeroIT_ON();
+        case BQUOT:     // '?
+            return keyboardPrintQuotIT_ON();
+        case BIGRV:     // ì^
+            return keyboardPrintIGraveIT_ON();
+        case BEGRV:     // èé[
+            return keyboardPrintEGraveIT_ON();
+        case BPLS:      // +*]
+            return keyboardPrintPlusIT_ON();
+        case BUGRV:     // ù§
+            return keyboardPrintUGraveIT_ON();
+        case BOGRV:     // òç@
+            return keyboardPrintOGraveIT_ON();
+        case BAGRV:     // à°#
+            return keyboardPrintAGraveIT_ON();
+        case BCOMMA:    // ,;<
+            return keyboardPrintCommaIT_ON();
+        case BDOT:      // .:>
+            return keyboardPrintDotIT_ON();
+        case BMNS:      // -_
+            return keyboardPrintMinusIT_ON();
+
+        // AltGr dependent keys. Convert to symbol only if needed [ONLY when R_ALT is pressed]
+        case KC_4:      // (AltGr+4) = £
+            return keyboardPrintFour_ON();
         case KC_A:      // áÁ
-            return keyboardPrintAAcuteIfNeeded();
+            return keyboardPrintAAcute();
         case KC_E:      // éÉ
-            return keyboardPrintEAcuteIfNeeded();
+            return keyboardPrintEAcute();
         case KC_I:      // íÍ
-            return keyboardPrintIAcuteIfNeeded();
+            return keyboardPrintIAcute();
         case KC_O:      // íÍ
-            return keyboardPrintOAcuteIfNeeded();
+            return keyboardPrintOAcute();
         case KC_U:      // úÚ
-            return keyboardPrintUAcuteIfNeeded();
-        case KC_4:      // €
-            return keyboardPrintEuroIfNeeded();
+            return keyboardPrintUAcute();
         }
-    }   // if keyPressed end
+
+    } else {                            // Key released
+        switch (keycode) {
+
+        // ITA keyboard layout, special keys
+        case BTWO:      // 2"
+            return keyboardPrintTwoIT_OFF();
+        case BTHREE:    // 3£
+            return keyboardPrintThreeIT_OFF();
+        case BSIX:      // 6&
+            return keyboardPrintSixIT_OFF();
+        case BSEVEN:    // 7/
+            return keyboardPrintSevenIT_OFF();
+        case BEIGHT:    // 8(
+            return keyboardPrintEightIT_OFF();
+        case BNINE:     // 9)
+            return keyboardPrintNineIT_OFF();
+        case BZERO:     // 0=
+            return keyboardPrintZeroIT_OFF();
+        case BQUOT:     // '?
+            return keyboardPrintQuotIT_OFF();
+        case BIGRV:     // ì^
+            return keyboardPrintIGraveIT_OFF();
+        case BEGRV:     // èé[
+            return keyboardPrintEGraveIT_OFF();
+        case BPLS:      // +*]
+            return keyboardPrintPlusIT_OFF();
+        case BOGRV:     // òç@
+            return keyboardPrintOGraveIT_OFF();
+        case BAGRV:     // à°#
+            return keyboardPrintAGraveIT_OFF();
+        case BCOMMA:    // ,;<
+            return keyboardPrintCommaIT_OFF();
+        case BDOT:      // .:>
+            return keyboardPrintDotIT_OFF();
+        case BMNS:      // -_
+            return keyboardPrintMinusIT_OFF();
+
+        }
+    }
     return true;
 } /**/
 

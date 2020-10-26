@@ -14,46 +14,53 @@
  */
 
 
-bool keyboardPrintPound(void) {     // £
+bool keyboardPrintPound() {                 // £
     switch (osCurrent()) {
         case WIN:   WINDOWS_CODE(SS_TAP(X_KP_1) SS_TAP(X_KP_5) SS_TAP(X_KP_6)); return false;
-        case MACOS: MACOS_CODE1("3"); return false;
+        case MACOS: MACOS_CODE1("3");    return false;
         case LINUX:
         default:    LINUX_UNICODE("a3"); return false;
     }
 } /**/
 
-bool keyboardPrintSection1(void) {  // §
+bool keyboardPrintEuro() {                  // Euro Sign [€]
     switch (osCurrent()) {
-        case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_6) SS_TAP(X_KP_7)); return false;
-        case MACOS: MACOS_CODE("6"); return false;
+        case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_2) SS_TAP(X_KP_8)); return false;
+        case MACOS: MACOS_CODE2("2"); return false;
+        case LINUX:
+        default:    LINUX_UNICODE("20ac"); return false;
+    }
+} /**/
+
+bool keyboardPrintSection1() {              // §
+    switch (osCurrent()) {
+        case WIN:   WINDOWS_CODE(SS_TAP(X_KP_2) SS_TAP(X_KP_1)); return false;
+        case MACOS: MACOS_CODE("6");     return false;
         case LINUX:
         default:    LINUX_UNICODE("a7"); return false;
     }
 } /**/
 
-bool keyboardPrintCedilla(void) {   // ç
+bool keyboardPrintCedilla() {               // ç
     switch (osCurrent()) {
         case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_1)); return false;
-        case MACOS: MACOS_CODE1("c"); return false;
+        case MACOS: MACOS_CODE1("c");    return false;
         case LINUX:
         default:    LINUX_UNICODE("e7"); return false;
     }
 } /**/
 
-bool keyboardPrintDegree(void) {    // °
+bool keyboardPrintDegree() {                // °
     switch (osCurrent()) {
         case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_7) SS_TAP(X_KP_6)); return false;
-        case MACOS: MACOS_CODE2("8"); return false;
+        case MACOS: MACOS_CODE2("8");    return false;
         case LINUX:
         default:    LINUX_UNICODE("b0"); return false;
     }
-}
+} /**/
 
-bool keyboardPrintAGrave(void) {
-    // À
-    if (get_mods() & MOD_SHIFTS) {       
-        clear_mods();
+bool keyboardPrintAGrave() {                // Àà
+    if (get_mods() & MOD_SHIFTS) {          // À
         switch (osCurrent()) {
             case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_9) SS_TAP(X_KP_2)); return false;
             case MACOS: MACOS_CODE(SS_LALT("`") "A"); return false;
@@ -61,9 +68,7 @@ bool keyboardPrintAGrave(void) {
             default:    LINUX_UNICODE("c0"); return false;
         }
     }
-    // à
-    clear_mods();
-    switch (osCurrent()) {
+    switch (osCurrent()) {                  // à
         case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_2) SS_TAP(X_KP_4)); return false;
         case MACOS: MACOS_CODE(SS_LALT("`") "a"); return false;
         case LINUX:
@@ -71,10 +76,8 @@ bool keyboardPrintAGrave(void) {
     }
 } /**/
 
-bool keyboardPrintEGrave(void) {
-    // È
-    if (get_mods() & MOD_SHIFTS) {       
-        clear_mods();
+bool keyboardPrintEGrave() {                // Èè
+    if (get_mods() & MOD_SHIFTS) {          // È
         switch (osCurrent()) {
             case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_0) SS_TAP(X_KP_0)); return false;
             case MACOS: MACOS_CODE(SS_LALT("`") "E"); return false;
@@ -82,9 +85,7 @@ bool keyboardPrintEGrave(void) {
             default:    LINUX_UNICODE("c8"); return false;
         }
     }
-    // è
-    clear_mods();
-    switch (osCurrent()) {
+    switch (osCurrent()) {                  // è
         case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_2)); return false;
         case MACOS: MACOS_CODE(SS_LALT("`") "e"); return false;
         case LINUX:
@@ -92,10 +93,8 @@ bool keyboardPrintEGrave(void) {
     }
 } /**/
 
-bool keyboardPrintIGrave(void) {
-    // Ì
-    if (get_mods() & MOD_SHIFTS) {
-        clear_mods();
+bool keyboardPrintIGrave() {                // Ìì
+    if (get_mods() & MOD_SHIFTS) {          // Ì
         switch (osCurrent()) {
             case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_0) SS_TAP(X_KP_4)); return false;
             case MACOS: MACOS_CODE(SS_LALT("`") "I"); return false;
@@ -103,9 +102,7 @@ bool keyboardPrintIGrave(void) {
             default:    LINUX_UNICODE("cc"); return false;
         }
     }
-    // ì
-    clear_mods();
-    switch (osCurrent()) {
+    switch (osCurrent()) {                  // ì
         case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_6)); return false;
         case MACOS: MACOS_CODE(SS_LALT("`") "i"); return false;
         case LINUX:
@@ -113,10 +110,8 @@ bool keyboardPrintIGrave(void) {
     }
 } /**/
 
-bool keyboardPrintOGrave(void) {
-    // Ò
-    if (get_mods() & MOD_SHIFTS) {       
-        clear_mods();
+bool keyboardPrintOGrave() {                // Òò
+    if (get_mods() & MOD_SHIFTS) {          // Ò
         switch (osCurrent()) {
             case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_1) SS_TAP(X_KP_0)); return false;
             case MACOS: MACOS_CODE(SS_LALT("`") "O"); return false;
@@ -124,9 +119,7 @@ bool keyboardPrintOGrave(void) {
             default:    LINUX_UNICODE("d2"); return false;
         }
     }
-    // ò
-    clear_mods();
-    switch (osCurrent()) {
+    switch (osCurrent()) {                  // ò
         case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_4) SS_TAP(X_KP_2)); return false;
         case MACOS: MACOS_CODE(SS_LALT("`") "o"); return false;
         case LINUX:
@@ -134,10 +127,8 @@ bool keyboardPrintOGrave(void) {
     }
 } /**/
 
-bool keyboardPrintUGrave(void) {
-    // Ù
-    if (get_mods() & MOD_SHIFTS) {   
-        clear_mods();
+bool keyboardPrintUGrave() {                // Ùù
+    if (get_mods() & MOD_SHIFTS) {          // Ù
         switch (osCurrent()) {
             case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_1) SS_TAP(X_KP_7)); return false;
             case MACOS: MACOS_CODE(SS_LALT("`") "U"); return false;
@@ -145,9 +136,7 @@ bool keyboardPrintUGrave(void) {
             default:    LINUX_UNICODE("d9"); return false;
         }
     }
-    // ù
-    clear_mods();
-    switch (osCurrent()) {
+    switch (osCurrent()) {                  // ù
         case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_4) SS_TAP(X_KP_9)); return false;
         case MACOS: MACOS_CODE(SS_LALT("`") "u"); return false;
         case LINUX:
@@ -155,154 +144,249 @@ bool keyboardPrintUGrave(void) {
     }
 } /**/
 
-bool keyboardPrintAAcute(void) {            // á
-    switch (osCurrent()) {
-        case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_2) SS_TAP(X_KP_5)); return false;
-        case MACOS: MACOS_CODE(SS_LALT("e") "a"); return false;
-        case LINUX:
-        default:    LINUX_UNICODE("e1"); return false;
-    }
-} /**/
 
-bool keyboardPrintEAcute(void) {            // é
-    switch (osCurrent()) {
-        case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_3)); return false;
-        case MACOS: MACOS_CODE(SS_LALT("e") "e"); return false;
-        case LINUX:
-        default:    LINUX_UNICODE("e9"); return false;
-    }
-} /**/
 
-bool keyboardPrintTwoIT(void) {             // 2"
-    if (get_mods() & MOD_SHIFTS) {          // "
-        SEND_STRING(SS_TAP(X_QUOTE));
-    } else {
-        SEND_STRING(SS_TAP(X_2));           // 2
-    }
-    return false;
-} /**/
 
-bool keyboardPrintThreeIT(void) {           // 3£
-    uint8_t modifier = get_mods();
-    if (modifier & MOD_SHIFTS) {            // £
+/**
+ * GENERIC KEYBOARD FUNCTIONS
+ */
+
+bool keyboardPrintFour_ON() {
+    if (get_mods() & MOD_BIT(KC_RALT)) {    // Pound Sterlin [£]
         clear_mods();
-        keyboardPrintPound();
-        set_mods(modifier);
+        return keyboardPrintPound();
+    }
+    return true;
+} /**/
+
+
+
+
+/**
+ * ITALIAN KEYBOARD FUNCTIONS
+ */
+
+bool keyboardPrintTwoIT_ON() {              // 2"
+    if (get_mods() & MOD_SHIFTS) {          // "
+        register_code(KC_LSHIFT);
+        register_code(KC_QUOTE);
     } else {
-        SEND_STRING(SS_TAP(X_3));           // 3
+        register_code(KC_2);                // 2
     }
     return false;
 } /**/
+bool keyboardPrintTwoIT_OFF() {             // 2"
+    if (get_mods() & MOD_SHIFTS) {
+        unregister_code(KC_QUOTE);
+        unregister_code(KC_LSHIFT);
+    } else {
+        unregister_code(KC_2);
+    }
+    return false;
+}
 
-bool keyboardPrintSixIT(void) {             // 6&
+bool keyboardPrintThreeIT_ON() {            // 3£
+    if (get_mods() & MOD_SHIFTS) {          // £
+        return keyboardPrintPound();
+    }
+    register_code(KC_3);                    // 3
+    return false;
+} /**/
+bool keyboardPrintThreeIT_OFF() {           // 3£
+    if (get_mods() & MOD_SHIFTS) {          // £
+        return false;   // do nothing
+    }
+    unregister_code(KC_3);                  // 3
+    return false;
+} /**/
+
+
+bool keyboardPrintSixIT_ON() {              // 6&
     if (get_mods() & MOD_SHIFTS) {          // &
-        SEND_STRING(SS_TAP(X_7));
-    } else {
-        SEND_STRING(SS_TAP(X_6));           // 6
+        register_code(KC_7);
+    } else {                                // 6
+        register_code(KC_6);
+    }
+    return false;
+} /**/
+bool keyboardPrintSixIT_OFF() {             // 6&
+    if (get_mods() & MOD_SHIFTS) {          // &
+        unregister_code(KC_7);
+    } else {                                // 6
+        unregister_code(KC_6);
     }
     return false;
 } /**/
 
-bool keyboardPrintSevenIT(void) {           // 7/
+bool keyboardPrintSevenIT_ON() {            // 7/
     uint8_t modifier = get_mods();
     if (modifier & MOD_SHIFTS) {            // /
         clear_mods();
-        SEND_STRING(SS_TAP(X_SLASH));
+        register_code(KC_SLASH);
         set_mods(modifier);
     } else {
-        SEND_STRING(SS_TAP(X_7));           // 7
+        register_code(KC_7);                // 7
+    }
+    return false;
+} /**/
+bool keyboardPrintSevenIT_OFF() {
+    uint8_t modifier = get_mods();
+    if (modifier & MOD_SHIFTS) {            // /
+        clear_mods();
+        unregister_code(KC_SLASH);
+        set_mods(modifier);
+    } else {
+        unregister_code(KC_7);              // 7
     }
     return false;
 } /**/
 
-bool keyboardPrintEightIT(void) {           // 8(
+bool keyboardPrintEightIT_ON() {            // 8(
     if (get_mods() & MOD_SHIFTS) {          // (
-        SEND_STRING(SS_TAP(X_9));
-    } else {
-        SEND_STRING(SS_TAP(X_8));           // 8
+        register_code(KC_9);
+    } else {                                // 8
+        register_code(KC_8);
+    }
+    return false;
+} /**/
+bool keyboardPrintEightIT_OFF() {
+    if (get_mods() & MOD_SHIFTS) {          // (
+        unregister_code(KC_9);
+    } else {                                // 8
+        unregister_code(KC_8);
     }
     return false;
 } /**/
 
-bool keyboardPrintNineIT(void) {            // 9)
+bool keyboardPrintNineIT_ON() {             // 9)
     if (get_mods() & MOD_SHIFTS) {          // )
-        SEND_STRING(SS_TAP(X_0));
-    } else {
-        SEND_STRING(SS_TAP(X_9));           // 9
+        register_code(KC_0);
+    } else {                                // 9
+        register_code(KC_9);
+    }
+    return false;
+} /**/
+bool keyboardPrintNineIT_OFF() {
+    if (get_mods() & MOD_SHIFTS) {          // )
+        unregister_code(KC_0);
+    } else {                                // 9
+        unregister_code(KC_9);
     }
     return false;
 } /**/
 
-bool keyboardPrintZeroIT(void) {            // 0=
+bool keyboardPrintZeroIT_ON() {             // 0=
     uint8_t modifier = get_mods();
     if (modifier & MOD_SHIFTS) {            // =
         clear_mods();
-        SEND_STRING(SS_TAP(X_EQUAL));
+        register_code(KC_EQUAL);
         set_mods(modifier);
-    } else {
-        SEND_STRING(SS_TAP(X_0));           // 0
+    } else {                                // 0
+        register_code(KC_0);
     }
     return false;
 } /**/
-
-bool keyboardPrintQuotIT(void) {            // '?
-    if (get_mods() & MOD_SHIFTS) {          // ?
-        SEND_STRING(SS_TAP(X_SLSH));
-    } else {
-        SEND_STRING(SS_TAP(X_QUOT));        // '
-    }
-    return false;
-} /**/
-
-bool keyboardPrintIGraveIT(void) {          // ì^
+bool keyboardPrintZeroIT_OFF() {
     uint8_t modifier = get_mods();
-    clear_mods();
-    if (modifier & MOD_SHIFTS) {            // ^
-        SEND_STRING(SS_LSFT(SS_TAP(X_6)));
+    if (modifier & MOD_SHIFTS) {            // =
+        clear_mods();
+        unregister_code(KC_EQUAL);
+        set_mods(modifier);
+    } else {                                // 0
+        unregister_code(KC_0);
+    }
+    return false;
+} /**/
+
+bool keyboardPrintQuotIT_ON() {             // '?
+    if (get_mods() & MOD_SHIFTS) {          // ?
+        register_code(KC_SLSH);
+    } else {                                // '
+        register_code(KC_QUOT);
+    }
+    return false;
+} /**/
+bool keyboardPrintQuotIT_OFF() {            // '?
+    if (get_mods() & MOD_SHIFTS) {          // ?
+        unregister_code(KC_SLSH);
+    } else {                                // '
+        unregister_code(KC_QUOT);
+    }
+    return false;
+} /**/
+
+bool keyboardPrintIGraveIT_ON() {           // ì^
+    if (get_mods() & MOD_SHIFTS) {          // ^
+        register_code(KC_6);
     } else {                                // ì
         keyboardPrintIGrave();
     }
-    set_mods(modifier);
+    return false;
+} /**/
+bool keyboardPrintIGraveIT_OFF() {          // ì^
+    if (get_mods() & MOD_SHIFTS) {          // ^
+        unregister_code(KC_6);
+    }
     return false;
 } /**/
 
-bool keyboardPrintEGraveIT(void) {          // èé[
+bool keyboardPrintEGraveIT_ON() {           // èé[
     uint8_t modifier = get_mods();
     clear_mods();
     if (modifier & MOD_SHIFTS) {            // é
         keyboardPrintEAcute();
-        set_mods(modifier);
-        return false;
+    } else {
+        if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {     // [
+            register_code(KC_LBRC);
+        } else {
+            keyboardPrintEGrave();          // è
+        }
     }
-    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // [
-        SEND_STRING(SS_TAP(X_LBRC));
-        set_mods(modifier);
-        return false;
-    }
-    keyboardPrintEGrave();                  // è
     set_mods(modifier);
     return false;
 } /**/
+bool keyboardPrintEGraveIT_OFF() {          // èé[
+    uint8_t modifier = get_mods();
+    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {         // [
+        unregister_code(KC_LBRC);
+    }
+    return false;
+} /**/
 
-bool keyboardPrintPlusIT(void) {            // +*]
+bool keyboardPrintPlusIT_ON() {             // +*]
     uint8_t modifier = get_mods();
     clear_mods();
     if (modifier & MOD_SHIFTS) {            // *
-        SEND_STRING(SS_LSFT(SS_TAP(X_8)));
-        set_mods(modifier);
-        return false;
+        register_code(KC_LSHIFT);
+        register_code(KC_8);
+    } else {
+        if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // ]
+            register_code(KC_RBRC);
+        } else {                            // +
+            register_code(KC_LSHIFT);
+            register_code(KC_EQUAL);
+        }
     }
-    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // ]
-        SEND_STRING(SS_TAP(X_RBRC));
-        set_mods(modifier);
-        return false;
-    }
-    SEND_STRING(SS_LSFT(SS_TAP(X_EQL)));    // +
     set_mods(modifier);
     return false;
 } /**/
+bool keyboardPrintPlusIT_OFF() {            // +*]
+    uint8_t modifier = get_mods();
+    if (modifier & MOD_SHIFTS) {            // *
+        unregister_code(KC_8);
+        unregister_code(KC_LSHIFT);
+    } else {
+        if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // ]
+            unregister_code(KC_RBRC);
+        } else {                            // +
+            unregister_code(KC_EQUAL);
+            unregister_code(KC_LSHIFT);
+        }
+    }
+    return false;
+} /**/
 
-bool keyboardPrintUGraveIT(void) {          // ù§
+bool keyboardPrintUGraveIT_ON() {           // ù§
     uint8_t modifier = get_mods();
     clear_mods();
     if (modifier & MOD_SHIFTS) {            // §
@@ -314,201 +398,261 @@ bool keyboardPrintUGraveIT(void) {          // ù§
     return false;
 } /**/
 
-bool keyboardPrintOGraveIT(void) {          // òç@
+bool keyboardPrintOGraveIT_ON() {           // òç@
     uint8_t modifier = get_mods();
     clear_mods();
     if (modifier & MOD_SHIFTS) {            // ç
         keyboardPrintCedilla();
-        set_mods(modifier);
-        return false;
+    } else {
+        if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // @
+            register_code(KC_LSHIFT);
+            register_code(KC_2);
+        } else {
+            keyboardPrintOGrave();          // ò
+        }
     }
-    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // @
-        SEND_STRING(SS_LSFT(SS_TAP(X_2)));
-        set_mods(modifier);
-        return false;
-    }
-    keyboardPrintOGrave();                  // ò
     set_mods(modifier);
     return false;
 } /**/
+bool keyboardPrintOGraveIT_OFF() {          // òç@
+    uint8_t modifier = get_mods();
+    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // @
+        unregister_code(KC_2);
+        unregister_code(KC_LSHIFT);
+    }
+    return false;
+} /**/
 
-bool keyboardPrintAGraveIT(void) {          // à°#
+bool keyboardPrintAGraveIT_ON() {           // à°#
     uint8_t modifier = get_mods();
     clear_mods();
     if (modifier & MOD_SHIFTS) {            // °
         keyboardPrintDegree();
-        set_mods(modifier);
-        return false;
+    } else {
+        if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // #
+            register_code(KC_LSHIFT);
+            register_code(KC_3);
+        } else {
+            keyboardPrintAGrave();          // à
+        }
     }
-    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // #
-        SEND_STRING(SS_LSFT(SS_TAP(X_3)));
-        set_mods(modifier);
-        return false;
-    }
-    keyboardPrintAGrave();                  // à
     set_mods(modifier);
     return false;
 } /**/
+bool keyboardPrintAGraveIT_OFF() {          // à°#
+    uint8_t modifier = get_mods();
+    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // #
+        unregister_code(KC_3);
+        unregister_code(KC_LSHIFT);
+    }
+    return false;
+} /**/
 
-bool keyboardPrintCommaIT(void) {           // ,;<
+bool keyboardPrintCommaIT_ON() {            // ,;<
     uint8_t modifier = get_mods();
     clear_mods();
     if (modifier & MOD_SHIFTS) {            // ;
-        SEND_STRING(SS_TAP(X_SCLN));
-        set_mods(modifier);
-        return false;
+        register_code(KC_SCLN);
+    } else {
+        if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // <
+            register_code(KC_LSHIFT);
+            register_code(KC_COMMA);
+        } else {                            // ,
+            register_code(KC_COMMA);
+        }
     }
-    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // <
-        SEND_STRING(SS_LSFT(SS_TAP(X_COMMA)));
-        set_mods(modifier);
-        return false;
-    }
-    SEND_STRING(SS_TAP(X_COMMA));           // ,
     set_mods(modifier);
     return false;
 } /**/
+bool keyboardPrintCommaIT_OFF() {           // ,;<
+    uint8_t modifier = get_mods();
+    if (modifier & MOD_SHIFTS) {            // ;
+        unregister_code(KC_SCLN);
+    } else {
+        if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // <
+            unregister_code(KC_COMMA);
+            unregister_code(KC_LSHIFT);
+        } else {                            // ,
+            unregister_code(KC_COMMA);
+        }
+    }
+    return false;
+} /**/
 
-bool keyboardPrintDotIT(void) {             // .:>
+bool keyboardPrintDotIT_ON() {              // .:>
     uint8_t modifier = get_mods();
     clear_mods();
     if (modifier & MOD_SHIFTS) {            // :
-        SEND_STRING(SS_LSFT(SS_TAP(X_SCLN)));
-        set_mods(modifier);
-        return false;
+        register_code(KC_LSHIFT);
+        register_code(KC_SCLN);
+    } else {
+        if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // >
+            register_code(KC_LSHIFT);
+            register_code(KC_DOT);
+        } else {                            // .
+            register_code(KC_DOT);
+        }
     }
-    if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // >
-        SEND_STRING(SS_LSFT(SS_TAP(X_DOT)));
-        set_mods(modifier);
-        return false;
-    }
-    SEND_STRING(SS_TAP(X_DOT));             // .
     set_mods(modifier);
     return false;                           
 } /**/
+bool keyboardPrintDotIT_OFF() {             // .:>
+    uint8_t modifier = get_mods();
+    if (modifier & MOD_SHIFTS) {            // :
+        unregister_code(KC_SCLN);
+        unregister_code(KC_LSHIFT);
+    } else {
+        if (modifier & MOD_BIT(KC_RALT) || (modifier & MOD_BIT(KC_LCTRL) && modifier & MOD_BIT(KC_LALT))) {    // >
+            unregister_code(KC_DOT);
+            unregister_code(KC_LSHIFT);
+        } else {                            // .
+            unregister_code(KC_DOT);
+        }
+    }
+    return false;                           
+} /**/
 
-bool keyboardPrintMinusIT(void) {           // -_
+bool keyboardPrintMinusIT_ON() {            // -_
     if (get_mods() & MOD_SHIFTS) {          // _
-        SEND_STRING(SS_LSFT(SS_TAP(X_MINUS)));
-        return false;
-    }                                       // -
-    SEND_STRING(SS_TAP(X_MINUS));
+        register_code(KC_LSHIFT);
+        register_code(KC_MINUS);
+    } else {                                // -
+        register_code(KC_MINUS);
+    }
+    return false;
+} /**/
+bool keyboardPrintMinusIT_OFF() {           // -_
+    if (get_mods() & MOD_SHIFTS) {          // _
+        unregister_code(KC_MINUS);
+        unregister_code(KC_LSHIFT);
+    } else {                                // -
+        unregister_code(KC_MINUS);
+    }
     return false;
 } /**/
 
 
-
-bool keyboardPrintAAcuteIfNeeded() {
+bool keyboardPrintAAcute() {
     uint8_t modifiers = get_mods();         // Key modifiers (ALT,SHIFT,CTRL,...), used in process_record_user()
     if (modifiers & MOD_BIT(KC_RALT)) {     // áÁ
         clear_mods();
         if (modifiers & MOD_SHIFTS) {       // Á (A acute uppercase)
             switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_9) SS_TAP(X_KP_3)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("e") "A"); return false;
+                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_9) SS_TAP(X_KP_3)); break;
+                case MACOS: MACOS_CODE(SS_LALT("e") "A"); break;
                 case LINUX:
-                default:    LINUX_UNICODE("c1"); return false;
+                default:    LINUX_UNICODE("c1");
+            }
+        } else {                            // á
+            switch (osCurrent()) {
+                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_2) SS_TAP(X_KP_5)); break;
+                case MACOS: MACOS_CODE(SS_LALT("e") "a"); break;
+                case LINUX:
+                default:    LINUX_UNICODE("e1");
             }
         }
-        return keyboardPrintAAcute();       // á
+        set_mods(modifiers);
+        return false;
     }
     return true;
 } /**/
 
-bool keyboardPrintEAcuteIfNeeded() {
+bool keyboardPrintEAcute() {
     uint8_t modifiers = get_mods();
     if (modifiers & MOD_BIT(KC_RALT)) {     // éÉ
         clear_mods();
         if (modifiers & MOD_SHIFTS) {       // É
             switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_0) SS_TAP(X_KP_1)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("e") "E"); return false;
+                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_0) SS_TAP(X_KP_1)); break;
+                case MACOS: MACOS_CODE(SS_LALT("e") "E"); break;
                 case LINUX:
-                default:    LINUX_UNICODE("c9"); return false;
+                default:    LINUX_UNICODE("c9");
             }
-        }
-        return keyboardPrintEAcute();       // é
-    }
-    return true;
-} /**/
-
-bool keyboardPrintIAcuteIfNeeded() {
-    uint8_t modifiers = get_mods();
-    if (modifiers & MOD_BIT(KC_RALT)) { // íÍ
-        clear_mods();
-        if (modifiers & MOD_SHIFTS) {   // Í
+        } else {                            // é
             switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_0) SS_TAP(X_KP_5)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("e") "I"); return false;
+                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_3)); break;
+                case MACOS: MACOS_CODE(SS_LALT("e") "e"); break;
                 case LINUX:
-                default:    LINUX_UNICODE("cd"); return false;
+                default:    LINUX_UNICODE("e9");
             }
         }
-        // í
-        switch (osCurrent()) {
-            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_7)); return false;
-            case MACOS: MACOS_CODE(SS_LALT("e") "i"); return false;
-            case LINUX:
-            default:    LINUX_UNICODE("ed"); return false;
-        }
+        set_mods(modifiers);
+        return false;
     }
     return true;
 } /**/
 
-bool keyboardPrintOAcuteIfNeeded() {
+bool keyboardPrintIAcute() {
     uint8_t modifiers = get_mods();
-    if (modifiers & MOD_BIT(KC_RALT)) { // óÓ
-        clear_mods();
-        if (modifiers & MOD_SHIFTS) {   // Ó
+    if (modifiers & MOD_BIT(KC_RALT)) {     // íÍ
+        clear_mods();                       // Í
+        if (modifiers & MOD_SHIFTS) {
             switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_1) SS_TAP(X_KP_1)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("e") "O"); return false;
+                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_0) SS_TAP(X_KP_5)); break;
+                case MACOS: MACOS_CODE(SS_LALT("e") "I"); break;
                 case LINUX:
-                default:    LINUX_UNICODE("d3"); return false;
+                default:    LINUX_UNICODE("cd");
+            }
+        } else {                            // í
+            switch (osCurrent()) {
+                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_3) SS_TAP(X_KP_7)); break;
+                case MACOS: MACOS_CODE(SS_LALT("e") "i"); break;
+                case LINUX:
+                default:    LINUX_UNICODE("ed");
             }
         }
-        // ó
-        switch (osCurrent()) {
-            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_4) SS_TAP(X_KP_3)); return false;
-            case MACOS: MACOS_CODE(SS_LALT("e") "o"); return false;
-            case LINUX:
-            default:    LINUX_UNICODE("f3"); return false;
-        }
+        set_mods(modifiers);
+        return false;
     }
     return true;
 } /**/
 
-bool keyboardPrintUAcuteIfNeeded() {
+bool keyboardPrintOAcute() {
     uint8_t modifiers = get_mods();
-    if (modifiers & MOD_BIT(KC_RALT)) { // úÚ
+    if (modifiers & MOD_BIT(KC_RALT)) {     // óÓ
         clear_mods();
-        if (modifiers & MOD_SHIFTS) {   // Ú
+        if (modifiers & MOD_SHIFTS) {       // Ó
             switch (osCurrent()) {
-                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_1) SS_TAP(X_KP_8)); return false;
-                case MACOS: MACOS_CODE(SS_LALT("e") "U"); return false;
+                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_1) SS_TAP(X_KP_1)); break;
+                case MACOS: MACOS_CODE(SS_LALT("e") "O"); break;
                 case LINUX:
-                default:    LINUX_UNICODE("da"); return false;
+                default:    LINUX_UNICODE("d3");
+            }
+        } else {                            // ó
+            switch (osCurrent()) {
+                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_4) SS_TAP(X_KP_3)); break;
+                case MACOS: MACOS_CODE(SS_LALT("e") "o"); break;
+                case LINUX:
+                default:    LINUX_UNICODE("f3");
             }
         }
-        // ú
-        switch (osCurrent()) {
-            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_5) SS_TAP(X_KP_0)); return false;
-            case MACOS: MACOS_CODE(SS_LALT("e") "u"); return false;
-            case LINUX:
-            default:    LINUX_UNICODE("fa"); return false;
-        }
+        set_mods(modifiers);
+        return false;
     }
     return true;
 } /**/
 
-bool keyboardPrintEuroIfNeeded() {
-    if (get_mods() & MOD_BIT(KC_RALT)) { // Euro Sign [€]
+bool keyboardPrintUAcute() {
+    uint8_t modifiers = get_mods();
+    if (modifiers & MOD_BIT(KC_RALT)) {     // úÚ
         clear_mods();
-        switch (osCurrent()) {
-            case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_1) SS_TAP(X_KP_2) SS_TAP(X_KP_8)); return false;
-            case MACOS: MACOS_CODE2("2"); return false;
-            case LINUX:
-            default:    LINUX_UNICODE("20ac"); return false;
+        if (modifiers & MOD_SHIFTS) {       // Ú
+            switch (osCurrent()) {
+                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_1) SS_TAP(X_KP_8)); break;
+                case MACOS: MACOS_CODE(SS_LALT("e") "U"); break;
+                case LINUX:
+                default:    LINUX_UNICODE("da");
+            }
+        } else {                            // ú
+            switch (osCurrent()) {
+                case WIN:   WINDOWS_CODE(SS_TAP(X_KP_0) SS_TAP(X_KP_2) SS_TAP(X_KP_5) SS_TAP(X_KP_0)); break;
+                case MACOS: MACOS_CODE(SS_LALT("e") "u"); break;
+                case LINUX:
+                default:    LINUX_UNICODE("fa");
+            }
         }
+        set_mods(modifiers);
+        return false;
     }
     return true;
 } /**/

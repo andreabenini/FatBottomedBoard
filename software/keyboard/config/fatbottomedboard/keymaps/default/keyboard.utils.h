@@ -38,38 +38,44 @@
 
 
 // Send unicode strings with your OS
-#define LINUX_UNICODE(string)       SEND_STRING(SS_LCTL(SS_LSFT("u")) string "\n")
-#define WINDOWS_CODE(string)        SEND_STRING(SS_LALT(string))
-#define MACOS_CODE(string)          SEND_STRING(string)
-#define MACOS_CODE1(string)         SEND_STRING(SS_LALT(string))
-#define MACOS_CODE2(string)         SEND_STRING(SS_LALT(SS_LSFT(string)))
+#define LINUX_UNICODE(string)                   SEND_STRING(SS_LCTL(SS_LSFT("u")) string SS_TAP(X_ENT))
+#define MACOS_CODE(string)                      SEND_STRING(string)
+#define MACOS_CODE1(string)                     SEND_STRING(SS_LALT(string))
+#define MACOS_CODE2(string)                     SEND_STRING(SS_LALT(SS_LSFT(string)))
+#define WINDOWS_CODE(string)                    SEND_STRING(SS_LALT(string))
 
 // required functions
-bool keyboardPrintPound(void);      // £
-bool keyboardPrintSection1(void);   // §
-bool keyboardPrintCedilla(void);    // ç
-bool keyboardPrintDegree(void);     // °
+
+// Special characters
+bool keyboardPrintPound(void);                  // £
+bool keyboardPrintSection1(void);               // §
+bool keyboardPrintCedilla(void);                // ç
+bool keyboardPrintDegree(void);                 // °
+bool keyboardPrintEuro(void);                   // €
+
 
 // ITA Keyboard
-bool keyboardPrintTwoIT(void);
-bool keyboardPrintThreeIT(void);
-bool keyboardPrintSixIT(void);
-bool keyboardPrintSevenIT(void);
-bool keyboardPrintEightIT(void);
-bool keyboardPrintNineIT(void);
-bool keyboardPrintZeroIT(void);
-bool keyboardPrintQuotIT(void);
-bool keyboardPrintIGraveIT(void);
-bool keyboardPrintEGraveIT(void);
-bool keyboardPrintPlusIT(void);
-bool keyboardPrintUGraveIT(void);
-bool keyboardPrintOGraveIT(void);
-bool keyboardPrintAGraveIT(void);
-bool keyboardPrintCommaIT(void);
-bool keyboardPrintDotIT(void);
-bool keyboardPrintMinusIT(void);
+bool keyboardPrintTwoIT_ON(void);               bool keyboardPrintTwoIT_OFF(void);
+bool keyboardPrintThreeIT_ON(void);             bool keyboardPrintThreeIT_OFF(void);
+bool keyboardPrintSixIT_ON(void);               bool keyboardPrintSixIT_OFF(void);
+bool keyboardPrintSevenIT_ON(void);             bool keyboardPrintSevenIT_OFF(void);
+bool keyboardPrintEightIT_ON(void);             bool keyboardPrintEightIT_OFF(void);
+bool keyboardPrintNineIT_ON(void);              bool keyboardPrintNineIT_OFF(void);
+bool keyboardPrintZeroIT_ON(void);              bool keyboardPrintZeroIT_OFF(void);
+bool keyboardPrintQuotIT_ON(void);              bool keyboardPrintQuotIT_OFF(void);
+bool keyboardPrintIGraveIT_ON(void);            bool keyboardPrintIGraveIT_OFF(void);
+bool keyboardPrintEGraveIT_ON(void);            bool keyboardPrintEGraveIT_OFF(void);
+bool keyboardPrintPlusIT_ON(void);              bool keyboardPrintPlusIT_OFF(void);
+bool keyboardPrintUGraveIT_ON(void);
+bool keyboardPrintOGraveIT_ON(void);            bool keyboardPrintOGraveIT_OFF(void);
+bool keyboardPrintAGraveIT_ON(void);            bool keyboardPrintAGraveIT_OFF(void);
+bool keyboardPrintCommaIT_ON(void);             bool keyboardPrintCommaIT_OFF(void);
+bool keyboardPrintDotIT_ON(void);               bool keyboardPrintDotIT_OFF(void);
+bool keyboardPrintMinusIT_ON(void);             bool keyboardPrintMinusIT_OFF(void);
 
 // Generic keys (EN-USA)
+bool keyboardPrintFour_ON(void);
+
 bool keyboardPrintAGrave(void);
 bool keyboardPrintEGrave(void);
 bool keyboardPrintIGrave(void);
@@ -77,11 +83,8 @@ bool keyboardPrintOGrave(void);
 bool keyboardPrintUGrave(void);
 bool keyboardPrintAAcute(void);
 bool keyboardPrintEAcute(void);
-bool keyboardPrintEuroIfNeeded(void);
-bool keyboardPrintAAcuteIfNeeded(void);
-bool keyboardPrintEAcuteIfNeeded(void);
-bool keyboardPrintIAcuteIfNeeded(void);
-bool keyboardPrintOAcuteIfNeeded(void);
-bool keyboardPrintUAcuteIfNeeded(void);
+bool keyboardPrintIAcute(void);
+bool keyboardPrintOAcute(void);
+bool keyboardPrintUAcute(void);
 
 #endif
