@@ -268,7 +268,7 @@ void matrix_scan_user(void) {
  * Detect and process custom keycodes
  */
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (record->event.pressed) {        // Key pressed
+    if (record->event.pressed) {        /*********************** Key Pressed ************************/
         switch (keycode) {
         // One shot keys. Not using ALTgr or other keys to compose
         case CHG_OS:
@@ -292,6 +292,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return keyboardPrintOGrave();
         case UGRAVE:    // ùÙ
             return keyboardPrintUGrave();
+
+        // AltGr dependent keys. Convert to symbol only if needed [ONLY when R_ALT is pressed]
+        case KC_4:      // (AltGr+4) = £
+            return keyboardPrintFour_ON();
+        case KC_A:      // áÁ
+            return keyboardPrintAAcute();
+        case KC_E:      // éÉ
+            return keyboardPrintEAcute();
+        case KC_I:      // íÍ
+            return keyboardPrintIAcute();
+        case KC_O:      // íÍ
+            return keyboardPrintOAcute();
+        case KC_U:      // úÚ
+            return keyboardPrintUAcute();
 
         // ITA keyboard layout, special keys
         case BTWO:      // 2"
@@ -328,23 +342,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return keyboardPrintDotIT_ON();
         case BMNS:      // -_
             return keyboardPrintMinusIT_ON();
-
-        // AltGr dependent keys. Convert to symbol only if needed [ONLY when R_ALT is pressed]
-        case KC_4:      // (AltGr+4) = £
-            return keyboardPrintFour_ON();
-        case KC_A:      // áÁ
-            return keyboardPrintAAcute();
-        case KC_E:      // éÉ
-            return keyboardPrintEAcute();
-        case KC_I:      // íÍ
-            return keyboardPrintIAcute();
-        case KC_O:      // íÍ
-            return keyboardPrintOAcute();
-        case KC_U:      // úÚ
-            return keyboardPrintUAcute();
         }
 
-    } else {                            // Key released
+    } else {                            /*********************** Key Released ***********************/
         switch (keycode) {
 
         // ITA keyboard layout, special keys
