@@ -148,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_TRNS,KC_TRNS,   KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,      KC_TRNS,KC_TRNS,KC_TRNS,   KC_TRNS,        KC_TRNS,KC_TRNS
     ),
 
-    /**   [Layer 2]         { Default: USA International Layout } Working, but without dead keys
+    /**   [Layer 2]         { Default: USA International Layout } Working, but without dead keys. Now pretty similar to EN_US (layer 0)
      * 
      *    ,-------------.   ,------.      ,------,------,------,------.    ,------,------,------,------.   ,------,------,------,------.     ,------,------,------.     ,------,------,------,------.
      *    |             |   |      |      |      |      |      |      |    |      |      |      |      |   |      |      |      |      |     |      |Layout|      |     |      |      |      |      |
@@ -205,7 +205,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
 
-    /**   [Layer 4]         { [LAYER EXT_PLAY]  Additional keys for all layouts }  PLAY = MO(4)
+    /**   [Layer 4]         { [LAYER EXT_PLAY]  Additional keys for all layouts }  PLAY = MO(4). Now used for dynamic macros only
      * 
      *    ,-------------.   ,------.      ,------,------,------,------.    ,------,------,------,------.   ,------,------,------,------.     ,------,------,------.     ,------,------,------,------.
      *    |             |   |      |      |Macro1|Macro2|      |      |    |      |      |      |      |   |      |      |      |      |     |      |      |=PLAY=|     |      |      |      |      |
