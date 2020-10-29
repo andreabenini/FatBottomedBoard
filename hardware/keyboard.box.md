@@ -3,8 +3,8 @@
 ### Self locking box
 |Dimensions|Internal|
 |---|---|
-|_Length_|**52 cm**|
-|_Width_ |**21 cm**|
+|_Length_|**54 cm**|
+|_Width_ |**22 cm**|
 |_Height_|**7 cm**|
 | _._ | |
 |Sheet Size|**External**|
