@@ -9,4 +9,9 @@
 
 Keyboard width: 51.5 cm  
 Knob ledge (each) ~1 cm (with 6.5cm knobs)  
+
+Schematics  
 ![keyboard.box.png](keyboard.box.png)
+
+Box Preview  
+![keyboard.box.jpg](keyboard.box.jpg)
