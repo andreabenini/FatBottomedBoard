@@ -285,3 +285,12 @@ things are visible and hopefully I'll dedicate some time on it
 Encoders are big and used to control the display but also usable for host interaction (mouse wheel,
 X/Y axis, volume control, ...)
 ![screenshots](37.menu.screenshots.png)
+
+**try, build, fail, repeat...**  
+I really like these big knobs and recycling two jar caps seems to be easy and quite good, overall profile is smooth
+and they nicely do the job but I'm not completely satisfied yet. I've decided to create something heavier and tall,
+something like those giant knobs I usually see on professional video editing consoles.  
+From scrap wood (as usual...) I've created a big knob with just a drill and a file (unfortunately I don't have a lathe),
+it's rather big (70x25mm !) and I really like it, I've applied the same black spray color after two layers of primer.  
+It doesn't even seems to be wood after the black paint, see for yourself
+![big ass knob](38.big.knob.jpg)
