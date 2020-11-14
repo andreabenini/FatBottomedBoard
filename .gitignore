@@ -1,4 +1,5 @@
 .pio
 .vscode
 FatBottomedBoard.code-workspace
-software/host
+software/host/keyboardSetup
+software/host/scancodes
