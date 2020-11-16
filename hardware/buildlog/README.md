@@ -253,6 +253,8 @@ while painting goes by.
 
 Rotary encoder knob is really cool even if it's just a jar cap. Filling it with Oogoo sounds nice
 because when you use it it feels quite heavy and it doesn't swing at all.  
+**UPDATE:** replaced them with big fat self made wooden knobs, see 
+[try, build, fail, repeat...] section below  
 Browser button (big fat enter placed horizontally) was just a filler because I didn't have a 2U
 keycap but I really like it, I won't replace this key.  
 R4 transparent keycaps are nice in the first two rows but inappropriate on the remaining lines,
