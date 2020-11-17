@@ -1,0 +1,11 @@
+Saluto|Hello World
+Saluto Hex|\48ell\6F Wor\6c\64
+Verbose|Tutto su una riga ma un sacco bello ed un sacco lungo. Lunghiiiiiiiiiiiissimo :)
+User+Password|Username\0aPassword\0A
+backslash|Stringa, backslash "\\" e basta
+backslash+CR|Stringa, backslash "\\"\0aSeconda riga
+altro menu|menu\0A
+nome molto lungo ma nessuna macro o quasi|(none)
+nome medio|macro media senza lode ne infamia
+nome corto|macro molto lunga\0a
+finale|altro su macro
