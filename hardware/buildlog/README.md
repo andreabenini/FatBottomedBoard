@@ -296,3 +296,9 @@ From scrap wood (as usual...) I've created a big knob with just a drill and a fi
 it's rather big (70x25mm !) and I really like it, I've applied the same black spray color after two layers of primer.  
 It doesn't even seems to be wood after the black paint, see for yourself
 ![big ass knob](38.big.knob.jpg)
+
+### Transportation
+To transport this keyboard I've taken some spare (recycled) cardboard and I've created a box, for free.
+I've designed the shape and cut the cardboard with an utility knife, project in previous directory,
+here is the result:
+![../keyboard.box.jpg](keyboard.box.jpg)
