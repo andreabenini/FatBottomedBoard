@@ -10,7 +10,8 @@ reported, released and shared to the public, hopefully you can contribute to it,
 features to the project as well.
 
 ![Keyboard overview](logo.png)
-
+---
+[Featured on hackaday :)](https://hackaday.com/2020/10/09/fat-bottomed-keebs-you-make-the-clackin-world-go-round/)
 ---
 ## Notes on the project
 - _"This is my keyboard. There are many like it, but this one is mine."_ 
