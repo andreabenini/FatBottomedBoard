@@ -114,15 +114,14 @@ password and macro keeper/scroller on left side. In setup mode right encoder is 
 
 ## To Be Done
 - Keycaps are still a work in progress (as every keyboard geek always says). Basic standard keyset
-  is fine: looks cool, total black, custom backlight. But newly added keys in my 119 layout (10
-  transparent and 4 white) are still a work in progress. I've bought transparent keys because
-  I'd like to paint them black from the internal and carve them to keep backlight led with some
-  custom signs
-- Black Keyset is full PBT with variable heights (R1..R4), I'd like to add new R1..R3 transparent
-  keys and replace part of the R4 keys (just placed there to fill the blank)
+  is fine: looks cool, total black, custom backlight. But newly added keys in my 119 layout (+14
+  transparent) are still a work in progress. I've bought transparent keys because
+  I'd like to paint them black and carve from the internal to keep backlight led with some
+  custom signs. 3D printing tests have not led to the expected results.
 - Black paint from the inside and carve transparent keysets
-- Replace white F1-F4 keys (taken from an old keyboard) below the right rotary encoder with custom
-  made ones (backlight capable)
+- Transparent keys placed on upper right position (where F1-F4 keys were), need to take a new photo.
+- Newly added wood rotary knobs are working fine, need to take a new photo for them as well, see
+  current progress in the [buildlog](hardware/buildlog/38.big.knob.jpg)
 - Remove the Windows keycap with something else, I don't want it in my keyboard
 - Add more games. Arkanoids, maybe Pacman and few more
 - Audio capabilities to the Teensy (maybe). When you play Pacman is somewhat important :)
