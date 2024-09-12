@@ -10,8 +10,13 @@ reported, released and shared to the public, hopefully you can contribute to it,
 features to the project as well.
 
 ![Keyboard overview](logo.png)
+
 ---
-[Featured on hackaday :)](https://hackaday.com/2020/10/09/fat-bottomed-keebs-you-make-the-clackin-world-go-round/)
+## Project featured on
+- ### [hackaday.com](https://hackaday.com/2020/10/09/fat-bottomed-keebs-you-make-the-clackin-world-go-round/)
+- ### [hackster.io](https://www.hackster.io/news/fatbottomedboard-is-a-massive-sun-type-5-style-mechanical-keyboard-for-serious-work-faa62c455731)
+- ### [cyberreport.io](https://www.cyberreport.io/news/fat-bottomed-keebs-you-make-the-clackin-world-go-round?article=28913)
+
 ---
 ## Notes on the project
 - _"This is my keyboard. There are many like it, but this one is mine."_ 
