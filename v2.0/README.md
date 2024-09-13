@@ -1,5 +1,5 @@
 # V2.0
-Build in progress
+Build in progress, this will replace current version but at the moment it's still an experiment
 
 - new project version is under construction
 - Testing new CherryMX switches
