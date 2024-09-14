@@ -42,20 +42,10 @@ Schematics available in the same dir, materials required are listed below:
 #### To be defined
     - 1.8" TFT display module, 128x160 8PIN TFT LCD, ST7735S Controller Drive 8/16 Bit SPI For Arduino Micro with SD.
       Ultra cheap and quite small head up like display for various keyboard functions, connected to the ATmega32U4 for
-      custom configurations, password keeper and fancy setup. Easily available across the **2~3 €** price range, just like
-      [this one](
-          https://www.aliexpress.com/item/32906859151.html?src=google&src=google&albch=shopping&acnt=494-037-6276&isdl=y&slnk=&plac=&mtctp=&albbt=Google_7_shopping&aff_platform=google&aff_short_key=UneMJZVf&&albagn=888888&albcp=1691306153&albag=64902423734&trgt=743612850714&crea=it32906859151&netw=u&device=c&albpg=743612850714&albpd=it32906859151&gclid=EAIaIQobChMInuu7oIiq6AIVxcmyCh1Fnw5LEAQYAiABEgJ8wPD_BwE&gclsrc=aw.ds
-      )
-    - TIP112 NPN Darlington Transistor. 60V 2A. Because I already had it around but you can use whatever Darlington you've, better if it
-      can handle more than 2A even if I won't use nominal 20mA on LEDs, they're really bright with just 10mA so this Darlington is fine
-      as well.
+      custom configurations, password keeper and fancy setup. Easily available across the **2~3 €** price range
     - 1 1K&#8486; resistor for the Darlington base
-    - 117 470&#8486; resistors (backlight LEDs)
-    - 2 330&#8486; resistors (numlock and capslock leds), these are controlled directly from the Teensy++ not from the Darlington
     - Spare resistors for the LCD display: 6x1K&#8486;, 1x330&#8486;, 1x100&#8486;
-    - Heat shrink tubing, wirings get complicated if you sum backlight wirings (one resistor, one key) and common keyboard matrix (one diode
-      for each key). See buildlog for details.  You'd better insulate cables when you use your soldering iron. Alternatively you might use
-      enameled wire but when you weld diodes you still have some tin to insulate
+    - Heat shrink tubing, you'd better insulate cables when you use your soldering iron
 
 
 # Software
