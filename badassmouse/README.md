@@ -78,7 +78,7 @@ Every finger is differently raised for ergonomics
 ## Support the Project
 If you've enjoyed this project and would like to support its future development, thank you! Every little bit helps and is incredibly motivating
 - **Fund the Next Version:** The dream is to create an even lighter and stronger V2 using **carbon fiber filament**. If you'd like to help make that a reality,
-you can [buy me a spool of filament directly](link-to-your-wishlist) or contribute towards the cost
+you can **buy me a spool of filament directly** or contribute towards the cost
 - **Contribute Financially:** A small donation to help cover prototyping costs is always welcome. You can do so via [**PayPal**](paypal.me/bendonations)
 - **Share the Project:** If you can't contribute financially, no problem at all! A star on the repository or giving project attribution when you share or use
 the design is a fantastic and highly valued way to show your support
