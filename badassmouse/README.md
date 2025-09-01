@@ -1,7 +1,7 @@
 # BadAssMouse (BAM!)
 Ben's custom made mouse.  
 Thinked, engineered and built as a perfect companion for this awesome keyboard.
-Huge footprint but light for fast movements, ergonomic and perfectly modeled on my right hand.
+Huge footprint but light for fast movements, modeled for covering my right hand entirely.
 
 ![project logo](logo.png)
 
@@ -19,21 +19,21 @@ Huge footprint but light for fast movements, ergonomic and perfectly modeled on 
    it's floating around
 - Reliable, Recycled Internals  
 The core of this mouse is built upon proven technology, giving it a reliable and high-performance foundation
-  - **Logitech Heart:** The main PCB and all essential electronic components have been carefully transplanted from a classic **Logitech M700** laser mouse
+  - **Logitech Heart:** The main PCB and all essential electronic components have been carefully transplanted from a classic **Logitech M500** laser mouse
   - **Proven Performance:** This approach leverages the quality and reliability of Logitech's sensor and engineering, ensuring excellent tracking and button response without reinventing the wheel
 - Hyper-Fast 'Infinity' Scroll  
-One of the most celebrated features of the donor Logitech M700 has been fully integrated into this build: the hyper-fast, dual-mode scroll wheel
+One of the most celebrated features of the donor Logitech M500 has been fully integrated into this build: the hyper-fast, dual-mode scroll wheel
   - **Effortless Navigation:** The scroll wheel can be toggled into a free-spinning "infinity" mode. With a single flick, you can coast through thousands of lines in documents, spreadsheets, or web pages instantly
   - **Dual-Mode Precision:** The mouse retains the ability to switch back to a standard, tactile "click-to-click" mode for when precision and line-by-line control are needed
-  - **A Signature Feature:** This powerful and satisfying function is a direct result of using the M700's internals, bringing a premium, productivity-enhancing feature to a unique custom body
+  - **A Signature Feature:** This powerful and satisfying function is a direct result of using the M500's internals, bringing a premium, productivity-enhancing feature to a unique custom body
 - Dedicated Thumb Button (Middle Click)  
 To improve ergonomics and functionality, a custom third mouse button has been added, accessible to the thumb
   - **Ergonomic Placement:** This new button is positioned laterally on the side of the mouse, offering a much more comfortable way to trigger a middle click without altering your grip
   - **Enhanced Functionality:** While the traditional middle click obtained by pressing the scroll wheel is still available, having a 
-    **dedicated thumb button** is far superior for actions like opening links in new tabs or for use in 3D modeling software (FreeCAD, Blender, Cura, ...)
+    **dedicated thumb button** is far superior for actions in 3D modeling software (GIMP, FreeCAD, Blender, Cura, ...)
   - **User Choice:** This design provides two distinct ways to perform a middle click, offering flexibility and a better user experience overall.
 - Horizontal Tilt-Wheel Scrolling  
-Another powerful feature inherited from the Logitech M700 internals is the tilt-wheel functionality
+Another powerful feature inherited from the Logitech M500 internals is the tilt-wheel functionality
   - **Side-to-Side Scrolling:** The scroll wheel can be tilted left and right, providing seamless **horizontal scrolling**
   - **Productivity Boost:** This is incredibly useful for navigating wide spreadsheets, timelines in video editing software, or large images without having to use horizontal scroll bars
 - Hyper-Personalized Ergonomics: Function Over Form  
@@ -58,15 +58,28 @@ All the 3D models required to print your own version of this mouse are available
   - **Recommended Material:** ABS is highly recommended to match the sturdiness and durability of the original design. PLA can be used, but may be more brittle
 
 
-## Screenshots
+## Pictures
+![The guy, in real life](0.its.ugliness.png)  
+Its ugliness, in real life
+
+![Floating in style](1.floating.around.png)  
+Floating on the desk
+
+![Thumb button](2.middle.back.forward.buttons.png)  
+middle/thumb button, back and forward buttons (silent micros, low stroke)
+
+![my mouse, my hand](3.hand.top.png)  
+Mouse covers the entire hand up to the wrist
+
+![fingers view](4.hand.front.png)  
+Every finger is differently raised for ergonomics
 
 
 ## Support the Project
 If you've enjoyed this project and would like to support its future development, thank you! Every little bit helps and is incredibly motivating
 - **Fund the Next Version:** The dream is to create an even lighter and stronger V2 using **carbon fiber filament**. If you'd like to help make that a reality,
 you can [buy me a spool of filament directly](link-to-your-wishlist) or contribute towards the cost
-- **Contribute Financially:** A small donation to help cover prototyping costs is always welcome. You can do so via
-[**PayPal**](link-to-your-paypal) or [**Ko-fi**](link-to-your-ko-fi)
+- **Contribute Financially:** A small donation to help cover prototyping costs is always welcome. You can do so via [**PayPal**](paypal.me/bendonations)
 - **Share the Project:** If you can't contribute financially, no problem at all! A star on the repository or giving project attribution when you share or use
 the design is a fantastic and highly valued way to show your support
 
@@ -74,8 +87,8 @@ the design is a fantastic and highly valued way to show your support
 ## Changelog
 
 - **Revision 4**. Instead of modeling on a fully fledged mouse from internet this new version has been recreated
-  totally from scratch and it's based on the shape of my hand only.   Weight and minimal points of contacts with
-  the surface are also key factor of this new design.
+  totally from scratch and it's based on the shape of my hand only.    Weight and minimal points of contact with
+  the surface are also key factors of this new design.  Electronics from M500 because I still have some of them.
 - **Revision 3**. Cura sliced version, buttons in places, a lot of inner working on buttons thickness,
     internal palm support still in progress, external is fine but internal buttons shapes are not there yet.
 - **Revision 2**. Lightly adapted print with better accomodations for the whole hand, fits well on my right hand
