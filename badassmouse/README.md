@@ -66,7 +66,7 @@ Its ugliness, in real life
 Floating on the desk
 
 ![Thumb button](2.middle.back.forward.buttons.png)  
-middle/thumb button, back and forward buttons (silent micros, low stroke)
+middle/thumb button, back and forward buttons (silent switches, fast, low profile, low stroke)
 
 ![my mouse, my hand](3.hand.top.png)  
 Mouse covers the entire hand up to the wrist
